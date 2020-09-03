@@ -13,7 +13,7 @@ const Index = () => {
         </div>
       </div>
       <div className="flex flex-row">
-        <div className="self-auto bg-blue-600 w-56 min-h-screen pt-20">
+        <div className="self-auto bg-blue-600 w-56 h-screen pt-16 sidebar-container">
           <Menu title="Inbox"></Menu>
           <Menu title="Ticket"></Menu>
           <Menu title="Information Desk"></Menu>
@@ -23,9 +23,29 @@ const Index = () => {
           <Menu title="Visitor"></Menu>
           <Menu title="Main Stage"></Menu>
           <Menu title="Quiz"></Menu>
+          <Menu title="Quiz"></Menu>
+          <Menu title="Quiz"></Menu>
+          <Menu title="Quiz"></Menu>
+          <Menu title="Quiz"></Menu>
+          <Menu title="Quiz"></Menu>
         </div>
         <div className="flex-auto bg-grey-400 px-4 py-2">2</div>
       </div>
+
+      <style jsx>{`
+        .sidebar-container {
+          overflow-y: scroll;
+        }
+
+        .sidebar-container::-webkit-scrollbar {
+          display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .sidebar-container {
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
+        }
+      `}</style>
     </div>
   );
 };
