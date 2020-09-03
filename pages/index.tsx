@@ -1,19 +1,20 @@
-import Navbar from '@components/Navbar';
+import Agenda from '@components/MainHall/Agenda';
+import Exhibition from '@components/MainHall/Exhibition';
 import MainLogo from '@components/MainHall/MainLogo';
+import ModalTNC from '@components/MainHall/ModalTNC';
 import OrganiserLogo from '@components/MainHall/OrganiserLogo';
 import Poster from '@components/MainHall/Poster';
-import XBanner from '@components/MainHall/XBanner';
-import Wallpaper from '@components/MainHall/Wallpaper';
-import Agenda from '@components/MainHall/Agenda';
-import Videotron from '@components/MainHall/Videotron';
-import Exhibition from '@components/MainHall/Exhibition';
 import Press from '@components/MainHall/Press';
-import { useCallback } from 'react';
+import Videotron from '@components/MainHall/Videotron';
+import Wallpaper from '@components/MainHall/Wallpaper';
+import XBanner from '@components/MainHall/XBanner';
+import Navbar from '@components/Navbar';
+import { useCallback, useState } from 'react';
 
 const MainHall = () => {
-  const _onClickAgenda = useCallback(() => {
-    //
-  }, []);
+  const [showModal, setShowModal] = useState(true);
+
+  const _onClickAgenda = useCallback(() => {}, []);
 
   const _onClickExhibition = useCallback(() => {
     //
@@ -112,6 +113,8 @@ const MainHall = () => {
           <Press onClick={_onClickPress} />
         </div>
       </div>
+
+      <ModalTNC isShow={showModal} onCloseModal={() => setShowModal(false)} />
     </div>
   );
 };
