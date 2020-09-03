@@ -5,12 +5,16 @@ type Props = {
 const Menu = (props: Props) => {
   return (
     <div className="h-12 text-white pl-8 flex items-center menu-container">
-      <span className="font-thin tracking-wider noselect">{props.title}</span>
+      <span className="tracking-wider noselect">{props.title}</span>
 
       <style jsx>{`
         .menu-container:hover {
           background-color: #0470ad;
           cursor: default;
+        }
+        .menu-container span {
+          font-family: Poppins-Thin;
+          font-size: 1rem;
         }
         .noselect {
           -webkit-touch-callout: none; /* iOS Safari */

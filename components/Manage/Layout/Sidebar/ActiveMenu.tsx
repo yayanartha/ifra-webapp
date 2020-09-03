@@ -12,6 +12,11 @@ const ActiveMenu = (props: Props) => {
           padding-left: 1.49rem;
           background-color: #0470ad;
         }
+        .menu-container span {
+          font-family: Poppins;
+          font-size: 1rem;
+          font-weight: 100;
+        }
         .menu-container:hover {
           cursor: default;
         }
