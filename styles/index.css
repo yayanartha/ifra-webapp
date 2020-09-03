@@ -59,6 +59,24 @@
   @apply text-sm font-body font-medium text-primary;
 }
 
+.class-option-title {
+  @apply text-white text-xl font-body font-bold;
+}
+.class-countdown {
+  @apply text-white text-4xl font-body font-bold;
+}
+.class-countdown-label {
+  @apply text-primary text-sm font-body mt-2;
+}
+.class-detail-title{
+  @apply text-text text-2xl font-body font-medium mb-4;
+}
+.class-detail-label {
+  @apply text-primary text-lg font-body font-medium mb-3;
+}
+.class-detail-value {
+  @apply text-text text-sm font-body font-light mb-5;
+}
 
 /* Start purging... */
 @tailwind utilities;
