@@ -60,7 +60,7 @@ const DropdownMenu = (props: Props) => {
           <button
             key={i}
             onClick={() => _onClickItem(m.route)}
-            className="px-8 py-3 w-full flex items-start"
+            className="px-8 py-3 w-full flex items-start hover:bg-gray-100 focus:outline-none"
           >
             <p>{m.name}</p>
           </button>
