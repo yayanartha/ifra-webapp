@@ -1,4 +1,4 @@
-import Navbar from '@components/Navbar';
+import Navbar from '@components/Navbar/Navbar';
 import MainLogo from '@components/MainHall/MainLogo';
 import OrganiserLogo from '@components/MainHall/OrganiserLogo';
 import Poster from '@components/MainHall/Poster';
