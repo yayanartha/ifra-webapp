@@ -5,7 +5,7 @@ const Index = () => {
   return (
     <div className="relative min-h-screen w-screen bg-gray-300">
       <div className="absolute inset-x-0 top-0 h-16 w-screen">
-        <div className="flex flex-row h-16">
+        <div className="flex flex-row h-16 header-container">
           <div className="text-white self-auto bg-blue-700 w-56 flex justify-center items-center">
             <span className="font-semibold tracking-widest">IFRA 2020</span>
           </div>
@@ -106,6 +106,11 @@ const Index = () => {
         .content-container {
           -ms-overflow-style: none; /* IE and Edge */
           scrollbar-width: none; /* Firefox */
+        }
+
+        .header-container {
+          box-shadow: 0px -20px 10px 0px rgb(255 255 255 / 6%),
+            0px 2px 6px 1px rgb(130 123 123 / 4%);
         }
       `}</style>
     </div>
