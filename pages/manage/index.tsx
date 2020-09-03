@@ -9,6 +9,7 @@ const Index = () => {
           <div className="text-white self-auto bg-blue-700 w-56 flex justify-center items-center">
             <span className="font-semibold tracking-widest">IFRA 2020</span>
           </div>
+
           <div className="flex-auto bg-gray-100 px-4 py-2">Are you lost? Search Keywords Here</div>
         </div>
       </div>
@@ -29,19 +30,55 @@ const Index = () => {
           <Menu title="Quiz"></Menu>
           <Menu title="Quiz"></Menu>
         </div>
-        <div className="flex-auto bg-grey-400 px-4 py-2">2</div>
+        <div className="flex-auto bg-grey-600 h-screen content-container">
+          <h1>1asas</h1>
+          <h1>2asas</h1>
+          <h1>3asas</h1>
+          <h1>4asas</h1>
+          <h1>5asas</h1>
+          <h1>6asas</h1>
+          <h1>6asas</h1>
+          <h1>6asas</h1>
+          <h1>6asas</h1>
+          <h1>6asas</h1>
+          <h1>6asas</h1>
+          <h1>6asas</h1>
+          <h1>6asas</h1>
+          <h1>6asas</h1>
+          <h1>6asas</h1>
+          <h1>6asas</h1>
+          <h1>6asas</h1>
+          <h1>6asas</h1>
+          <h1>6asas</h1>
+          <h1>6asas</h1>
+          <h1>6asas</h1>
+          <h1>6asas</h1>
+          <h1>6asas</h1>
+          <h1>6asas</h1>
+          <h1>6asas</h1>
+        </div>
       </div>
 
       <style jsx>{`
         .sidebar-container {
           overflow-y: scroll;
         }
-
         .sidebar-container::-webkit-scrollbar {
           display: none;
         }
-        /* Hide scrollbar for IE, Edge and Firefox */
         .sidebar-container {
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
+        }
+
+        .content-container {
+          overflow-y: scroll;
+          padding: 4.4rem 1rem 2rem 0.7rem;
+        }
+        .content-container::-webkit-scrollbar {
+          display: none;
+        }
+        .content-container {
           -ms-overflow-style: none; /* IE and Edge */
           scrollbar-width: none; /* Firefox */
         }
