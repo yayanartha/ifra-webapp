@@ -15,4 +15,14 @@
 @tailwind utilities;
 /* Stop purging. */
 
+/* Font */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins/*');
+}
+@font-face {
+  font-family: 'Poppins-Thin';
+  src: url('/fonts/Poppins/Poppins-Thin.ttf');
+}
+
 /* Your own custom utilities */

@@ -11,7 +11,7 @@ const Layout = (props: Props) => {
     <div className="relative min-h-screen w-screen bg-gray-300">
       <div className="absolute inset-x-0 top-0 h-16 w-screen">
         <div className="flex flex-row h-16 header-container">
-          <div className="text-white self-auto bg-blue-700 w-56 flex justify-center items-center">
+          <div className="text-white self-auto w-56 flex justify-center items-center header-left-container">
             <span className="font-semibold tracking-widest">IFRA 2020</span>
           </div>
 
@@ -30,7 +30,7 @@ const Layout = (props: Props) => {
           <Menu title="Main Stage"></Menu>
           <Menu title="Quiz"></Menu>
           <Menu title="Luckey Draw"></Menu>
-          <Menu title="QuClassroomiz"></Menu>
+          <Menu title="Classroom"></Menu>
           <Menu title="Meet The Expert"></Menu>
           <Menu title="Shop"></Menu>
         </div>
@@ -47,6 +47,7 @@ const Layout = (props: Props) => {
         .sidebar-container {
           -ms-overflow-style: none; /* IE and Edge */
           scrollbar-width: none; /* Firefox */
+          background-color: #057dc1;
         }
 
         .content-container {
@@ -64,6 +65,17 @@ const Layout = (props: Props) => {
         .header-container {
           box-shadow: 0px -20px 10px 0px rgb(255 255 255 / 6%),
             0px 2px 6px 1px rgb(130 123 123 / 4%);
+        }
+
+        .header-left-container {
+          background-color: #046fac;
+        }
+
+        .header-left-container span {
+          letter-spacing: 0.23em;
+          font-family: Poppins;
+          font-size: 1.02rem;
+          font-weight: 600;
         }
       `}</style>
     </div>
