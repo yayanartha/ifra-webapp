@@ -2,7 +2,7 @@ import Layout from '@components/Manage/Layout/Layout';
 
 const Index = () => {
   return (
-    <Layout>
+    <Layout title="Manage - Dashboard">
       <div className="max-w-sm rounded overflow-hidden shadow-lg">
         <img
           className="w-full"

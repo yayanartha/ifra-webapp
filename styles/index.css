@@ -15,14 +15,6 @@
 @tailwind utilities;
 /* Stop purging. */
 
-/* Font */
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins/*');
-}
-@font-face {
-  font-family: 'Poppins-Thin';
-  src: url('/fonts/Poppins/Poppins-Thin.ttf');
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 /* Your own custom utilities */

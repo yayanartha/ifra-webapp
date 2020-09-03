@@ -15,7 +15,7 @@ const ActiveMenu = (props: Props) => {
         .menu-container span {
           font-family: Poppins;
           font-size: 1rem;
-          font-weight: 100;
+          font-weight: 200;
         }
         .menu-container:hover {
           cursor: default;
