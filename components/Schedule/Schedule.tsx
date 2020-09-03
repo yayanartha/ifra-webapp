@@ -3,7 +3,11 @@ import { FaChevronDown } from 'react-icons/fa';
 import { useMemo } from 'react';
 import ScheduleItem, { ScheduleItemProps } from './ScheduleItem';
 
-const Schedule = () => {
+type Props = {
+  title: string;
+};
+
+const Schedule = (props: Props) => {
   const schedule: ScheduleItemProps[] = useMemo(
     () => [
       {
@@ -30,22 +34,30 @@ const Schedule = () => {
         category: 'Business Presentation',
         title: 'Talk with - Mohamed Maskati',
       },
+      {
+        startTime: '14:00',
+        endTime: '14:30',
+        category: 'Business Presentation',
+        title: 'Talk with - Mohamed Maskati',
+      },
     ],
     []
   );
 
   return (
     <div className="flex flex-col items-center">
-      <div className="flex items-center mb-12 ml-4">
+      <div className="flex items-center mb-8 ml-4">
         <p className="schedule-title">Day 1</p>
         <ReactIcons Icon={FaChevronDown} className="text-white ml-4 text-xs" />
       </div>
 
       <div className="mb-4">
-        <p className="schedule-location">Main Stage</p>
+        <p className="schedule-location">{props.title}</p>
       </div>
 
-      <div className="bg-white" style={{ width: '500px', height: '300px', overflow: 'auto' }}>
+      <div className="bg-white overflow-y-auto" style={{ width: '550px', height: '380px' }}>
+        <div className="h-8" />
+
         {schedule.map((s, i) => (
           <ScheduleItem key={i} {...s} />
         ))}

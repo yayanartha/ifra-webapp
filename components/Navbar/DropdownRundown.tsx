@@ -35,15 +35,15 @@ const DropdownRundown = (props: Props) => {
       >
         {menu.map((m, i) => (
           <button key={i} className="px-8 py-3 w-full flex items-start">
-            <p>{m.name}</p>
+            <p className="main-rundown-item">{m.name}</p>
           </button>
         ))}
 
         <div className="h-4" />
 
-        <button className="w-full py-4 px-8 border-t border-gray-300">
+        {/* <button className="w-full py-4 px-8 border-t border-gray-300">
           <p>View all</p>
-        </button>
+        </button> */}
       </div>
     </DropdownContainer>
   );

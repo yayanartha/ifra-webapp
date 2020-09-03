@@ -5,21 +5,21 @@ interface PrimaryButtonProps {
   onClick(): void;
   label: string;
   roundedLight?: boolean;
+  width?: string;
 }
 
 export default (props: PrimaryButtonProps) => {
   return (
-    <Clickable onClick={props.onClick}>
-      <div
-        className={`shadow-xs ${props.roundedLight ? 'rounded-md' : 'rounded-lg'} bg-blue_button`}
-        style={{
-          paddingTop: '10px',
-          paddingBottom: '10px',
-          width: '15rem',
-        }}
-      >
-        <p className="text-white">{props.label}</p>
-      </div>
-    </Clickable>
+    <button
+      onClick={props.onClick}
+      className={`shadow-xs ${
+        props.roundedLight ? 'rounded-md' : 'rounded-lg'
+      } bg-blue_button h-12`}
+      style={{
+        width: props.width || '100%',
+      }}
+    >
+      <p className="btn-label">{props.label}</p>
+    </button>
   );
 };
