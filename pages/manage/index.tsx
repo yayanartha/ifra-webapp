@@ -24,11 +24,10 @@ const Index = () => {
           <Menu title="Visitor"></Menu>
           <Menu title="Main Stage"></Menu>
           <Menu title="Quiz"></Menu>
-          <Menu title="Quiz"></Menu>
-          <Menu title="Quiz"></Menu>
-          <Menu title="Quiz"></Menu>
-          <Menu title="Quiz"></Menu>
-          <Menu title="Quiz"></Menu>
+          <Menu title="Luckey Draw"></Menu>
+          <Menu title="QuClassroomiz"></Menu>
+          <Menu title="Meet The Expert"></Menu>
+          <Menu title="Shop"></Menu>
         </div>
         <div className="flex-auto bg-grey-600 h-screen content-container">
           <div className="max-w-sm rounded overflow-hidden shadow-lg">
@@ -55,7 +54,8 @@ const Index = () => {
                 #winter
               </span>
             </div>
-          </div><br/>
+          </div>
+          <br />
           <div className="max-w-sm rounded overflow-hidden shadow-lg">
             <img
               className="w-full"
