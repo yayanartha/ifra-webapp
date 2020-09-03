@@ -3,7 +3,11 @@ import { FaChevronDown } from 'react-icons/fa';
 import { useMemo } from 'react';
 import ScheduleItem, { ScheduleItemProps } from './ScheduleItem';
 
-const Schedule = () => {
+type Props = {
+  title: string;
+};
+
+const Schedule = (props: Props) => {
   const schedule: ScheduleItemProps[] = useMemo(
     () => [
       {
@@ -48,7 +52,7 @@ const Schedule = () => {
       </div>
 
       <div className="mb-4">
-        <p className="schedule-location">Main Stage</p>
+        <p className="schedule-location">{props.title}</p>
       </div>
 
       <div className="bg-white overflow-y-auto" style={{ width: '550px', height: '380px' }}>

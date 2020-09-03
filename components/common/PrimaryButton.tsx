@@ -5,6 +5,7 @@ interface PrimaryButtonProps {
   onClick(): void;
   label: string;
   roundedLight?: boolean;
+  width?: string;
 }
 
 export default (props: PrimaryButtonProps) => {
@@ -13,7 +14,10 @@ export default (props: PrimaryButtonProps) => {
       onClick={props.onClick}
       className={`shadow-xs ${
         props.roundedLight ? 'rounded-md' : 'rounded-lg'
-      } bg-blue_button w-full h-12`}
+      } bg-blue_button h-12`}
+      style={{
+        width: props.width || '100%',
+      }}
     >
       <p className="btn-label">{props.label}</p>
     </button>

@@ -42,7 +42,7 @@ const Stage = () => {
               onClick={() => setIsShowSchedule(false)}
               className="absolute w-screen h-screen flex flex-col items-center pt-32"
             >
-              <Schedule />
+              <Schedule title="Main Stage" />
 
               <p className="schedule-footnote absolute" style={{ bottom: '60px' }}>
                 Tekan tombol lonceng untuk mendapatkan notifikasi saat acara akan berlangsung

@@ -62,7 +62,7 @@ const DropdownMenu = (props: Props) => {
             onClick={() => _onClickItem(m.route)}
             className="px-8 py-3 w-full flex items-start hover:bg-gray-100 focus:outline-none"
           >
-            <p>{m.name}</p>
+            <p className="main-rundown-item">{m.name}</p>
           </button>
         ))}
       </div>
