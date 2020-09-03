@@ -13,8 +13,9 @@ const Menu = (props: Props) => {
           cursor: default;
         }
         .menu-container span {
-          font-family: Poppins-Thin;
+          font-family: Poppins;
           font-size: 1rem;
+          font-weight: 200;
         }
         .noselect {
           -webkit-touch-callout: none; /* iOS Safari */
