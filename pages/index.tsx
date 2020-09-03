@@ -8,7 +8,7 @@ import Press from '@components/MainHall/Press';
 import Videotron from '@components/MainHall/Videotron';
 import Wallpaper from '@components/MainHall/Wallpaper';
 import XBanner from '@components/MainHall/XBanner';
-import Navbar from '@components/Navbar';
+import Navbar from '@components/Navbar/Navbar';
 import { useCallback, useState } from 'react';
 
 const MainHall = () => {
