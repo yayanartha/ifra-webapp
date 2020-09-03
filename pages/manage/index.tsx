@@ -20,7 +20,6 @@ const Index = () => {
           <Menu title="Press Release"></Menu>
           <Menu title="Sponsors"></Menu>
           <ActiveMenu title="Exhibitor"></ActiveMenu>
-
           <Menu title="Visitor"></Menu>
           <Menu title="Main Stage"></Menu>
           <Menu title="Quiz"></Menu>
