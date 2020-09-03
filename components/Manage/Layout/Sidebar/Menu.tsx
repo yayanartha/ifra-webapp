@@ -47,7 +47,7 @@ const Menu = (props: Props) => {
           <style jsx>{`
             .menu-container:hover {
               background-color: #0470ad;
-              cursor: default;
+              cursor: pointer;
             }
             .menu-container span {
               font-family: Poppins;
