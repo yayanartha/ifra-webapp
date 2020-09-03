@@ -2,8 +2,8 @@ import Layout from '@components/Manage/Layout/Layout';
 
 const Index = () => {
   return (
-    <Layout title="Manage - Dashboard">
-      Dashboard
+    <Layout title="Shop">
+      Shop
       <div className="max-w-sm rounded overflow-hidden shadow-lg">
         <img
           className="w-full"
