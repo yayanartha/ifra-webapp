@@ -31,31 +31,56 @@ const Index = () => {
           <Menu title="Quiz"></Menu>
         </div>
         <div className="flex-auto bg-grey-600 h-screen content-container">
-          <h1>1asas</h1>
-          <h1>2asas</h1>
-          <h1>3asas</h1>
-          <h1>4asas</h1>
-          <h1>5asas</h1>
-          <h1>6asas</h1>
-          <h1>6asas</h1>
-          <h1>6asas</h1>
-          <h1>6asas</h1>
-          <h1>6asas</h1>
-          <h1>6asas</h1>
-          <h1>6asas</h1>
-          <h1>6asas</h1>
-          <h1>6asas</h1>
-          <h1>6asas</h1>
-          <h1>6asas</h1>
-          <h1>6asas</h1>
-          <h1>6asas</h1>
-          <h1>6asas</h1>
-          <h1>6asas</h1>
-          <h1>6asas</h1>
-          <h1>6asas</h1>
-          <h1>6asas</h1>
-          <h1>6asas</h1>
-          <h1>6asas</h1>
+          <div className="max-w-sm rounded overflow-hidden shadow-lg">
+            <img
+              className="w-full"
+              src="https://i.picsum.photos/id/237/300/300.jpg?hmac=9iUR3VHqf0Y9abGyuPZTpEIxHJL0sSvyNtJtDIMSylM"
+              alt="Sunset in the mountains"
+            />
+            <div className="px-6 py-4">
+              <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
+              <p className="text-gray-700 text-base">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla!
+                Maiores et perferendis eaque, exercitationem praesentium nihil.
+              </p>
+            </div>
+            <div className="px-6 pt-4 pb-2">
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                #photography
+              </span>
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                #travel
+              </span>
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                #winter
+              </span>
+            </div>
+          </div><br/>
+          <div className="max-w-sm rounded overflow-hidden shadow-lg">
+            <img
+              className="w-full"
+              src="https://i.picsum.photos/id/237/300/300.jpg?hmac=9iUR3VHqf0Y9abGyuPZTpEIxHJL0sSvyNtJtDIMSylM"
+              alt="Sunset in the mountains"
+            />
+            <div className="px-6 py-4">
+              <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
+              <p className="text-gray-700 text-base">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla!
+                Maiores et perferendis eaque, exercitationem praesentium nihil.
+              </p>
+            </div>
+            <div className="px-6 pt-4 pb-2">
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                #photography
+              </span>
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                #travel
+              </span>
+              <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                #winter
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -73,7 +98,7 @@ const Index = () => {
 
         .content-container {
           overflow-y: scroll;
-          padding: 4.4rem 1rem 2rem 0.7rem;
+          padding: 4.6rem 0.7rem 0.7rem 0.7rem;
         }
         .content-container::-webkit-scrollbar {
           display: none;
