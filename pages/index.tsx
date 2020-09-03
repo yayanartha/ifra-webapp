@@ -10,9 +10,10 @@ import Wallpaper from '@components/MainHall/Wallpaper';
 import XBanner from '@components/MainHall/XBanner';
 import Navbar from '@components/Navbar/Navbar';
 import { useCallback, useState } from 'react';
+import CountDown from '@components/MainHall/CountDown';
 
 const MainHall = () => {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   const _onClickAgenda = useCallback(() => {}, []);
 
@@ -115,6 +116,8 @@ const MainHall = () => {
       </div>
 
       <ModalTNC isShow={showModal} onCloseModal={() => setShowModal(false)} />
+
+      <CountDown />
     </div>
   );
 };
