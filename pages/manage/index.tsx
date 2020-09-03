@@ -1,5 +1,3 @@
-import Layout from '@components/manage/layout';
-
 const Index = () => {
   return (
     <div className="relative min-h-screen w-screen bg-gray-300">
