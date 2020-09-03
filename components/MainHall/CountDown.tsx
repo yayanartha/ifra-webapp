@@ -1,9 +1,9 @@
-import React from 'react';
 import PrimaryButton from '@components/common/PrimaryButton';
+import { padStart } from 'lodash';
+import React from 'react';
+import Countdown from 'react-countdown';
 
-interface CountDownProps {
-
-}
+interface CountDownProps {}
 
 export default (props: CountDownProps) => {
   return (
@@ -11,13 +11,21 @@ export default (props: CountDownProps) => {
       <h1 className="text-white mb-8 text-3xl">{'Event Countdown'}</h1>
 
       <div className="flex flex-row mb-16">
-        <ItemCount count={'03'} label="DAY" />
-        <div className="w-6" />
-        <ItemCount count={'12'} label="HOURS" />
-        <div className="w-6" />
-        <ItemCount count={'59'} label="MINUTES" />
-        <div className="w-6" />
-        <ItemCount count={'34'} label="SECONDS" />
+        <Countdown
+          date={Date.now() + 10000000}
+          autoStart
+          renderer={({ days, hours, minutes, seconds }) => (
+            <>
+              <ItemCount count={padStart(`${days}`, 2, '0')} label="DAY" />
+              <div className="w-6" />
+              <ItemCount count={padStart(`${hours}`, 2, '0')} label="HOURS" />
+              <div className="w-6" />
+              <ItemCount count={padStart(`${minutes}`, 2, '0')} label="MINUTES" />
+              <div className="w-6" />
+              <ItemCount count={padStart(`${seconds}`, 2, '0')} label="SECONDS" />
+            </>
+          )}
+        />
       </div>
 
       <PrimaryButton label="Register Now" onClick={() => {}} />

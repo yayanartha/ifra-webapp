@@ -13,7 +13,7 @@ import { useCallback, useState } from 'react';
 import CountDown from '@components/MainHall/CountDown';
 
 const MainHall = () => {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   const _onClickAgenda = useCallback(() => {}, []);
 
