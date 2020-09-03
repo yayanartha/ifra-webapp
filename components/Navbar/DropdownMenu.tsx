@@ -1,5 +1,6 @@
-import { useMemo } from 'react';
+import { useMemo, useCallback } from 'react';
 import DropdownContainer from '@components/common/DropdownContainer';
+import { useRouter } from 'next/router';
 
 type Props = {
   visible: boolean;
@@ -9,34 +10,44 @@ type Props = {
 const DropdownMenu = (props: Props) => {
   if (!props.visible) return null;
 
+  const router = useRouter();
+
   const menu = useMemo(
     () => [
       {
         name: 'Exhibition Hall',
-        route: '',
+        route: '/exhibition',
       },
       {
         name: 'Main Stage',
-        route: '',
+        route: '/stage',
       },
       {
         name: 'Classroom',
-        route: '',
+        route: '/classroom',
       },
       {
         name: 'Meet The Expert',
-        route: '',
+        route: '/experts',
       },
       {
         name: 'Favorite',
-        route: '',
+        route: '/favorite',
       },
       {
         name: 'Shop',
-        route: '',
+        route: '/shop',
       },
     ],
     []
+  );
+
+  const _onClickItem = useCallback(
+    (routeName: string) => {
+      router.push(routeName);
+      props.handleDismiss();
+    },
+    [router]
   );
 
   return (
@@ -46,7 +57,11 @@ const DropdownMenu = (props: Props) => {
         style={{ left: '8rem', top: 'calc(3rem - 2px)' }}
       >
         {menu.map((m, i) => (
-          <button key={i} className="px-8 py-3 w-full flex items-start">
+          <button
+            key={i}
+            onClick={() => _onClickItem(m.route)}
+            className="px-8 py-3 w-full flex items-start"
+          >
             <p>{m.name}</p>
           </button>
         ))}
