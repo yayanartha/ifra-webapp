@@ -11,6 +11,13 @@
   @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
 }
 
+.schedule-title {
+  @apply text-white text-3xl font-body font-bold;
+}
+.schedule-location {
+  @apply text-white text-xl font-body font-bold;
+}
+
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */

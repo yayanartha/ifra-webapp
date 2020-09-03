@@ -10,6 +10,9 @@ module.exports = {
         blue_button: '#144A90',
       },
     },
+    fontFamily: {
+      body: ['Poppins'],
+    },
   },
   variants: {},
   plugins: [],

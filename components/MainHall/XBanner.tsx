@@ -1,8 +1,16 @@
-const XBanner = () => {
+import Clickable from '@components/common/Clickable';
+
+type Props = {
+  onClick(): void;
+};
+
+const XBanner = (props: Props) => {
   return (
-    <div className="bg-red-300 opacity-50" style={{ width: '20vw', height: '7vw' }}>
-      {/*  */}
-    </div>
+    <Clickable onClick={props.onClick}>
+      <div className="bg-red-300 opacity-50" style={{ width: '20vw', height: '7vw' }}>
+        {/*  */}
+      </div>
+    </Clickable>
   );
 };
 
