@@ -9,17 +9,13 @@ interface PrimaryButtonProps {
 
 export default (props: PrimaryButtonProps) => {
   return (
-    <Clickable onClick={props.onClick}>
-      <div
-        className={`shadow-xs ${props.roundedLight ? 'rounded-md' : 'rounded-lg'} bg-blue_button`}
-        style={{
-          paddingTop: '10px',
-          paddingBottom: '10px',
-          width: '15rem',
-        }}
-      >
-        <p className="text-white">{props.label}</p>
-      </div>
-    </Clickable>
+    <button
+      onClick={props.onClick}
+      className={`shadow-xs ${
+        props.roundedLight ? 'rounded-md' : 'rounded-lg'
+      } bg-blue_button w-full h-12`}
+    >
+      <p className="btn-label">{props.label}</p>
+    </button>
   );
 };

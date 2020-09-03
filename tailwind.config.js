@@ -8,6 +8,9 @@ module.exports = {
       colors: {
         primary: '#057DC1',
         blue_button: '#144A90',
+
+        label: '#B2B2B2',
+        text: '#2B2B2B',
       },
     },
     fontFamily: {
