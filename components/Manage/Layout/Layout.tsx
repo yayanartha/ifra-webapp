@@ -149,7 +149,7 @@ const Layout = (props: Props) => {
           {/* Sidebar */}
 
           {/* Content */}
-          <div className="flex-auto bg-grey-600 h-screen content-container pl-6 pt-20 pr-4 pb-1">
+          <div className="flex-auto bg-grey-600 h-screen content-container pl-6 pt-20 pr-6 pb-1">
             {props.children}
           </div>
           {/* Content */}

@@ -6,57 +6,33 @@ const Index = () => {
     <Layout title="Inbox">
       <Header title="Inbox" />
 
-      <div className="max-w-sm rounded overflow-hidden shadow-lg">
-        <img
-          className="w-full"
-          src="https://i.picsum.photos/id/237/300/300.jpg?hmac=9iUR3VHqf0Y9abGyuPZTpEIxHJL0sSvyNtJtDIMSylM"
-          alt="Sunset in the mountains"
-        />
-        <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-          <p className="text-gray-700 text-base">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla!
-            Maiores et perferendis eaque, exercitationem praesentium nihil.
-          </p>
-        </div>
-        <div className="px-6 pt-4 pb-2">
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            #photography
-          </span>
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            #travel
-          </span>
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            #winter
-          </span>
-        </div>
-      </div>
-      <br />
-      <div className="max-w-sm rounded overflow-hidden shadow-lg">
-        <img
-          className="w-full"
-          src="https://i.picsum.photos/id/237/300/300.jpg?hmac=9iUR3VHqf0Y9abGyuPZTpEIxHJL0sSvyNtJtDIMSylM"
-          alt="Sunset in the mountains"
-        />
-        <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-          <p className="text-gray-700 text-base">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla!
-            Maiores et perferendis eaque, exercitationem praesentium nihil.
-          </p>
-        </div>
-        <div className="px-6 pt-4 pb-2">
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            #photography
-          </span>
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            #travel
-          </span>
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            #winter
-          </span>
-        </div>
-      </div>
+      <ul className="flex border-b">
+        <li className="-mb-px mr-1">
+          <a
+            className="bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold rounded-t-lg"
+            href="#"
+          >
+            General
+          </a>
+        </li>
+        <li className="mr-1">
+          <a
+            className="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold rounded-t-lg"
+            href="#"
+          >
+            Sponsor
+          </a>
+        </li>
+        <li className="mr-1">
+          <a
+            className="bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold rounded-t-lg"
+            href="#"
+          >
+            Exhibitor
+          </a>
+        </li>
+      </ul>
+      <div className="h-64 bg-white"></div>
     </Layout>
   );
 };
