@@ -101,10 +101,14 @@ const Exhibitor1 = () => {
         </button>
 
         <div
-          className="bg-white rounded-lg p-5 absolute"
+          className="bg-white rounded-lg p-5 absolute shadow-lg flex flex-col items-center justify-center"
           style={{ bottom: '30px', right: '30px', width: '350px', height: '260px' }}
         >
-          {/*  */}
+          <p className="text-exhibitor-menu mb-4">Ada yang bisa saya bantu?</p>
+          <img
+            src="/exhibitor-menu.png"
+            style={{ width: '80%', height: '70%', objectFit: 'contain' }}
+          />
         </div>
       </div>
 

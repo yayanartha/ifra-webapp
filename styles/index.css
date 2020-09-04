@@ -20,6 +20,10 @@
   @apply text-primary text-lg font-body font-medium;
 }
 
+.text-exhibitor-menu {
+  @apply text-primary text-base font-body font-medium;
+}
+
 .main-menu {
   @apply text-primary text-sm font-body font-medium;
 }
