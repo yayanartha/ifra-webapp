@@ -13,6 +13,12 @@
 .btn-label {
   @apply text-white text-lg font-body font-medium;
 }
+.btn-deal {
+  @apply text-white text-2xl font-body font-bold;
+}
+.btn-later {
+  @apply text-primary text-lg font-body font-medium;
+}
 
 .main-menu {
   @apply text-primary text-sm font-body font-medium;
@@ -80,6 +86,13 @@
 
 .exhibition-menu {
   @apply text-white text-sm font-body font-medium;
+}
+
+.brochure-title {
+  @apply text-primary text-2xl font-body font-bold;
+}
+.brochure-desc {
+  @apply text-text text-sm font-body font-light;
 }
 
 /* Start purging... */

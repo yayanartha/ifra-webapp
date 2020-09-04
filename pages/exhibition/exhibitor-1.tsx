@@ -1,14 +1,19 @@
 import Navbar from '@components/Navbar/Navbar';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
+import ModalCenter from '@components/common/ModalCenter';
+import ImageViewer from '@components/common/ImageViewer';
 
 const Exhibitor1 = () => {
+  const [isShowVideo, setIsShowVideo] = useState(false);
+  const [isShowBrochure, setIsShowBrochure] = useState(false);
+
   const _openVideo = useCallback(() => {
-    //
-  }, []);
+    setIsShowVideo(true);
+  }, [isShowVideo]);
 
   const _openBrochure = useCallback(() => {
-    //
-  }, []);
+    setIsShowBrochure(true);
+  }, [isShowBrochure]);
 
   const _openPhotos = useCallback(() => {
     //
@@ -19,6 +24,14 @@ const Exhibitor1 = () => {
   }, []);
 
   const _openInvestPackage = useCallback(() => {
+    //
+  }, []);
+
+  const _handleLater = useCallback(() => {
+    //
+  }, []);
+
+  const _handleDeal = useCallback(() => {
     //
   }, []);
 
@@ -70,7 +83,33 @@ const Exhibitor1 = () => {
             </div>
           </div>
         </div>
+
+        <button
+          onClick={_handleLater}
+          className="bg-white rounded-lg w-32 h-16 flex items-center justify-center absolute"
+          style={{ top: '80px', right: '30px' }}
+        >
+          <p className="btn-later">LATER</p>
+        </button>
+
+        <button
+          onClick={_handleDeal}
+          className="bg-blue_button rounded-lg w-32 h-16 flex items-center justify-center absolute"
+          style={{ top: '165px', right: '30px' }}
+        >
+          <p className="btn-deal">DEAL</p>
+        </button>
       </div>
+
+      <ModalCenter isOpen={isShowVideo} onClose={() => setIsShowVideo(false)}>
+        <div style={{ width: '720px', height: '400px' }}>
+          <img src="/video-player.png" className="w-full h-full object-cover" />
+        </div>
+      </ModalCenter>
+
+      <ModalCenter isOpen={isShowBrochure} onClose={() => setIsShowBrochure(false)}>
+        <ImageViewer />
+      </ModalCenter>
     </div>
   );
 };
