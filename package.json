@@ -15,6 +15,7 @@
     "@brainhubeu/react-carousel": "^1.19.26",
     "lodash": "^4.17.20",
     "next": "9.5.2",
+    "next-svgr": "^0.0.2",
     "react": "16.13.1",
     "react-countdown": "^2.2.1",
     "react-dom": "16.13.1",
