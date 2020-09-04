@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import ChatBubbleDots from '@public/zondicons/chat-bubble-dots.svg';
 import Notifications from '@public/zondicons/notifications.svg';
 import CheveronDown from '@public/zondicons/cheveron-down.svg';
+import PhotoProfile from '@components/Manage/Layout/Header/PhotoProfile';
 
 type Props = {
   title: string;
@@ -27,6 +28,7 @@ const Layout = (props: Props) => {
             <div className="text-white self-auto w-56 flex justify-center items-center header-left-container">
               <span className="font-semibold tracking-widest">IFRA 2020</span>
             </div>
+            {/* Header left */}
 
             {/* Header right */}
             <div className="flex-auto bg-red-400">
@@ -55,16 +57,15 @@ const Layout = (props: Props) => {
                 </div>
 
                 <div className="pr-4">
-                  <img
-                    className="object-cover h-8 w-8 rounded-full cursor-pointer"
-                    src="https://i.picsum.photos/id/1027/50/50.jpg?hmac=VT9uiEVn7kBNuZoQdDuYyevPpQatjOyPSvZc4saOCDg"
-                  />
+                  <PhotoProfile src="https://i.picsum.photos/id/1027/50/50.jpg?hmac=VT9uiEVn7kBNuZoQdDuYyevPpQatjOyPSvZc4saOCDg" />
                 </div>
               </div>
             </div>
+            {/* Header right */}
           </div>
         </div>
         <div className="flex flex-row">
+          {/* Sidebar */}
           <div className="self-auto bg-blue-600 w-56 h-screen pt-16 sidebar-container">
             <Menu
               title="Inbox"
@@ -145,7 +146,13 @@ const Layout = (props: Props) => {
               isActive={router.pathname == '/manage/shop' ? 'true' : 'false'}
             ></Menu>
           </div>
-          <div className="flex-auto bg-grey-600 h-screen content-container">{props.children}</div>
+          {/* Sidebar */}
+
+          {/* Content */}
+          <div className="flex-auto bg-grey-600 h-screen content-container pl-6 pt-20 pr-4 pb-1">
+            {props.children}
+          </div>
+          {/* Content */}
         </div>
 
         <style jsx>{`
@@ -163,7 +170,6 @@ const Layout = (props: Props) => {
 
           .content-container {
             overflow-y: scroll;
-            padding: 4.6rem 0.7rem 0.7rem 0.7rem;
           }
           .content-container::-webkit-scrollbar {
             display: none;
