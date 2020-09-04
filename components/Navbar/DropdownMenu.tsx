@@ -16,7 +16,7 @@ const DropdownMenu = (props: Props) => {
     () => [
       {
         name: 'Exhibition Hall',
-        route: '/exhibition',
+        route: '/exhibition-hall',
       },
       {
         name: 'Main Stage',

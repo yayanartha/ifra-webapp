@@ -4,26 +4,24 @@ import PrimaryButton from '@components/common/PrimaryButton';
 import Transition from '@components/common/Transition';
 import Navbar from '@components/Navbar/Navbar';
 import React, { useCallback, useState } from 'react';
+import { useRouter } from 'next/router';
 
 interface ExhibitorHallProps {}
 
 const ExhibitorHall = (props: ExhibitorHallProps) => {
+  const router = useRouter();
   const [show, setShow] = useState(false);
+  const [index, setIndex] = useState(0);
 
   const onClickItem = useCallback(() => {
-    setShow(!show);
-  }, [show]);
+    router.push('/exhibition/exhibitor-1');
+  }, []);
 
   return (
     <div className="flex flex-col flex-1">
       <Navbar />
 
-      <div
-        className="relative w-screen mt-12"
-        style={{
-          height: 'calc(100vh - 3rem)',
-        }}
-      >
+      <div className="relative w-screen mt-12" style={{ height: 'calc(100vh - 3rem)' }}>
         <img
           src="/bg-exhibitor-hall.png"
           alt="Main background"
@@ -31,8 +29,8 @@ const ExhibitorHall = (props: ExhibitorHallProps) => {
         />
 
         <div className="absolute inset-0 bg-black bg-opacity-50">
-          <div className="flex flex-row" style={{ height: 'calc(100vh - 3rem)' }}>
-            <Carousel plugins={['arrows']}>
+          <div className="flex flex-col" style={{ height: 'calc(100vh - 3rem)' }}>
+            <Carousel value={index} onChange={setIndex}>
               <div className="flex flex-1 flex-col justify-center items-center">
                 <div className="flex flex-row justify-between mt-6">
                   <Item
@@ -176,6 +174,18 @@ const ExhibitorHall = (props: ExhibitorHallProps) => {
               </div>
             </Carousel>
 
+            <div className="flex flex-row justify-center mt-8">
+              {[0, 1].map((_, idx) => {
+                return (
+                  <div
+                    className={`rounded-full w-2 h-2 bg-white ${
+                      index === idx ? 'bg-opacity-100' : 'bg-opacity-25'
+                    } mx-2`}
+                  />
+                );
+              })}
+            </div>
+
             {show && (
               <div className="flex flex-col w-1/3 items-end">
                 <div className="bg-white p-8" style={{ height: 'calc(100vh - 3rem)' }}>
@@ -211,8 +221,8 @@ const Item = (props: { onClick(): void; image: string; alt: string; title: strin
   return (
     <Clickable onClick={props.onClick}>
       <div
-        className="flex items-center justify-center bg-black relative"
-        style={{ width: '200px', height: '200px' }}
+        className="flex items-center justify-center bg-gray-900 bg-opacity-75 relative rounded-lg"
+        style={{ width: '16rem', height: '12rem' }}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
@@ -223,7 +233,7 @@ const Item = (props: { onClick(): void; image: string; alt: string; title: strin
           alt={props.alt}
         />
 
-        <div className="absolute inset-0 bg-black bg-opacity-25 flex flex-col justify-center items-center">
+        <div className="absolute inset-0 bg-black bg-opacity-25 flex flex-col justify-center items-center rounded-lg">
           <h1 className="text-lg font-bold text-white">{props.title}</h1>
         </div>
 
@@ -236,14 +246,14 @@ const Item = (props: { onClick(): void; image: string; alt: string; title: strin
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="absolute inset-0 bg-blue-800 flex flex-col flex-1 justify-center items-center">
-            <p className="text-xs text-white">
+          <div className="absolute inset-0 px-4 py-4 bg-blue-800 flex flex-col flex-1 justify-center rounded-lg">
+            <p className="text-xs text-white text-center">
               {
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
               }
             </p>
             <button
-              className="mt-8 shadow bg-blue-700 hover:bg-blue-600 focus:shadow-outline focus:outline-none text-white py-2 px-4 rounded"
+              className="mt-8 shadow bg-white focus:shadow-outline focus:outline-none text-blue-800 py-2 px-4 rounded-lg"
               onClick={() => {}}
             >
               {'Kunjungi Booth'}
