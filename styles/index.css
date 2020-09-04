@@ -78,6 +78,10 @@
   @apply text-text text-sm font-body font-light mb-5;
 }
 
+.exhibition-menu {
+  @apply text-white text-sm font-body font-medium;
+}
+
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */
