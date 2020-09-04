@@ -82,6 +82,13 @@
   @apply text-white text-sm font-body font-medium;
 }
 
+.brochure-title {
+  @apply text-primary text-lg font-body font-bold;
+}
+.brochure-desc {
+  @apply text-text text-sm font-body font-light;
+}
+
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */

@@ -1,14 +1,19 @@
 import Navbar from '@components/Navbar/Navbar';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
+import ModalCenter from '@components/common/ModalCenter';
+import ImageViewer from '@components/common/ImageViewer';
 
 const Exhibitor1 = () => {
+  const [isShowVideo, setIsShowVideo] = useState(false);
+  const [isShowBrochure, setIsShowBrochure] = useState(false);
+
   const _openVideo = useCallback(() => {
-    //
-  }, []);
+    setIsShowVideo(true);
+  }, [isShowVideo]);
 
   const _openBrochure = useCallback(() => {
-    //
-  }, []);
+    setIsShowBrochure(true);
+  }, [isShowBrochure]);
 
   const _openPhotos = useCallback(() => {
     //
@@ -71,6 +76,16 @@ const Exhibitor1 = () => {
           </div>
         </div>
       </div>
+
+      <ModalCenter isOpen={isShowVideo} onClose={() => setIsShowVideo(false)}>
+        <div style={{ width: '720px', height: '400px' }}>
+          <img src="/video-player.png" className="w-full h-full object-cover" />
+        </div>
+      </ModalCenter>
+
+      <ModalCenter isOpen={isShowBrochure} onClose={() => setIsShowBrochure(false)}>
+        <ImageViewer />
+      </ModalCenter>
     </div>
   );
 };
