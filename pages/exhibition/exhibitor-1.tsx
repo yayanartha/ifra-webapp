@@ -99,6 +99,13 @@ const Exhibitor1 = () => {
         >
           <p className="btn-deal">DEAL</p>
         </button>
+
+        <div
+          className="bg-white rounded-lg p-5 absolute"
+          style={{ bottom: '30px', right: '30px', width: '350px', height: '260px' }}
+        >
+          {/*  */}
+        </div>
       </div>
 
       <ModalCenter isOpen={isShowVideo} onClose={() => setIsShowVideo(false)}>
