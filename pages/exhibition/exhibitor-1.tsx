@@ -27,6 +27,14 @@ const Exhibitor1 = () => {
     //
   }, []);
 
+  const _handleLater = useCallback(() => {
+    //
+  }, []);
+
+  const _handleDeal = useCallback(() => {
+    //
+  }, []);
+
   return (
     <div className="flex flex-col flex-1">
       <Navbar />
@@ -75,6 +83,22 @@ const Exhibitor1 = () => {
             </div>
           </div>
         </div>
+
+        <button
+          onClick={_handleLater}
+          className="bg-white rounded-lg w-32 h-16 flex items-center justify-center absolute"
+          style={{ top: '80px', right: '30px' }}
+        >
+          <p className="btn-later">LATER</p>
+        </button>
+
+        <button
+          onClick={_handleDeal}
+          className="bg-blue_button rounded-lg w-32 h-16 flex items-center justify-center absolute"
+          style={{ top: '165px', right: '30px' }}
+        >
+          <p className="btn-deal">DEAL</p>
+        </button>
       </div>
 
       <ModalCenter isOpen={isShowVideo} onClose={() => setIsShowVideo(false)}>
