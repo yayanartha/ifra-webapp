@@ -32,13 +32,13 @@ const Layout = (props: Props) => {
             <div className="flex-auto bg-red-400">
               <div className="flex items-center justify-end bg-gray-200 h-16">
                 <div className="pl-2 pr-2 pt-1">
-                  <div className="h-4 w-4 fill-current text-gray-500 inline-block">
+                  <div className="h-4 w-4 fill-current text-gray-500 inline-block cursor-pointer hover:text-gray-600 duration-200 select-none">
                     <ChatBubbleDots />
                   </div>
                 </div>
 
                 <div className="pl-2 pr-2 pt-1">
-                  <div className="h-4 w-4 fill-current text-gray-500 inline-block">
+                  <div className="h-4 w-4 fill-current text-gray-500 inline-block cursor-pointer hover:text-gray-600 duration-200 select-none">
                     <Notifications />
                   </div>
                 </div>
@@ -47,7 +47,7 @@ const Layout = (props: Props) => {
                 <div className="border-gray-500 border-solid border-l-2 h-4"></div>
                 <div className="pr-2"></div>
 
-                <div className="pl-2 pr-2 text-gray-700 text-sm">
+                <div className="pl-2 pr-2 text-gray-700 text-sm cursor-pointer select-none">
                   <span className="">John Doe</span>
                   <div className="ml-1 pt-1 h-4 w-4 fill-current text-gray-500 inline-block stroke-current">
                     <CheveronDown />
@@ -56,7 +56,7 @@ const Layout = (props: Props) => {
 
                 <div className="pr-4">
                   <img
-                    className="object-cover h-8 w-8 rounded-full"
+                    className="object-cover h-8 w-8 rounded-full cursor-pointer"
                     src="https://i.picsum.photos/id/1027/50/50.jpg?hmac=VT9uiEVn7kBNuZoQdDuYyevPpQatjOyPSvZc4saOCDg"
                   />
                 </div>
