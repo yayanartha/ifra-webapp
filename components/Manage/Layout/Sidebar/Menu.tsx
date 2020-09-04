@@ -10,7 +10,7 @@ type Props = {
 const Menu = (props: Props) => {
   if (props.isActive === 'true') {
     return (
-      <div className="h-12 text-white border-l-8 border-blue-800 flex items-center menu-container">
+      <div className="h-12 text-white border-l-8 border-blue-800 flex items-center menu-container duration-200">
         <span className="font-thin tracking-wider noselect">{props.title}</span>
 
         <style jsx>{`
@@ -41,7 +41,7 @@ const Menu = (props: Props) => {
   } else {
     return (
       <Link href={props.linkHref} as={props.linkAs}>
-        <div className="h-12 text-white pl-8 flex items-center menu-container">
+        <div className="h-12 text-white pl-8 flex items-center menu-container duration-200">
           <span className="tracking-wider noselect">{props.title}</span>
 
           <style jsx>{`
