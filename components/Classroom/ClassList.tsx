@@ -6,7 +6,7 @@ const ClassList = () => {
       <button className="h-48 rounded-lg overflow-hidden">
         <div
           className="w-full h-full"
-          style={{ background: 'url(/class-a.png) no-repeat center center', objectFit: 'cover' }}
+          style={{ background: 'url(/class-a.webp) no-repeat center center', objectFit: 'cover' }}
         >
           <div
             className="w-full h-full flex items-center justify-center"
@@ -20,7 +20,7 @@ const ClassList = () => {
       <button className="h-48 rounded-lg overflow-hidden">
         <div
           className="w-full h-full"
-          style={{ background: 'url(/class-b.png) no-repeat center center', objectFit: 'cover' }}
+          style={{ background: 'url(/class-b.webp) no-repeat center center', objectFit: 'cover' }}
         >
           <div
             className="w-full h-full flex items-center justify-center"
@@ -34,7 +34,7 @@ const ClassList = () => {
       <button className="h-48 rounded-lg overflow-hidden">
         <div
           className="w-full h-full"
-          style={{ background: 'url(/class-c.png) no-repeat center center', objectFit: 'cover' }}
+          style={{ background: 'url(/class-c.webp) no-repeat center center', objectFit: 'cover' }}
         >
           <div
             className="w-full h-full flex items-center justify-center"
@@ -48,7 +48,7 @@ const ClassList = () => {
       <button className="h-48 rounded-lg overflow-hidden">
         <div
           className="w-full h-full"
-          style={{ background: 'url(/class-d.png) no-repeat center center', objectFit: 'cover' }}
+          style={{ background: 'url(/class-d.webp) no-repeat center center', objectFit: 'cover' }}
         >
           <div
             className="w-full h-full flex items-center justify-center"
@@ -62,7 +62,7 @@ const ClassList = () => {
       <button className="h-48 rounded-lg overflow-hidden">
         <div
           className="w-full h-full"
-          style={{ background: 'url(/class-e.png) no-repeat center center', objectFit: 'cover' }}
+          style={{ background: 'url(/class-e.webp) no-repeat center center', objectFit: 'cover' }}
         >
           <div
             className="w-full h-full flex items-center justify-center"

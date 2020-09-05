@@ -102,6 +102,10 @@
   @apply text-text text-sm font-body font-light;
 }
 
+.booth-help-menu {
+  @apply text-primary font-body font-light text-center;
+}
+
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */
