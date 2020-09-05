@@ -12,17 +12,20 @@ import Navbar from '@components/Navbar/Navbar';
 import { useCallback, useState, useEffect, useMemo, useRef } from 'react';
 import Modal from 'react-modal';
 import ModalCenter from '@components/common/ModalCenter';
+import SponsorFooter from '@components/Sponsor/SponsorFooter';
+import { useRouter } from 'next/router';
 // import CountDown from '@components/MainHall/CountDown';
 
 const MainHall = () => {
+  const router = useRouter();
   const [isShowModal, setIsShowModal] = useState(false);
 
-  const _onClickAgenda = useCallback(() => {
-    _openModal();
+  const _onClickAgenda = useCallback((dayNo: string) => {
+    //
   }, []);
 
   const _onClickExhibition = useCallback(() => {
-    _openModal();
+    router.push('/exhibition');
   }, []);
 
   const _onClickPress = useCallback(() => {
@@ -74,7 +77,7 @@ const MainHall = () => {
           {/* LOGO */}
           <div
             onClick={_onClickLogo}
-            className="absolute bg-white rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-200"
+            className="absolute rounded-full flex items-center justify-center cursor-pointer hover:opacity-75"
             style={{
               left: 'calc(50vw - 6.5vw)',
               top: '11.5%',
@@ -82,39 +85,39 @@ const MainHall = () => {
               height: '13vw',
             }}
           >
-            <p>LOGO</p>
+            {/* <p>LOGO</p> */}
           </div>
 
           <div
             onClick={_onClickLogo}
-            className="absolute rounded-full bg-white flex items-center justify-center cursor-pointer hover:bg-gray-200"
+            className="absolute rounded-full flex items-center justify-center cursor-pointer hover:opacity-75"
             style={{ left: 'calc(50vw - 15.6vw)', top: '33.5%', width: '8vw', height: '8vw' }}
           >
-            <p>LOGO</p>
+            {/* <p>LOGO</p> */}
           </div>
 
           <div
             onClick={_onClickLogo}
-            className="absolute rounded-full bg-white flex items-center justify-center cursor-pointer hover:bg-gray-200"
+            className="absolute rounded-full flex items-center justify-center cursor-pointer hover:opacity-75"
             style={{ left: 'calc(50vw + 7.6vw)', top: '33.5%', width: '8vw', height: '8vw' }}
           >
-            <p>LOGO</p>
+            {/* <p>LOGO</p> */}
           </div>
 
           <div
             onClick={_onClickLogo}
-            className="absolute rounded-full bg-white flex items-center justify-center cursor-pointer hover:bg-gray-200"
+            className="absolute rounded-full flex items-center justify-center cursor-pointer hover:opacity-75"
             style={{ left: 'calc(50vw - 4.15vw)', top: '31.4%', width: '8.3vw', height: '8.3vw' }}
           >
-            <p>LOGO</p>
+            {/* <p>LOGO</p> */}
           </div>
 
           <div
             onClick={_onClickLogo}
-            className="absolute rounded-full bg-white flex items-center justify-center cursor-pointer hover:bg-gray-200"
+            className="absolute rounded-full flex items-center justify-center cursor-pointer hover:opacity-75"
             style={{ left: 'calc(50vw - 4.15vw)', top: '46.5%', width: '8.3vw', height: '8.3vw' }}
           >
-            <p>LOGO</p>
+            {/* <p>LOGO</p> */}
           </div>
 
           {/* POSTER */}
@@ -185,7 +188,6 @@ const MainHall = () => {
 
           {/* AGENDA */}
           <div
-            onClick={_onClickAgenda}
             className="absolute"
             style={{
               left: 'calc(50vw + 24.5vw)',
@@ -194,14 +196,32 @@ const MainHall = () => {
             }}
           >
             <div
-              className="bg-white flex items-center justify-center cursor-pointer hover:bg-gray-200"
+              className="flex items-center justify-around"
               style={{
                 width: '15vw',
                 height: '7.2vw',
                 transform: 'rotateY(-40deg) rotateX(-2deg) skewY(-10deg)',
+                paddingTop: '10%',
+                paddingLeft: '0.2vw',
               }}
             >
-              <p>AGENDA</p>
+              <div
+                onClick={() => _onClickAgenda(1)}
+                className="cursor-pointer hover:bg-gray-200 opacity-25"
+                style={{ width: '4vw', height: '4.5vw' }}
+              />
+
+              <div
+                onClick={() => _onClickAgenda(2)}
+                className="cursor-pointer hover:bg-gray-200 opacity-25"
+                style={{ width: '4vw', height: '4.5vw' }}
+              />
+
+              <div
+                onClick={() => _onClickAgenda(3)}
+                className="cursor-pointer hover:bg-gray-200 opacity-25"
+                style={{ width: '4vw', height: '4.5vw' }}
+              />
             </div>
           </div>
 
@@ -233,12 +253,29 @@ const MainHall = () => {
             className="absolute cursor-pointer hover:bg-white opacity-25"
             style={{ left: 'calc(50vw - 5.7vw)', top: '65.5%', width: '11.3vw', height: '5.7vw' }}
           />
-        </div>
 
-        {/* PRESS */}
-        {/* <div className="fixed" style={{ top: '62.7vh', right: '5vw' }}>
-          <Press onClick={_onClickPress} />
-        </div> */}
+          {/* PRESS */}
+          <div
+            onClick={_onClickPress}
+            className="absolute"
+            style={{
+              left: 'calc(50vw + 28.8vw)',
+              top: '64.7%',
+              perspective: '1000px',
+            }}
+          >
+            <div
+              className="hover:bg-white opacity-25 flex items-center justify-center cursor-pointer"
+              style={{
+                width: '9.8vw',
+                height: '6.8vw',
+                transform: 'rotateY(-40deg) skewY(1deg) skewX(2deg)',
+              }}
+            />
+          </div>
+
+          <SponsorFooter />
+        </div>
       </div>
 
       <ModalCenter isOpen={isShowModal} onClose={_closeModal}>
