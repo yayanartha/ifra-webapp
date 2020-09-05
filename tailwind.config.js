@@ -12,6 +12,7 @@ module.exports = {
         label: '#B2B2B2',
         text: '#2B2B2B',
         profile: '#4D4F5C',
+        label_2: '#969696',
       },
     },
     fontFamily: {
