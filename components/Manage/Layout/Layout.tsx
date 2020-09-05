@@ -1,8 +1,11 @@
 import Menu from '@components/Manage/Layout/Sidebar/Menu';
-import ActiveMenu from '@components/Manage/Layout/Sidebar/ActiveMenu';
 import Head from 'next/head';
 import { Container } from 'next/app';
 import { useRouter } from 'next/router';
+import ChatBubbleDots from '@public/zondicons/chat-bubble-dots.svg';
+import Notifications from '@public/zondicons/notifications.svg';
+import CheveronDown from '@public/zondicons/cheveron-down.svg';
+import PhotoProfile from '@components/Manage/Layout/Header/PhotoProfile';
 
 type Props = {
   title: string;
@@ -21,16 +24,48 @@ const Layout = (props: Props) => {
       <div className="relative min-h-screen w-screen bg-gray-300">
         <div className="absolute inset-x-0 top-0 h-16 w-screen">
           <div className="flex flex-row h-16 header-container">
+            {/* Header left */}
             <div className="text-white self-auto w-56 flex justify-center items-center header-left-container">
               <span className="font-semibold tracking-widest">IFRA 2020</span>
             </div>
+            {/* Header left */}
 
-            <div className="flex-auto bg-gray-100 px-4 py-2">
-              Are you lost? Search Keywords Here
+            {/* Header right */}
+            <div className="flex-auto bg-red-400">
+              <div className="flex items-center justify-end bg-gray-200 h-16">
+                <div className="pl-2 pr-2 pt-1">
+                  <div className="h-4 w-4 fill-current text-gray-500 inline-block cursor-pointer hover:text-gray-600 duration-200 select-none">
+                    <ChatBubbleDots />
+                  </div>
+                </div>
+
+                <div className="pl-2 pr-2 pt-1">
+                  <div className="h-4 w-4 fill-current text-gray-500 inline-block cursor-pointer hover:text-gray-600 duration-200 select-none">
+                    <Notifications />
+                  </div>
+                </div>
+
+                <div className="pr-2"></div>
+                <div className="border-gray-500 border-solid border-l-2 h-4"></div>
+                <div className="pr-2"></div>
+
+                <div className="pl-2 pr-2 text-gray-700 text-sm cursor-pointer select-none">
+                  <span className="">John Doe</span>
+                  <div className="ml-1 pt-1 h-4 w-4 fill-current text-gray-500 inline-block stroke-current">
+                    <CheveronDown />
+                  </div>
+                </div>
+
+                <div className="pr-4">
+                  <PhotoProfile src="https://i.picsum.photos/id/1027/50/50.jpg?hmac=VT9uiEVn7kBNuZoQdDuYyevPpQatjOyPSvZc4saOCDg" />
+                </div>
+              </div>
             </div>
+            {/* Header right */}
           </div>
         </div>
         <div className="flex flex-row">
+          {/* Sidebar */}
           <div className="self-auto bg-blue-600 w-56 h-screen pt-16 sidebar-container">
             <Menu
               title="Inbox"
@@ -111,7 +146,13 @@ const Layout = (props: Props) => {
               isActive={router.pathname == '/manage/shop' ? 'true' : 'false'}
             ></Menu>
           </div>
-          <div className="flex-auto bg-grey-600 h-screen content-container">{props.children}</div>
+          {/* Sidebar */}
+
+          {/* Content */}
+          <div className="flex-auto bg-grey-600 h-screen content-container pl-6 pt-20 pr-6 pb-1">
+            {props.children}
+          </div>
+          {/* Content */}
         </div>
 
         <style jsx>{`
@@ -129,7 +170,6 @@ const Layout = (props: Props) => {
 
           .content-container {
             overflow-y: scroll;
-            padding: 4.6rem 0.7rem 0.7rem 0.7rem;
           }
           .content-container::-webkit-scrollbar {
             display: none;

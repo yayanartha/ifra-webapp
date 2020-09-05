@@ -1,9 +1,11 @@
 import Layout from '@components/Manage/Layout/Layout';
+import Header from '@components/Manage/Layout/Content/Header';
 
 const Index = () => {
   return (
     <Layout title="Main Stage">
-      Main Stage
+      <Header title="Main Stage" />
+
       <div className="max-w-sm rounded overflow-hidden shadow-lg">
         <img
           className="w-full"

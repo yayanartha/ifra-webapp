@@ -7,12 +7,15 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "deploy": "yarn build && yarn export && firebase deploy"
+    "deploy": "yarn build && yarn export && firebase deploy",
+    "deploy:dev": "yarn build && yarn export && aws s3 sync out s3://dev.ifra-virtualexpo.com/ --profile ifra",
+    "deploy:prod": "yarn build && yarn export && aws s3 sync out s3://ifra-virtualexpo.com/ --profile ifra"
   },
   "dependencies": {
     "@brainhubeu/react-carousel": "^1.19.26",
     "lodash": "^4.17.20",
     "next": "9.5.2",
+    "next-svgr": "^0.0.2",
     "react": "16.13.1",
     "react-countdown": "^2.2.1",
     "react-dom": "16.13.1",
