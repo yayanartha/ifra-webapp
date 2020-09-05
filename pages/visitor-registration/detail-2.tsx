@@ -14,7 +14,7 @@ const VisitorDetailOneRegister = (props: VisitorDetailOneRegisterProps) => {
           <h1 className="font-bold text-3xl text-blue-600 tracking-wider">Visitor Registration</h1>
         </div>
 
-        <Step current={1} />
+        <Step current={2} />
 
         <div className="flex flex-col mx-auto w-7/12 mt-8">
           <select
