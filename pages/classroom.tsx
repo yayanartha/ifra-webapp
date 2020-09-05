@@ -25,7 +25,7 @@ const Classroom = () => {
         style={{
           width: '100vw',
           height: '100vh',
-          background: 'url(/bg-classroom-lobby.png) no-repeat center center',
+          background: 'url(/bg-classroom-lobby.webp) no-repeat center center',
           objectFit: 'cover',
         }}
       >

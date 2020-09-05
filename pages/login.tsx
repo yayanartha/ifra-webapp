@@ -8,7 +8,7 @@ const Login = (props: LoginProps) => {
   return (
     <div className="flex flex-col flex-1">
       <div className="relative w-screen" style={{ height: '100vh' }}>
-        <img src="/register.png" alt="Main background" className="w-full h-full object-cover" />
+        <img src="/register.webp" alt="Main background" className="w-full h-full object-cover" />
 
         <div className="absolute inset-0 flex flex-row flex-1 justify-end">
           <div className="flex flex-1" />
