@@ -6,6 +6,9 @@ import BottomMenu, { BottomMenuItem } from '@components/common/BottomMenu';
 import ReactIcons from '@components/common/ReactIcons';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import InfoSpot from '@components/Exhibitor/InfoSpot';
+import { FaComment, FaIdCardAlt, FaVideo } from 'react-icons/fa';
+import ExhibitorHelpMenu from '@components/Exhibitor/ExhibitorHelpMenu';
+import { SiGooglecalendar } from 'react-icons/si';
 
 const Exhibitor1 = () => {
   const [isShowVideo, setIsShowVideo] = useState(false);
@@ -74,6 +77,26 @@ const Exhibitor1 = () => {
     //
   }, []);
 
+  const _handleChat = useCallback(() => {
+    //
+  }, []);
+
+  const _handleDropNameCard = useCallback(() => {
+    //
+  }, []);
+
+  const _handleBusinessMeetUp = useCallback(() => {
+    //
+  }, []);
+
+  const _handleVideoCall = useCallback(() => {
+    //
+  }, []);
+
+  const _handleLiveStreaming = useCallback(() => {
+    //
+  }, []);
+
   return (
     <div className="flex flex-col flex-1">
       <Navbar />
@@ -133,13 +156,35 @@ const Exhibitor1 = () => {
 
           <div
             className="absolute bg-white rounded-lg p-5 shadow-lg flex flex-col items-center justify-center"
-            style={{ bottom: '30px', left: 'calc(50vw + 28.7vw)', width: '20vw', height: '15vw' }}
+            style={{ bottom: '30px', left: 'calc(50vw + 28.7vw)', width: '20vw', height: '18vw' }}
           >
-            <p className="text-exhibitor-menu mb-4">Ada yang bisa saya bantu?</p>
-            <img
-              src="/exhibitor-menu.png"
-              style={{ width: '80%', height: '70%', objectFit: 'contain' }}
-            />
+            <p className="text-exhibitor-menu mt-3 mb-5 text-center">Ada yang bisa saya bantu?</p>
+
+            <div className="flex">
+              <ExhibitorHelpMenu label="Chat" onClick={_handleChat} icon={FaComment} />
+              <div style={{ width: '2vw' }} />
+              <ExhibitorHelpMenu
+                label="Drop Namecard"
+                onClick={_handleDropNameCard}
+                icon={FaIdCardAlt}
+              />
+              <div style={{ width: '2vw' }} />
+              <ExhibitorHelpMenu
+                label="Business Meet Up"
+                onClick={_handleBusinessMeetUp}
+                icon={SiGooglecalendar}
+              />
+            </div>
+
+            <div className="flex">
+              <ExhibitorHelpMenu label="Video Call" onClick={_handleVideoCall} icon={FaVideo} />
+              <div style={{ width: '2vw' }} />
+              <ExhibitorHelpMenu
+                label="Live Streaming"
+                onClick={_handleLiveStreaming}
+                icon={null}
+              />
+            </div>
           </div>
         </div>
       </div>
