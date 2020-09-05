@@ -1,10 +1,13 @@
 import SideLogo from '@components/Registration/SideLogo';
-import React from 'react';
 import Step from '@components/Registration/Step';
+import { useRouter } from 'next/router';
+import React from 'react';
 
-interface VisitorDetailOneRegisterProps {}
+interface VisitorDetailTwoRegisterProps {}
 
-const VisitorDetailOneRegister = (props: VisitorDetailOneRegisterProps) => {
+const VisitorDetailTwoRegister = (props: VisitorDetailTwoRegisterProps) => {
+  const router = useRouter();
+
   return (
     <div className="w-screen h-screen bg-white flex">
       <SideLogo />
@@ -131,7 +134,7 @@ const VisitorDetailOneRegister = (props: VisitorDetailOneRegisterProps) => {
 
           <div className="flex gap-8">
             <button
-              onClick={() => {}}
+              onClick={() => router.back()}
               className="bg-blue-600 flex self-center justify-center items-center w-full h-10 text-white font-light text-xs mt-6"
             >
               GO BACK
@@ -149,4 +152,4 @@ const VisitorDetailOneRegister = (props: VisitorDetailOneRegisterProps) => {
   );
 };
 
-export default VisitorDetailOneRegister;
+export default VisitorDetailTwoRegister;
