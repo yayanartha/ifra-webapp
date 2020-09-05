@@ -8,8 +8,8 @@ const Videotron = (props: Props) => {
   return (
     <Clickable onClick={props.onClick}>
       <div
-        className="bg-red-300 opacity-50 transform -skew-y-6"
-        style={{ width: '17vw', height: '12vw' }}
+        className="opacity-50 transform"
+        style={{ width: '15.5vw', height: '11vw', transform: 'skewY(-8deg)' }}
       >
         {/*  */}
       </div>

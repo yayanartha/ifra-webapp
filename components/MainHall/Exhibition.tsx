@@ -7,7 +7,7 @@ type Props = {
 const Exhibition = (props: Props) => {
   return (
     <Clickable onClick={props.onClick}>
-      <div className="bg-red-300 opacity-50" style={{ width: '20vw', height: '9vw' }}>
+      <div className="opacity-50" style={{ width: '18.7vw', height: '8.5vw' }}>
         {/*  */}
       </div>
     </Clickable>

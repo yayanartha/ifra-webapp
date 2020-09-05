@@ -1,11 +1,47 @@
 import Navbar from '@components/Navbar/Navbar';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useMemo } from 'react';
 import ModalCenter from '@components/common/ModalCenter';
 import ImageViewer from '@components/common/ImageViewer';
+import ExhibitorBottomMenu, {
+  ExhibitorBottomMenuItem,
+} from '@components/Exhibitor/ExhibitorBottomMenu';
+import ReactIcons from '@components/common/ReactIcons';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
 const Exhibitor1 = () => {
   const [isShowVideo, setIsShowVideo] = useState(false);
   const [isShowBrochure, setIsShowBrochure] = useState(false);
+  const [isFavorited, setIsFavorited] = useState(false);
+
+  const bottomMenu: ExhibitorBottomMenuItem[] = useMemo(
+    () => [
+      {
+        name: 'Video',
+        action: () => _openVideo(),
+      },
+      {
+        name: 'Brochure',
+        action: () => _openBrochure(),
+      },
+      {
+        name: 'Photos',
+        action: () => _openPhotos(),
+      },
+      {
+        name: 'Company Info',
+        action: () => _openCompanyInfo(),
+      },
+      {
+        name: 'Investment Package',
+        action: () => _openInvestPackage(),
+      },
+    ],
+    []
+  );
+
+  const _toggleFavorite = useCallback(() => {
+    setIsFavorited(!isFavorited);
+  }, [isFavorited]);
 
   const _openVideo = useCallback(() => {
     setIsShowVideo(true);
@@ -49,38 +85,14 @@ const Exhibitor1 = () => {
       >
         <div className="h-screen overflow-y-auto">
           <div className="absolute w-full flex flex-col items-center" style={{ bottom: '30px' }}>
-            <div className="bg-white shadow-xl rounded-lg flex items-center p-4">
-              <button onClick={_openVideo} className="bg-blue_button rounded-lg h-16 w-24">
-                <p className="exhibition-menu">Video</p>
-              </button>
+            <button onClick={_toggleFavorite}>
+              <ReactIcons
+                Icon={isFavorited ? AiFillHeart : AiOutlineHeart}
+                className="text-white w-12"
+              />
+            </button>
 
-              <div className="w-3" />
-
-              <button onClick={_openBrochure} className="bg-blue_button rounded-lg h-16 w-24">
-                <p className="exhibition-menu">Brochure</p>
-              </button>
-
-              <div className="w-3" />
-
-              <button onClick={_openPhotos} className="bg-blue_button rounded-lg h-16 w-24">
-                <p className="exhibition-menu">Photos</p>
-              </button>
-
-              <div className="w-3" />
-
-              <button
-                onClick={_openCompanyInfo}
-                className="bg-blue_button rounded-lg h-16 w-24 px-2"
-              >
-                <p className="exhibition-menu">Company Info</p>
-              </button>
-
-              <div className="w-3" />
-
-              <button onClick={_openInvestPackage} className="bg-blue_button rounded-lg h-16 w-24">
-                <p className="exhibition-menu">Investment Package</p>
-              </button>
-            </div>
+            <ExhibitorBottomMenu data={bottomMenu} />
           </div>
         </div>
 
@@ -100,7 +112,7 @@ const Exhibitor1 = () => {
           <p className="btn-deal">DEAL</p>
         </button>
 
-        <div
+        {/* <div
           className="bg-white rounded-lg p-5 absolute shadow-lg flex flex-col items-center justify-center"
           style={{ bottom: '30px', right: '30px', width: '350px', height: '260px' }}
         >
@@ -109,7 +121,7 @@ const Exhibitor1 = () => {
             src="/exhibitor-menu.png"
             style={{ width: '80%', height: '70%', objectFit: 'contain' }}
           />
-        </div>
+        </div> */}
       </div>
 
       <ModalCenter isOpen={isShowVideo} onClose={() => setIsShowVideo(false)}>

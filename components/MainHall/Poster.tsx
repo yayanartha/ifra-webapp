@@ -7,10 +7,7 @@ type Props = {
 const Poster = (props: Props) => {
   return (
     <Clickable onClick={props.onClick}>
-      <div
-        className="bg-red-300 opacity-50 transform skew-y-6"
-        style={{ width: '8vw', height: '18vw' }}
-      >
+      <div className="opacity-50 transform skew-y-6" style={{ width: '7.2vw', height: '18vw' }}>
         {/*  */}
       </div>
     </Clickable>

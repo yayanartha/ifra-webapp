@@ -7,7 +7,10 @@ type Props = {
 const Press = (props: Props) => {
   return (
     <Clickable onClick={props.onClick}>
-      <div className="bg-red-300 opacity-50" style={{ width: '15vw', height: '10vw' }}>
+      <div
+        className="opacity-50"
+        style={{ width: '13.6vw', height: '9.5vw', transform: 'skewY(-2deg)' }}
+      >
         {/*  */}
       </div>
     </Clickable>
