@@ -7,7 +7,7 @@ type Props = {
 const Wallpaper = (props: Props) => {
   return (
     <Clickable onClick={props.onClick}>
-      <div className="bg-red-300 opacity-50" style={{ width: '10vw', height: '8vw' }}>
+      <div className="opacity-50" style={{ width: '9.3vw', height: '7.5vw' }}>
         {/*  */}
       </div>
     </Clickable>

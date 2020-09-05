@@ -6,8 +6,8 @@ type Props = {
 
 const OrganiserLogo = (props: Props) => {
   return (
-    <Clickable onClick={props.onClick}>
-      <div className="bg-red-300 rounded-full opacity-50" style={{ width: '10vw', height: '10vw' }}>
+    <Clickable onClick={props.onClick} rounded={true}>
+      <div className="rounded-full opacity-50" style={{ width: '9vw', height: '9vw' }}>
         {/*  */}
       </div>
     </Clickable>

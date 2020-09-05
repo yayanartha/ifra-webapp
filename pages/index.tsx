@@ -9,20 +9,24 @@ import Videotron from '@components/MainHall/Videotron';
 import Wallpaper from '@components/MainHall/Wallpaper';
 import XBanner from '@components/MainHall/XBanner';
 import Navbar from '@components/Navbar/Navbar';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect, useMemo, useRef } from 'react';
 import Modal from 'react-modal';
 import ModalCenter from '@components/common/ModalCenter';
+import SponsorFooter from '@components/Sponsor/SponsorFooter';
+import { useRouter } from 'next/router';
+import PressInfo from '@components/MainHall/PressInfo';
 // import CountDown from '@components/MainHall/CountDown';
 
 const MainHall = () => {
+  const router = useRouter();
   const [isShowModal, setIsShowModal] = useState(false);
 
-  const _onClickAgenda = useCallback(() => {
-    _openModal();
+  const _onClickAgenda = useCallback((dayNo: number) => {
+    //
   }, []);
 
   const _onClickExhibition = useCallback(() => {
-    _openModal();
+    router.push('/exhibition');
   }, []);
 
   const _onClickPress = useCallback(() => {
@@ -61,78 +65,238 @@ const MainHall = () => {
     <div className="flex flex-col flex-1">
       <Navbar />
 
-      <div
-        className="relative w-screen mt-12"
-        style={{
-          height: 'calc(100vh - 3rem)',
-        }}
-      >
-        <img src="/bg-main.png" alt="Main background" className="w-full h-full object-cover" />
+      <div className="fixed">
+        <img src="/bg-main1.png" alt="Main background" className="w-full h-auto fixed" />
 
-        {/* LOGO */}
-        <div className="absolute" style={{ top: '5vh', left: 'calc(50vw - 8vw)' }}>
-          <MainLogo onClick={_onClickLogo} />
-        </div>
+        <div
+          className="relative top-0 left-0"
+          style={{
+            width: 'calc((1920 * 100vh) / 1080)',
+            height: 'calc((1080 * 100vw) / 1920)',
+          }}
+        >
+          {/* LOGO */}
+          <div
+            onClick={_onClickLogo}
+            className="absolute rounded-full flex items-center justify-center cursor-pointer hover:opacity-75"
+            style={{
+              left: 'calc(50vw - 6.5vw)',
+              top: '11.5%',
+              width: '13vw',
+              height: '13vw',
+            }}
+          >
+            {/* <p>LOGO</p> */}
+          </div>
 
-        <div className="absolute" style={{ top: '29vh', left: 'calc(50vw - 19vw)' }}>
-          <OrganiserLogo onClick={_onClickLogo} />
-        </div>
+          <div
+            onClick={_onClickLogo}
+            className="absolute rounded-full flex items-center justify-center cursor-pointer hover:opacity-75"
+            style={{ left: 'calc(50vw - 15.6vw)', top: '33.5%', width: '8vw', height: '8vw' }}
+          >
+            {/* <p>LOGO</p> */}
+          </div>
 
-        <div className="absolute" style={{ top: '27vh', left: 'calc(50vw - 5vw)' }}>
-          <OrganiserLogo onClick={_onClickLogo} />
-        </div>
+          <div
+            onClick={_onClickLogo}
+            className="absolute rounded-full flex items-center justify-center cursor-pointer hover:opacity-75"
+            style={{ left: 'calc(50vw + 7.6vw)', top: '33.5%', width: '8vw', height: '8vw' }}
+          >
+            {/* <p>LOGO</p> */}
+          </div>
 
-        <div className="absolute" style={{ top: '29vh', left: 'calc(50vw + 9vw)' }}>
-          <OrganiserLogo onClick={_onClickLogo} />
-        </div>
+          <div
+            onClick={_onClickLogo}
+            className="absolute rounded-full flex items-center justify-center cursor-pointer hover:opacity-75"
+            style={{ left: 'calc(50vw - 4.15vw)', top: '31.4%', width: '8.3vw', height: '8.3vw' }}
+          >
+            {/* <p>LOGO</p> */}
+          </div>
 
-        <div className="absolute" style={{ top: '43vh', left: 'calc(50vw - 5vw)' }}>
-          <OrganiserLogo onClick={_onClickLogo} />
-        </div>
+          <div
+            onClick={_onClickLogo}
+            className="absolute rounded-full flex items-center justify-center cursor-pointer hover:opacity-75"
+            style={{ left: 'calc(50vw - 4.15vw)', top: '46.5%', width: '8.3vw', height: '8.3vw' }}
+          >
+            {/* <p>LOGO</p> */}
+          </div>
 
-        {/* POSTER */}
-        <div className="absolute" style={{ top: '26vh', left: '5vw' }}>
-          <Poster onClick={_onClickPoster} />
-        </div>
+          {/* POSTER */}
+          <div
+            onClick={_onClickPoster}
+            className="absolute"
+            style={{
+              left: 'calc(50vw - 37vw)',
+              top: '29.8%',
+              perspective: '1000px',
+            }}
+          >
+            <div
+              className="bg-white flex items-center justify-center cursor-pointer hover:bg-gray-200"
+              style={{
+                width: '6.8vw',
+                height: '16vw',
+                transform: 'rotateY(25deg) rotateX(-4deg) skewY(6deg)',
+              }}
+            >
+              <p>POSTER</p>
+            </div>
+          </div>
 
-        {/* X-BANNER */}
-        <div className="absolute" style={{ top: '61vh', left: '13vw' }}>
-          <XBanner onClick={_onClickBanner} />
-        </div>
+          {/* X-BANNER */}
+          <div
+            onClick={_onClickBanner}
+            className="absolute"
+            style={{
+              left: 'calc(50vw - 31.1vw)',
+              top: '64%',
+              perspective: '1000px',
+            }}
+          >
+            <div
+              className="bg-white flex items-center justify-center cursor-pointer hover:bg-gray-200"
+              style={{
+                width: '17.7vw',
+                height: '5.6vw',
+                transform: 'rotateY(20deg) ',
+              }}
+            >
+              <p>X-BANNER</p>
+            </div>
+          </div>
 
-        {/* WALLPAPER */}
-        <div className="absolute" style={{ top: '61vh', left: 'calc(50vw + 16vw)' }}>
-          <Wallpaper onClick={_onClickWallpaper} />
-        </div>
+          {/* WALLPAPER */}
+          <div
+            onClick={_onClickWallpaper}
+            className="absolute"
+            style={{
+              left: 'calc(50vw + 12.7vw)',
+              top: '63.1%',
+              perspective: '1000px',
+            }}
+          >
+            <div
+              className="bg-white flex items-center justify-center cursor-pointer hover:bg-gray-200"
+              style={{
+                width: '8.6vw',
+                height: '6.65vw',
+                transform: 'rotateY(-20deg) ',
+              }}
+            >
+              <p>WALLPAPER</p>
+            </div>
+          </div>
 
-        {/* AGENDA */}
-        <div className="absolute" style={{ top: '16vh', right: '2vw' }}>
-          <Agenda onClick={_onClickAgenda} />
-        </div>
+          {/* AGENDA */}
+          <div
+            className="absolute"
+            style={{
+              left: 'calc(50vw + 24.5vw)',
+              top: '21.5%',
+              perspective: '1000px',
+            }}
+          >
+            <div
+              className="flex items-center justify-around"
+              style={{
+                width: '15vw',
+                height: '7.2vw',
+                transform: 'rotateY(-40deg) rotateX(-2deg) skewY(-10deg)',
+                paddingTop: '10%',
+                paddingLeft: '0.2vw',
+              }}
+            >
+              <div
+                onClick={() => _onClickAgenda(1)}
+                className="cursor-pointer hover:bg-gray-200 opacity-25"
+                style={{ width: '4vw', height: '4.5vw' }}
+              />
 
-        {/* VIDEOTRON */}
-        <div className="absolute" style={{ top: '33vh', right: '2vw' }}>
-          <Videotron onClick={_onClickVideotron} />
-        </div>
+              <div
+                onClick={() => _onClickAgenda(2)}
+                className="cursor-pointer hover:bg-gray-200 opacity-25"
+                style={{ width: '4vw', height: '4.5vw' }}
+              />
 
-        {/* EXHIBITION */}
-        <div className="absolute" style={{ top: '60vh', left: 'calc(50vw - 10vw)' }}>
-          <Exhibition onClick={_onClickExhibition} />
-        </div>
+              <div
+                onClick={() => _onClickAgenda(3)}
+                className="cursor-pointer hover:bg-gray-200 opacity-25"
+                style={{ width: '4vw', height: '4.5vw' }}
+              />
+            </div>
+          </div>
 
-        {/* PRESS */}
-        <div className="absolute" style={{ top: '59vh', right: '2vw' }}>
-          <Press onClick={_onClickPress} />
+          {/* VIDEOTRON */}
+          <div
+            onClick={_onClickVideotron}
+            className="absolute"
+            style={{
+              left: 'calc(50vw + 24.6vw)',
+              top: '37.9%',
+              perspective: '1000px',
+            }}
+          >
+            <div
+              className="bg-white flex items-center justify-center cursor-pointer hover:bg-gray-200"
+              style={{
+                width: '15.5vw',
+                height: '9.5vw',
+                transform: 'rotateY(-30deg) rotateX(-3deg) skewY(-6.3deg)',
+              }}
+            >
+              <p>VIDEOTRON</p>
+            </div>
+          </div>
+
+          {/* EXHIBITION */}
+          <div
+            onClick={_onClickExhibition}
+            className="absolute cursor-pointer hover:bg-white opacity-25"
+            style={{ left: 'calc(50vw - 5.7vw)', top: '65.5%', width: '11.3vw', height: '5.7vw' }}
+          />
+
+          {/* PRESS */}
+          <div
+            onClick={_onClickPress}
+            className="absolute"
+            style={{
+              left: 'calc(50vw + 28.8vw)',
+              top: '64.7%',
+              perspective: '1000px',
+            }}
+          >
+            <div
+              className="hover:bg-white opacity-25 flex items-center justify-center cursor-pointer"
+              style={{
+                width: '9.8vw',
+                height: '6.8vw',
+                transform: 'rotateY(-40deg) skewY(1deg) skewX(2deg)',
+              }}
+            />
+          </div>
+
+          <SponsorFooter />
         </div>
       </div>
 
       <ModalCenter isOpen={isShowModal} onClose={_closeModal}>
-        <div className="px-64 py-48">{/*  */}</div>
+        <PressInfo />
       </ModalCenter>
 
       {/* <ModalTNC isShow={showModal} onCloseModal={() => setShowModal(false)} /> */}
 
       {/* <CountDown /> */}
+
+      {/* <div className="absolute bottom-0 w-screen h-20 bg-white flex items-center">
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((s, i) => (
+          <button
+            key={i}
+            className="bg-blue_button w-32 h-16 flex items-center justify-center mx-2"
+          >
+            <p className="text-white">LOGO</p>
+          </button>
+        ))}
+      </div> */}
     </div>
   );
 };

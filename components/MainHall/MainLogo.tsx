@@ -6,8 +6,8 @@ type Props = {
 
 const MainLogo = (props: Props) => {
   return (
-    <Clickable onClick={props.onClick}>
-      <div className="bg-red-300 rounded-full opacity-50" style={{ width: '16vw', height: '16vw' }}>
+    <Clickable onClick={props.onClick} rounded={true}>
+      <div className="rounded-full opacity-50" style={{ width: '13.5vw', height: '13.5vw' }}>
         {/*  */}
       </div>
     </Clickable>

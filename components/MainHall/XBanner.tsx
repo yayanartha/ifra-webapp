@@ -7,7 +7,7 @@ type Props = {
 const XBanner = (props: Props) => {
   return (
     <Clickable onClick={props.onClick}>
-      <div className="bg-red-300 opacity-50" style={{ width: '20vw', height: '7vw' }}>
+      <div className="opacity-50" style={{ width: '18.6vw', height: '6.5vw' }}>
         {/*  */}
       </div>
     </Clickable>

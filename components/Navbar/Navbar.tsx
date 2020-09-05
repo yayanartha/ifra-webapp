@@ -4,6 +4,7 @@ import { useCallback, useState } from 'react';
 import DropdownMenu from './DropdownMenu';
 import DropdownRundown from './DropdownRundown';
 import Link from 'next/link';
+import NotifIndicator from '@components/common/NotifIndicator';
 
 const Navbar = () => {
   const [isShowMenu, setIsShowMenu] = useState(false);
@@ -35,7 +36,11 @@ const Navbar = () => {
 
         <div className="absolute left-0 top-0 h-12 flex items-center">
           <Link href="/">
-            <img src="/logo.png" alt="Logo IFRA" className="w-32 h-8 object-contain" />
+            <img
+              src="/logo.png"
+              alt="Logo IFRA"
+              className="w-32 h-8 object-contain cursor-pointer hover:opacity-75"
+            />
           </Link>
 
           <button
@@ -50,21 +55,30 @@ const Navbar = () => {
         </div>
 
         <div className="absolute right-0 top-0 h-12 flex items-center">
-          <div className="w-8 h-8 flex items-center justify-center">
+          <button className="relative w-8 h-8 flex items-center justify-center hover:bg-gray-100 focus:outline-none">
             <ReactIcons Icon={FaComments} className="text-gray-500" />
-          </div>
+            <div className="absolute top-0 right-0 w-3 h-3">
+              <NotifIndicator />
+            </div>
+          </button>
 
-          <div className="w-1" />
+          <div className="w-2" />
 
-          <div className="w-8 h-8 flex items-center justify-center">
+          <button className="relative w-8 h-8 flex items-center justify-center hover:bg-gray-100 focus:outline-none">
             <ReactIcons Icon={FaBell} className="text-gray-500" />
-          </div>
+            <div className="absolute top-0 right-0 w-3 h-3">
+              <NotifIndicator />
+            </div>
+          </button>
 
           <div className="ml-1 w-1 h-6 border-r border-gray-200" />
 
-          <button onClick={_toggleDropdownProfile} className="pl-4 pr-2 flex items-center h-12">
-            <p>John Doe</p>
-            <ReactIcons Icon={FaChevronDown} className="text-gray-500 ml-2" />
+          <button
+            onClick={_toggleDropdownProfile}
+            className="pl-4 pr-3 flex items-center h-12 hover:bg-gray-100 focus:outline-none"
+          >
+            <p className="nav-profile">John Doe</p>
+            <ReactIcons Icon={FaChevronDown} className="text-gray-500 ml-2 text-xs" />
             <div className="w-8 h-8 rounded-full bg-gray-400 ml-2 text-xs">{/*  */}</div>
           </button>
         </div>
