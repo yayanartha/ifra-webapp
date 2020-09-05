@@ -1,11 +1,39 @@
 import Navbar from '@components/Navbar/Navbar';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useRouter } from 'next/router';
+import BottomMenu, { BottomMenuItem } from '@components/common/BottomMenu';
+import ExhibitorCategoryButton from '@components/Exhibitor/ExhibitorCategoryButton';
 
 const Exhibition = () => {
   const router = useRouter();
 
-  const _gotoExhibitionList = useCallback(() => {
+  const bottomMenu: BottomMenuItem[] = useMemo(
+    () => [
+      {
+        name: 'Lobby',
+        action: () => _gotoLobby(),
+      },
+      {
+        name: 'Main Stage',
+        action: () => _gotoMainStage(),
+      },
+      {
+        name: 'Classroom',
+        action: () => _gotoClassroom(),
+      },
+      {
+        name: 'Meet the Experts',
+        action: () => _gotoMeetTheExpert(),
+      },
+      {
+        name: 'Favorite',
+        action: () => _gotoFavorite(),
+      },
+    ],
+    []
+  );
+
+  const _gotoExhibitorHall = useCallback(() => {
     _gotoLobby();
   }, [router]);
 
@@ -33,45 +61,116 @@ const Exhibition = () => {
     <div className="flex flex-col flex-1">
       <Navbar />
 
-      <div
-        style={{
-          width: '100vw',
-          height: '100vh',
-          background: 'url(/bg-exhibition.png) no-repeat center center',
-          objectFit: 'cover',
-        }}
-      >
-        <div onClick={_gotoExhibitionList} className="h-screen overflow-y-auto" />
+      <div className="fixed">
+        <img src="/bg-exhibition.png" alt="Main background" className="w-full h-auto fixed" />
 
-        <div className="absolute w-full flex flex-col items-center" style={{ bottom: '30px' }}>
-          <div className="bg-white shadow-xl rounded-lg flex items-center p-4">
-            <button onClick={_gotoLobby} className="bg-blue_button rounded-lg h-16 w-24">
-              <p className="exhibition-menu">Lobby</p>
-            </button>
+        <div
+          className="relative top-0 left-0"
+          style={{
+            width: 'calc((1920 * 100vh) / 1080)',
+            height: 'calc((1080 * 100vw) / 1920)',
+          }}
+        >
+          <ExhibitorCategoryButton
+            action={() => _gotoExhibitorHall()}
+            left="calc(50vw - 41vw)"
+            top="14%"
+            label="Ministry of Trade of PI Pavillion"
+          />
 
-            <div className="w-3" />
+          <ExhibitorCategoryButton
+            action={() => _gotoExhibitorHall()}
+            left="calc(50vw - 45.5vw)"
+            top="26%"
+            label="Retail Mini Market"
+          />
 
-            <button onClick={_gotoMainStage} className="bg-blue_button rounded-lg h-16 w-24">
-              <p className="exhibition-menu">Main Stage</p>
-            </button>
+          <ExhibitorCategoryButton
+            action={() => _gotoExhibitorHall()}
+            left="calc(50vw - 36vw)"
+            top="37.5%"
+            label="Food & Beverage"
+          />
 
-            <div className="w-3" />
+          <ExhibitorCategoryButton
+            action={() => _gotoExhibitorHall()}
+            left="calc(50vw - 31.7vw)"
+            top="49.5%"
+            label="Beauty, Health & SPA"
+          />
 
-            <button onClick={_gotoClassroom} className="bg-blue_button rounded-lg h-16 w-24">
-              <p className="exhibition-menu">Classroom</p>
-            </button>
+          <ExhibitorCategoryButton
+            action={() => _gotoExhibitorHall()}
+            left="calc(50vw - 23vw)"
+            top="69.3%"
+            label="Delivery Services"
+          />
 
-            <div className="w-3" />
+          <ExhibitorCategoryButton
+            action={() => _gotoExhibitorHall()}
+            left="calc(50vw - 22vw)"
+            top="24%"
+            label="Water Refill"
+          />
 
-            <button onClick={_gotoMeetTheExpert} className="bg-blue_button rounded-lg h-16 w-24">
-              <p className="exhibition-menu">Meet the Experts</p>
-            </button>
+          <ExhibitorCategoryButton
+            action={() => _gotoExhibitorHall()}
+            left="calc(50vw - 18.5vw)"
+            top="39%"
+            label="Laundry & Services"
+          />
 
-            <div className="w-3" />
+          <ExhibitorCategoryButton
+            action={() => _gotoExhibitorHall()}
+            left="calc(50vw - 4.5vw)"
+            top="59%"
+            label="Pharmacy"
+          />
 
-            <button onClick={_gotoFavorite} className="bg-blue_button rounded-lg h-16 w-24">
-              <p className="exhibition-menu">Favorite</p>
-            </button>
+          <ExhibitorCategoryButton
+            action={() => _gotoExhibitorHall()}
+            left="calc(50vw - 6.5vw)"
+            top="21.5%"
+            label="Automotive"
+          />
+
+          <ExhibitorCategoryButton
+            action={() => _gotoExhibitorHall()}
+            left="calc(50vw - 3.5vw)"
+            top="40.5%"
+            label="Repair Services"
+          />
+
+          <ExhibitorCategoryButton
+            action={() => _gotoExhibitorHall()}
+            left="calc(50vw + 11.3vw)"
+            top="52.5%"
+            label="Property"
+          />
+
+          <ExhibitorCategoryButton
+            action={() => _gotoExhibitorHall()}
+            left="calc(50vw + 9vw)"
+            top="19%"
+            label="Fintech & Telco"
+          />
+
+          <ExhibitorCategoryButton
+            action={() => _gotoExhibitorHall()}
+            left="calc(50vw + 17.8vw)"
+            top="31%"
+            label="Sponsors"
+          />
+
+          <ExhibitorCategoryButton
+            action={() => _gotoExhibitorHall()}
+            left="calc(50vw + 35vw)"
+            top="37%"
+            label="Education Center"
+          />
+
+          <div className="absolute w-screen flex flex-col items-center" style={{ bottom: '30px' }}>
+            <BottomMenu data={bottomMenu} />
           </div>
         </div>
       </div>

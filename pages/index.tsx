@@ -14,6 +14,7 @@ import Modal from 'react-modal';
 import ModalCenter from '@components/common/ModalCenter';
 import SponsorFooter from '@components/Sponsor/SponsorFooter';
 import { useRouter } from 'next/router';
+import PressInfo from '@components/MainHall/PressInfo';
 // import CountDown from '@components/MainHall/CountDown';
 
 const MainHall = () => {
@@ -279,7 +280,7 @@ const MainHall = () => {
       </div>
 
       <ModalCenter isOpen={isShowModal} onClose={_closeModal}>
-        <div className="px-64 py-48">{/*  */}</div>
+        <PressInfo />
       </ModalCenter>
 
       {/* <ModalTNC isShow={showModal} onCloseModal={() => setShowModal(false)} /> */}

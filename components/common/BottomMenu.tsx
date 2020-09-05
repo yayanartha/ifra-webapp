@@ -1,13 +1,13 @@
-export interface ExhibitorBottomMenuItem {
+export interface BottomMenuItem {
   name: string;
   action(): void;
 }
 
 type Props = {
-  data: ExhibitorBottomMenuItem[];
+  data: BottomMenuItem[];
 };
 
-const ExhibitorBottomMenu = (props: Props) => {
+const BottomMenu = (props: Props) => {
   return (
     <div className="bg-white shadow-xl rounded-lg flex items-center p-4">
       {props.data.map((d, i) => (
@@ -24,4 +24,4 @@ const ExhibitorBottomMenu = (props: Props) => {
   );
 };
 
-export default ExhibitorBottomMenu;
+export default BottomMenu;

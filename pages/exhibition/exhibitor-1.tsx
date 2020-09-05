@@ -2,9 +2,7 @@ import Navbar from '@components/Navbar/Navbar';
 import { useCallback, useState, useMemo } from 'react';
 import ModalCenter from '@components/common/ModalCenter';
 import ImageViewer from '@components/common/ImageViewer';
-import ExhibitorBottomMenu, {
-  ExhibitorBottomMenuItem,
-} from '@components/Exhibitor/ExhibitorBottomMenu';
+import BottomMenu, { BottomMenuItem } from '@components/common/BottomMenu';
 import ReactIcons from '@components/common/ReactIcons';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
@@ -13,7 +11,7 @@ const Exhibitor1 = () => {
   const [isShowBrochure, setIsShowBrochure] = useState(false);
   const [isFavorited, setIsFavorited] = useState(false);
 
-  const bottomMenu: ExhibitorBottomMenuItem[] = useMemo(
+  const bottomMenu: BottomMenuItem[] = useMemo(
     () => [
       {
         name: 'Video',
@@ -92,7 +90,7 @@ const Exhibitor1 = () => {
               />
             </button>
 
-            <ExhibitorBottomMenu data={bottomMenu} />
+            <BottomMenu data={bottomMenu} />
           </div>
         </div>
 

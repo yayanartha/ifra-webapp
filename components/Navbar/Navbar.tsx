@@ -75,7 +75,7 @@ const Navbar = () => {
 
           <button
             onClick={_toggleDropdownProfile}
-            className="pl-4 pr-2 flex items-center h-12 hover:bg-gray-100 focus:outline-none"
+            className="pl-4 pr-3 flex items-center h-12 hover:bg-gray-100 focus:outline-none"
           >
             <p className="nav-profile">John Doe</p>
             <ReactIcons Icon={FaChevronDown} className="text-gray-500 ml-2 text-xs" />

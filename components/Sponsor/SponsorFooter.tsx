@@ -7,10 +7,10 @@ const SponsorFooter = () => {
       {[...Array(40).keys()].map((s, i) => (
         <button
           key={i}
-          className="bg-gray-400 flex items-center justify-center mx-2 mb-2"
+          className="bg-gray-200 flex items-center justify-center mx-2 mb-2"
           style={{ width: '50px', height: '30px' }}
         >
-          <p className="text-xs text-gray-600">LOGO</p>
+          <p className="text-xs text-gray-500">LOGO</p>
         </button>
       ))}
     </div>
