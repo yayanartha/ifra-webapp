@@ -154,48 +154,52 @@ const Layout = (props: Props) => {
           </div>
           {/* Content */}
         </div>
-
-        <style jsx>{`
-          .sidebar-container {
-            overflow-y: scroll;
-          }
-          .sidebar-container::-webkit-scrollbar {
-            display: none;
-          }
-          .sidebar-container {
-            -ms-overflow-style: none; /* IE and Edge */
-            scrollbar-width: none; /* Firefox */
-            background-color: #057dc1;
-          }
-
-          .content-container {
-            overflow-y: scroll;
-          }
-          .content-container::-webkit-scrollbar {
-            display: none;
-          }
-          .content-container {
-            -ms-overflow-style: none; /* IE and Edge */
-            scrollbar-width: none; /* Firefox */
-          }
-
-          .header-container {
-            box-shadow: 0px -20px 10px 0px rgb(255 255 255 / 6%),
-              0px 2px 6px 1px rgb(130 123 123 / 4%);
-          }
-
-          .header-left-container {
-            background-color: #046fac;
-          }
-
-          .header-left-container span {
-            letter-spacing: 0.23em;
-            font-family: Poppins;
-            font-size: 1.02rem;
-            font-weight: 600;
-          }
-        `}</style>
       </div>
+
+      <style global jsx>{`
+        body {
+          font-family: Poppins;
+        }
+
+        .sidebar-container {
+          overflow-y: scroll;
+        }
+        .sidebar-container::-webkit-scrollbar {
+          display: none;
+        }
+        .sidebar-container {
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
+          background-color: #057dc1;
+        }
+
+        .content-container {
+          overflow-y: scroll;
+        }
+        .content-container::-webkit-scrollbar {
+          display: none;
+        }
+        .content-container {
+          -ms-overflow-style: none; /* IE and Edge */
+          scrollbar-width: none; /* Firefox */
+        }
+
+        .header-container {
+          box-shadow: 0px -20px 10px 0px rgb(255 255 255 / 6%),
+            0px 2px 6px 1px rgb(130 123 123 / 4%);
+        }
+
+        .header-left-container {
+          background-color: #046fac;
+        }
+
+        .header-left-container span {
+          letter-spacing: 0.23em;
+          font-family: Poppins;
+          font-size: 1.02rem;
+          font-weight: 600;
+        }
+      `}</style>
     </Container>
   );
 };
