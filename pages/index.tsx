@@ -21,7 +21,7 @@ const MainHall = () => {
   const router = useRouter();
   const [isShowModal, setIsShowModal] = useState(false);
 
-  const _onClickAgenda = useCallback((dayNo: string) => {
+  const _onClickAgenda = useCallback((dayNo: number) => {
     //
   }, []);
 

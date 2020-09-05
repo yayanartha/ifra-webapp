@@ -4,7 +4,7 @@ const SponsorFooter = () => {
       className="absolute left-0 bottom-0 bg-white h-32 w-screen flex px-2 py-4 flex-wrap"
       style={{ maxHeight: '130px' }}
     >
-      {[...Array(40).keys()].map((s, i) => (
+      {Array.from({ length: 40 }, (s, i) => (
         <button
           key={i}
           className="bg-gray-200 flex items-center justify-center mx-2 mb-2"

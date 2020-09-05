@@ -34,7 +34,10 @@ const DropdownRundown = (props: Props) => {
         style={{ width: '500px', left: 'calc(50vw - 250px)', top: 'calc(3rem - 2px)' }}
       >
         {menu.map((m, i) => (
-          <button key={i} className="px-8 py-3 w-full flex items-start">
+          <button
+            key={i}
+            className="px-8 py-3 w-full flex items-start hover:bg-gray-100 focus:outline-none"
+          >
             <p className="main-rundown-item">{m.name}</p>
           </button>
         ))}

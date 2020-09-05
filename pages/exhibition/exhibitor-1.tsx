@@ -5,6 +5,7 @@ import ImageViewer from '@components/common/ImageViewer';
 import BottomMenu, { BottomMenuItem } from '@components/common/BottomMenu';
 import ReactIcons from '@components/common/ReactIcons';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import InfoSpot from '@components/Exhibitor/InfoSpot';
 
 const Exhibitor1 = () => {
   const [isShowVideo, setIsShowVideo] = useState(false);
@@ -69,57 +70,78 @@ const Exhibitor1 = () => {
     //
   }, []);
 
+  const _showInfo = useCallback(() => {
+    //
+  }, []);
+
   return (
     <div className="flex flex-col flex-1">
       <Navbar />
 
-      <div
-        style={{
-          width: '100vw',
-          height: '100vh',
-          background: 'url(/exhibitor-1.png) no-repeat center center',
-          objectFit: 'cover',
-        }}
-      >
-        <div className="h-screen overflow-y-auto">
-          <div className="absolute w-full flex flex-col items-center" style={{ bottom: '30px' }}>
-            <button onClick={_toggleFavorite}>
+      <div className="fixed">
+        <img src="/exhibitor-1.png" alt="Main background" className="w-full h-auto fixed" />
+
+        <div
+          className="relative top-0 left-0"
+          style={{
+            width: 'calc((1920 * 100vh) / 1080)',
+            height: 'calc((1080 * 100vw) / 1920)',
+          }}
+        >
+          <InfoSpot onClick={() => _showInfo()} left="calc(50vw - 27.5vw)" top="58%" />
+
+          <InfoSpot onClick={() => _showInfo()} left="calc(50vw - 4.5vw)" top="27.5%" />
+
+          <InfoSpot onClick={() => _showInfo()} left="calc(50vw - 13vw)" top="48%" />
+
+          <InfoSpot onClick={() => _showInfo()} left="calc(50vw + 2.5vw)" top="62%" />
+
+          <InfoSpot onClick={() => _showInfo()} left="calc(50vw + 22vw)" top="48%" />
+
+          <div className="absolute w-screen flex flex-col items-center" style={{ bottom: '30px' }}>
+            <button
+              onClick={_toggleFavorite}
+              className="flex bg-primary rounded-md items-center justify-center shadow-lg hover:bg-blue-500 focus:outline-none"
+              style={{ marginBottom: '16px', width: '8vw', height: '3.7vw' }}
+            >
               <ReactIcons
                 Icon={isFavorited ? AiFillHeart : AiOutlineHeart}
-                className="text-white w-12"
+                className="text-white mr-2"
+                style={{ width: '1.5vw', height: '1.5vw', minWidth: '16px', minHeight: '16px' }}
               />
+              <p className="exhibition-menu">Favorite</p>
             </button>
 
             <BottomMenu data={bottomMenu} />
           </div>
+
+          <button
+            onClick={_handleLater}
+            className="absolute bg-white rounded-lg flex items-center justify-center"
+            style={{ width: '8vw', height: '4.5vw', top: '9%', left: 'calc(50vw + 40.5vw)' }}
+          >
+            <p className="btn-later">LATER</p>
+          </button>
+
+          <button
+            onClick={_handleDeal}
+            className="absolute bg-blue_button rounded-lg flex items-center justify-center"
+            style={{ width: '8vw', height: '4.5vw', top: '19%', left: 'calc(50vw + 40.5vw)' }}
+          >
+            <p className="btn-deal">DEAL</p>
+          </button>
+
+          <div
+            className="absolute bg-white rounded-lg p-5 shadow-lg flex flex-col items-center justify-center"
+            style={{ bottom: '30px', left: 'calc(50vw + 28.7vw)', width: '20vw', height: '15vw' }}
+          >
+            <p className="text-exhibitor-menu mb-4">Ada yang bisa saya bantu?</p>
+            <img
+              src="/exhibitor-menu.png"
+              style={{ width: '80%', height: '70%', objectFit: 'contain' }}
+            />
+          </div>
         </div>
-
-        <button
-          onClick={_handleLater}
-          className="bg-white rounded-lg w-32 h-16 flex items-center justify-center absolute"
-          style={{ top: '80px', right: '30px' }}
-        >
-          <p className="btn-later">LATER</p>
-        </button>
-
-        <button
-          onClick={_handleDeal}
-          className="bg-blue_button rounded-lg w-32 h-16 flex items-center justify-center absolute"
-          style={{ top: '165px', right: '30px' }}
-        >
-          <p className="btn-deal">DEAL</p>
-        </button>
-
-        {/* <div
-          className="bg-white rounded-lg p-5 absolute shadow-lg flex flex-col items-center justify-center"
-          style={{ bottom: '30px', right: '30px', width: '350px', height: '260px' }}
-        >
-          <p className="text-exhibitor-menu mb-4">Ada yang bisa saya bantu?</p>
-          <img
-            src="/exhibitor-menu.png"
-            style={{ width: '80%', height: '70%', objectFit: 'contain' }}
-          />
-        </div> */}
       </div>
 
       <ModalCenter isOpen={isShowVideo} onClose={() => setIsShowVideo(false)}>
