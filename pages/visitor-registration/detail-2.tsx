@@ -140,7 +140,7 @@ const VisitorDetailTwoRegister = (props: VisitorDetailTwoRegisterProps) => {
               GO BACK
             </button>
             <button
-              onClick={() => {}}
+              onClick={() => router.push('/visitor-registration/detail-3')}
               className="bg-blue-600 flex self-center justify-center items-center w-full h-10 text-white font-light text-xs mt-6"
             >
               SUBMIT
