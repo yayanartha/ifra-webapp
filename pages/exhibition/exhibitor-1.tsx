@@ -102,7 +102,7 @@ const Exhibitor1 = () => {
       <Navbar />
 
       <div className="fixed">
-        <img src="/exhibitor-1.png" alt="Main background" className="w-full h-auto fixed" />
+        <img src="/exhibitor-1.webp" alt="Main background" className="w-full h-auto fixed" />
 
         <div
           className="relative top-0 left-0"
