@@ -1,4 +1,3 @@
-import Clickable from '@components/common/Clickable';
 import Transition from '@components/common/Transition';
 import Navbar from '@components/Navbar/Navbar';
 import { useRouter } from 'next/router';
@@ -18,11 +17,30 @@ interface ExhibitorHallProps {}
 
 const ExhibitorHall = (props: ExhibitorHallProps) => {
   const router = useRouter();
-  const [show, setShow] = useState(true);
-  const [index, setIndex] = useState(0);
+  const [show, setShow] = useState(false);
+  const [selected, setSelected] = useState<null | number>(null);
 
-  const onClickItem = useCallback(() => {
-    setShow(!show);
+  const onClickItem = useCallback(
+    (idx: number) => {
+      if (selected === idx) {
+        setSelected(null);
+        return setShow(false);
+      }
+
+      setSelected(idx);
+      setShow(true);
+    },
+    [show, selected]
+  );
+
+  const onToggleShow = useCallback(() => {
+    if (show) {
+      setSelected(null);
+      return setShow(false);
+    }
+
+    setSelected(0);
+    setShow(true);
   }, [show]);
 
   return (
@@ -37,7 +55,14 @@ const ExhibitorHall = (props: ExhibitorHallProps) => {
             <div className="flex flex-row justify-between mt-6">
               {people.slice(0, 3).map((item, idx) => (
                 <>
-                  <Item onClick={onClickItem} image={item} alt="Lorem" title="Booth A" />
+                  <Item
+                    onClick={() => onClickItem(idx)}
+                    showInfo={selected === idx}
+                    isTransparent={selected !== null && selected !== idx}
+                    image={item}
+                    alt="Lorem"
+                    title="Booth A"
+                  />
                   {idx < 2 && <div className="w-6" />}
                 </>
               ))}
@@ -45,19 +70,33 @@ const ExhibitorHall = (props: ExhibitorHallProps) => {
             <div className="flex flex-row justify-between mt-6">
               {people.slice(3, 6).map((item, idx) => (
                 <>
-                  <Item onClick={onClickItem} image={item} alt="Lorem" title="Booth A" />
+                  <Item
+                    onClick={() => onClickItem(idx + 3)}
+                    showInfo={selected === idx + 3}
+                    isTransparent={selected !== null && selected !== idx + 3}
+                    image={item}
+                    alt="Lorem"
+                    title="Booth A"
+                  />
                   {idx < 2 && <div className="w-6" />}
                 </>
               ))}
             </div>
             <div className="flex flex-row justify-between mt-6">
               {people.slice(3, 4).map((item, idx) => (
-                <Item onClick={onClickItem} image={item} alt="Lorem" title="Booth A" />
+                <Item
+                  onClick={() => onClickItem(idx + 6)}
+                  showInfo={selected === idx + 6}
+                  isTransparent={selected !== null && selected !== idx + 6}
+                  image={item}
+                  alt="Lorem"
+                  title="Booth A"
+                />
               ))}
             </div>
           </div>
 
-          <button onClick={() => setShow(!show)} className="bg-white w-8 h-16 mt-8">
+          <button onClick={onToggleShow} className="focus:outline-none bg-white w-8 h-16 mt-8">
             <svg
               className="text-gray-500"
               xmlns="http://www.w3.org/2000/svg"
@@ -201,11 +240,11 @@ const ExhibitorHall = (props: ExhibitorHallProps) => {
                   </div>
 
                   <div className="flex flex-row mt-4">
-                    <button className="text-blue-600 flex flex-1 justify-center text-center rounded-lg bg-white border-blue-600 border py-1">
+                    <button className="focus:outline-none text-blue-600 flex flex-1 justify-center text-center rounded-lg bg-white border-blue-600 border py-1">
                       {'Lihat'}
                     </button>
                     <div className="w-8" />
-                    <button className="text-white flex flex-1 justify-center text-center rounded-lg bg-blue-800 border-blue-800 border py-1">
+                    <button className="focus:outline-none text-white flex flex-1 justify-center text-center rounded-lg bg-blue-800 border-blue-800 border py-1">
                       {'Simpan'}
                     </button>
                   </div>
@@ -232,11 +271,11 @@ const ExhibitorHall = (props: ExhibitorHallProps) => {
                   </div>
 
                   <div className="flex flex-row mt-4">
-                    <button className="text-blue-600 flex flex-1 justify-center text-center rounded-lg bg-white border-blue-600 border py-1">
+                    <button className="focus:outline-none text-blue-600 flex flex-1 justify-center text-center rounded-lg bg-white border-blue-600 border py-1">
                       {'Lihat'}
                     </button>
                     <div className="w-8" />
-                    <button className="text-white flex flex-1 justify-center text-center rounded-lg bg-blue-800 border-blue-800 border py-1">
+                    <button className="focus:outline-none text-white flex flex-1 justify-center text-center rounded-lg bg-blue-800 border-blue-800 border py-1">
                       {'Simpan'}
                     </button>
                   </div>
@@ -261,11 +300,11 @@ const ExhibitorHall = (props: ExhibitorHallProps) => {
                   </div>
 
                   <div className="flex flex-row mt-4">
-                    <button className="text-blue-600 flex flex-1 justify-center text-center rounded-lg bg-white border-blue-600 border py-1">
+                    <button className="focus:outline-none text-blue-600 flex flex-1 justify-center text-center rounded-lg bg-white border-blue-600 border py-1">
                       {'Lihat'}
                     </button>
                     <div className="w-8" />
-                    <button className="text-white flex flex-1 justify-center text-center rounded-lg bg-blue-800 border-blue-800 border py-1">
+                    <button className="focus:outline-none text-white flex flex-1 justify-center text-center rounded-lg bg-blue-800 border-blue-800 border py-1">
                       {'Simpan'}
                     </button>
                   </div>
@@ -288,21 +327,23 @@ const ExhibitorHall = (props: ExhibitorHallProps) => {
                   </div>
 
                   <div className="flex flex-row mt-4">
-                    <button className="text-blue-600 flex flex-1 justify-center text-center rounded-lg bg-white border-blue-600 border py-1">
+                    <button className="focus:outline-none text-blue-600 flex flex-1 justify-center text-center rounded-lg bg-white border-blue-600 border py-1">
                       {'Play Video'}
                     </button>
                     <div className="w-8" />
-                    <button className="text-white flex flex-1 justify-center text-center rounded-lg bg-blue-800 border-blue-800 border py-1">
+                    <button className="focus:outline-none text-white flex flex-1 justify-center text-center rounded-lg bg-blue-800 border-blue-800 border py-1">
                       {'Simpan'}
                     </button>
                   </div>
                 </div>
 
                 <div className="flex flex-row flex-1 items-center mt-12 justify-center">
-                  <button className="w-32 h-32 rounded-lg bg-blue-600 text-white">{'Email'}</button>
+                  <button className="focus:outline-none w-32 h-32 rounded-lg bg-blue-600 text-white">
+                    {'Email'}
+                  </button>
                   <div className="w-8" />
                   <button
-                    className="w-32 h-32 rounded-lg text-white"
+                    className="focus:outline-none w-32 h-32 rounded-lg text-white"
                     style={{ backgroundColor: '#2EC740' }}
                   >
                     {'Whatsapp'}
@@ -317,20 +358,25 @@ const ExhibitorHall = (props: ExhibitorHallProps) => {
   );
 };
 
-const Item = (props: { onClick(): void; image: string; alt: string; title: string }) => {
-  const [isHover, setHover] = useState(false);
-
+const Item = (props: {
+  onClick(): void;
+  showInfo: boolean;
+  isTransparent: boolean;
+  image: string;
+  alt: string;
+  title: string;
+}) => {
   return (
     <button
       onClick={props.onClick}
-      className="bg-gray-900 bg-opacity-75 relative rounded-full w-40 h-40"
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
+      className={`focus:outline-none bg-gray-900 bg-opacity-75 relative rounded-full w-40 h-40${
+        props.isTransparent ? ' opacity-25' : ''
+      }`}
     >
       <img src={props.image} className="object-cover w-full h-full rounded-full" alt={props.alt} />
 
       <Transition
-        show={isHover}
+        show={props.showInfo}
         enter="transition-opacity ease-linear duration-300"
         enterFrom="opacity-0"
         enterTo="opacity-100"

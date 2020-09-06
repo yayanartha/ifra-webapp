@@ -3,7 +3,8 @@ import Clickable from '@components/common/Clickable';
 import Transition from '@components/common/Transition';
 import Navbar from '@components/Navbar/Navbar';
 import { useRouter } from 'next/router';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useMemo } from 'react';
+import TabHeader, { TabItem } from '@components/common/TabHeader';
 
 interface ExhibitorHallProps {}
 
@@ -11,6 +12,28 @@ const ExhibitorHall = (props: ExhibitorHallProps) => {
   const router = useRouter();
   const [show, setShow] = useState(false);
   const [index, setIndex] = useState(0);
+  const tabs: TabItem[] = useMemo(
+    () => [
+      {
+        name: 'Filter',
+        target: 'filter',
+      },
+      {
+        name: 'Sort',
+        target: 'sort',
+      },
+    ],
+    []
+  );
+
+  const [activeTab, setActiveTab] = useState(0);
+
+  const _onTabChange = useCallback(
+    (tabIndex: number) => {
+      setActiveTab(tabIndex);
+    },
+    [activeTab]
+  );
 
   const onClickItem = useCallback(() => {
     router.push('/exhibition/exhibitor-1');
@@ -65,7 +88,10 @@ const ExhibitorHall = (props: ExhibitorHallProps) => {
             </div>
           </div>
 
-          <button onClick={() => setShow(!show)} className="bg-white w-8 h-16 mt-8 focus:outline-none">
+          <button
+            onClick={() => setShow(!show)}
+            className="bg-white w-8 h-16 mt-8 focus:outline-none"
+          >
             <svg
               className="text-gray-500"
               xmlns="http://www.w3.org/2000/svg"
@@ -84,42 +110,23 @@ const ExhibitorHall = (props: ExhibitorHallProps) => {
 
           {show && (
             <div className="flex flex-col w-1/3">
-              <div className="bg-white p-8" style={{ height: 'calc(100vh - 3rem)' }}>
-                <div className="flex flex-row items-center mb-6">
-                  <div className="flex flex-row flex-1">
-                    <p className="mr-16 text-lg">Filter</p>
-                    <p className="text-lg">Sort</p>
+              <div className="bg-white p-8 overflow-scroll" style={{ height: 'calc(100vh - 3rem)' }}>
+                <div className="grid grid-cols-5 mb-6">
+                  <div className="col-span-4">
+                    <TabHeader data={tabs} activeTab={activeTab} setActiveTab={_onTabChange} />
                   </div>
-                  <button onClick={() => {}} className="text-sm text-blue-600 hover:text-blue-300 focus:outline-none">
+
+                  <button
+                    onClick={() => {}}
+                    className="text-sm text-blue-600 hover:text-blue-300 focus:outline-none col-span1 mt-4"
+                  >
                     Show All
                   </button>
                 </div>
 
-                {[
-                  'Ministry of Trade of Pi Pavilion (10)',
-                  'Sponsor (12)',
-                  'Automotive (21)',
-                  'Ministry of Trade of Pi Pavilion (10)',
-                  'Beauty, Health & SPA (10)',
-                  'Delivery Services (30)',
-                  'Education Center (8)',
-                  'Fintech & Telco (2)',
-                  'Food & Beverage (2)',
-                  'Laundry & Services (17)',
-                  'Pharmacy (8)',
-                  'Property (13)',
-                  'Repair Services (8)',
-                  'Retail Mini Market (3)',
-                  'Water Refill (3)',
-                ].map((item) => (
-                  <label className="block font-light text-md text-gray-800 mt-4 hover:bg-gray-200 focus:outline-none cursor-pointer">
-                    <input
-                      className="focus:outline-none form-checkbox mr-4 leading-tight h-6 w-6 border-2 border-blue-600 rounded-md outline-none"
-                      type="checkbox"
-                    />
-                    <span>{item}</span>
-                  </label>
-                ))}
+                {activeTab === 0 && <FilterBar />}
+
+                {activeTab === 1 && <SortBar />}
               </div>
             </div>
           )}
@@ -169,6 +176,54 @@ const Item = (props: { onClick(): void; image: string; alt: string; title: strin
         </div>
       </Transition>
     </button>
+  );
+};
+
+const FilterBar = () => {
+  return (
+    <>
+      {[
+        'Ministry of Trade of Pi Pavilion (10)',
+        'Sponsor (12)',
+        'Automotive (21)',
+        'Ministry of Trade of Pi Pavilion (10)',
+        'Beauty, Health & SPA (10)',
+        'Delivery Services (30)',
+        'Education Center (8)',
+        'Fintech & Telco (2)',
+        'Food & Beverage (2)',
+        'Laundry & Services (17)',
+        'Pharmacy (8)',
+        'Property (13)',
+        'Repair Services (8)',
+        'Retail Mini Market (3)',
+        'Water Refill (3)',
+      ].map((item) => (
+        <label className="block font-light text-md text-gray-800 mt-4 hover:bg-gray-200 focus:outline-none cursor-pointer">
+          <input
+            className="focus:outline-none form-checkbox mr-4 leading-tight h-6 w-6 border-2 border-blue-600 rounded-md outline-none"
+            type="checkbox"
+          />
+          <span>{item}</span>
+        </label>
+      ))}
+    </>
+  );
+};
+
+const SortBar = () => {
+  return (
+    <select
+      className="form-select shadow-md h-10 pl-2 font-light text-sm border-0 w-full"
+      placeholder="Sort"
+    >
+      <option>{'Name : A - Z'}</option>
+      <option>{'Name : Z - A'}</option>
+      <option>{'Business Type : Franchise'}</option>
+      <option>{'Business Type : License'}</option>
+      <option>{'Business Type : Business Concept'}</option>
+      <option>{'Investment Range'}</option>
+    </select>
   );
 };
 
