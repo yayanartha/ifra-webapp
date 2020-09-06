@@ -11,7 +11,7 @@ export default (props: PrimaryButtonProps) => {
   return (
     <button
       onClick={props.onClick}
-      className={`shadow-lg ${
+      className={`focus:outline-none shadow-lg ${
         props.roundedLight ? 'rounded-md' : 'rounded-lg'
       } bg-blue_button h-12`}
       style={{
