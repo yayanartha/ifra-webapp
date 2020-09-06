@@ -45,17 +45,17 @@ const Login = (props: LoginProps) => {
                     <span className="text-sm font-light text-black">{'Remember me'}</span>
                   </label>
 
-                  <Clickable onClick={() => {}}>
+                  <button onClick={() => {}}>
                     <p className="text-xs tracking-wider">{'Need Help?'}</p>
-                  </Clickable>
+                  </button>
                 </div>
               </form>
             </div>
 
             <div className="flex flex-col items-center mb-4">
-              <Clickable onClick={() => {}}>
+              <button onClick={() => {}}>
                 <p className="text-black text-xs">{'Term of use. Privacy policy'}</p>
-              </Clickable>
+              </button>
             </div>
           </div>
         </div>

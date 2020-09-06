@@ -30,11 +30,7 @@ const ExhibitorHall = (props: ExhibitorHallProps) => {
       <Navbar />
 
       <div className="relative w-screen mt-12" style={{ height: 'calc(100vh - 3rem)' }}>
-        <img
-          src="/bg-expert.webp"
-          alt="Main background"
-          className="w-full h-full object-cover"
-        />
+        <img src="/bg-expert.webp" alt="Main background" className="w-full h-full object-cover" />
 
         <div className="absolute inset-0 bg-black bg-opacity-50 flex">
           <div className="flex flex-1 flex-col justify-center items-center">
@@ -325,35 +321,30 @@ const Item = (props: { onClick(): void; image: string; alt: string; title: strin
   const [isHover, setHover] = useState(false);
 
   return (
-    <Clickable onClick={props.onClick}>
-      <div
-        className="bg-gray-900 bg-opacity-75 relative rounded-full w-40 h-40"
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-      >
-        <img
-          src={props.image}
-          className="object-cover w-full h-full rounded-full"
-          alt={props.alt}
-        />
+    <button
+      onClick={props.onClick}
+      className="bg-gray-900 bg-opacity-75 relative rounded-full w-40 h-40"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      <img src={props.image} className="object-cover w-full h-full rounded-full" alt={props.alt} />
 
-        <Transition
-          show={isHover}
-          enter="transition-opacity ease-linear duration-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="transition-opacity ease-linear duration-300"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
-          <div className="absolute inset-0 px-4 py-4 bg-blue-600 flex flex-col flex-1 justify-center rounded-full">
-            <p className="text-sm text-white text-center font-semibold">
-              {'Asosiasi Franchise Indonesia'}
-            </p>
-          </div>
-        </Transition>
-      </div>
-    </Clickable>
+      <Transition
+        show={isHover}
+        enter="transition-opacity ease-linear duration-300"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity ease-linear duration-300"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <div className="absolute inset-0 px-4 py-4 bg-blue-600 flex flex-col flex-1 justify-center rounded-full">
+          <p className="text-sm text-white text-center font-semibold">
+            {'Asosiasi Franchise Indonesia'}
+          </p>
+        </div>
+      </Transition>
+    </button>
   );
 };
 

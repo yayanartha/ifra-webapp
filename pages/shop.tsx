@@ -83,7 +83,7 @@ const Shop = (props: ShopProps) => {
 
 const Item = (props: { onClick(): void; image: string; alt: string }) => {
   return (
-    <Clickable onClick={props.onClick}>
+    <button onClick={props.onClick}>
       <div
         className="flex items-center justify-center bg-white"
         style={{ width: '200px', height: '200px' }}
@@ -95,7 +95,7 @@ const Item = (props: { onClick(): void; image: string; alt: string }) => {
           alt={props.alt}
         />
       </div>
-    </Clickable>
+    </button>
   );
 };
 
