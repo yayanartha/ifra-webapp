@@ -1,0 +1,57 @@
+image: node:12
+
+stages:
+    - build
+    - deploy
+
+before_script:
+  - apt-get update -qq && apt-get install -qy python-dev && apt-get install -qy python-pip
+
+build:
+    stage: build
+    script:
+        - echo "Building deploy package"
+        - yarn install
+        - yarn build
+        - yarn export
+        - echo "Build successful"
+    artifacts:
+        expire_in: 1 hour
+        paths:
+            - out
+    only:
+        - production
+        - development
+
+deploy_production:
+    stage: deploy
+    image:
+        name: banst/awscli
+        entrypoint: [""]
+    script:
+        - echo "Deploying to server"
+        - aws configure set region ap-southeast-1
+        - aws s3 sync out s3://ifra-virtualexpo.com/
+        - aws cloudfront create-invalidation --distribution-id E1LNBTC98HF5CQ --paths '/index.html' > /dev/null
+        - echo "Deployed"
+    environment:
+        name: production
+        url: ifra-virtualexpo.com
+    only:
+        - production
+
+deploy_development:
+    stage: deploy
+    image:
+        name: banst/awscli
+        entrypoint: [""]
+    script:
+        - echo "Deploying to server"
+        - aws configure set region ap-southeast-1
+        - aws s3 sync out s3://develop.ifra-virtualexpo.com/
+        - echo "Deployed"
+    environment:
+        name: development
+        url: develop.ifra-virtualexpo.com
+    only:
+        - development
