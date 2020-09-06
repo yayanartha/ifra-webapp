@@ -8,7 +8,7 @@ const Wallpaper = (props: Props) => {
       onClick={props.onClick}
       className="absolute"
       style={{
-        left: 'calc(50vw + 12.7vw)',
+        left: 'calc(50vw + 12vw)',
         top: '63.1%',
         perspective: '1000px',
       }}

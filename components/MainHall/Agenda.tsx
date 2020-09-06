@@ -7,7 +7,7 @@ const Agenda = (props: Props) => {
     <div
       className="absolute"
       style={{
-        left: 'calc(50vw + 24.5vw)',
+        left: 'calc(50vw + 23.6vw)',
         top: '21.5%',
         perspective: '1000px',
       }}

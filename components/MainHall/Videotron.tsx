@@ -8,7 +8,7 @@ const Videotron = (props: Props) => {
       onClick={props.onClick}
       className="absolute"
       style={{
-        left: 'calc(50vw + 24.6vw)',
+        left: 'calc(50vw + 23.7vw)',
         top: '37.9%',
         perspective: '1000px',
       }}

@@ -8,7 +8,7 @@ const Poster = (props: Props) => {
       onClick={props.onClick}
       className="absolute"
       style={{
-        left: 'calc(50vw - 37vw)',
+        left: 'calc(50vw - 37.3vw)',
         top: '29.8%',
         perspective: '1000px',
       }}

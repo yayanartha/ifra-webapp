@@ -8,7 +8,7 @@ const Press = (props: Props) => {
       onClick={props.onClick}
       className="absolute"
       style={{
-        left: 'calc(50vw + 28.8vw)',
+        left: 'calc(50vw + 27.8vw)',
         top: '64.7%',
         perspective: '1000px',
       }}

@@ -102,29 +102,25 @@ const MainHall = () => {
   }, [isShowWallpaper]);
 
   return (
-    <div className="flex flex-col flex-1">
+    <div>
       <Navbar />
 
-      <div className="fixed">
-        <img
-          src="/bg-main1.webp"
-          alt="Main background"
-          className="w-full h-auto object-contain fixed"
-        />
+      <div className="fixed w-screen h-screen overflow-y-scroll overflow-x-hidden">
+        <img src="/bg-main1.webp" alt="Main background" className="w-full h-auto" />
 
         <div
-          className="relative top-0 left-0"
+          className="absolute top-0"
           style={{
             width: 'calc((1920 * 100vh) / 1080)',
-            height: 'calc((1080 * 100vw) / 1920)',
+            height: 'calc(((1080 * 100vw) / 1920) - 10px)',
           }}
         >
           {/* HOTSPOTS */}
           <MainLogo onClick={_onClickLogo} />
-          <OrganiserLogo onClick={_onClickLogo} left="calc(50vw - 15.6vw)" top="33.5%" />
-          <OrganiserLogo onClick={_onClickLogo} left="calc(50vw + 7.6vw)" top="33.5%" />
-          <OrganiserMiniLogo onClick={_onClickLogo} left="calc(50vw - 4.15vw)" top="31.4%" />
-          <OrganiserMiniLogo onClick={_onClickLogo} left="calc(50vw - 4.15vw)" top="46.5%" />
+          <OrganiserLogo onClick={_onClickLogo} left="calc(50vw - 16vw)" top="33.5%" />
+          <OrganiserLogo onClick={_onClickLogo} left="calc(50vw + 7vw)" top="33.5%" />
+          <OrganiserMiniLogo onClick={_onClickLogo} left="calc(50vw - 4.65vw)" top="31.4%" />
+          <OrganiserMiniLogo onClick={_onClickLogo} left="calc(50vw - 4.65vw)" top="46.5%" />
           <Poster onClick={_onClickPoster} />
           <XBanner onClick={_onClickBanner} />
           <Wallpaper onClick={_onClickWallpaper} />
@@ -132,9 +128,9 @@ const MainHall = () => {
           <Videotron onClick={_onClickVideotron} />
           <Exhibition onClick={_onClickExhibition} />
           <Press onClick={_onClickPress} />
-
-          <SponsorFooter onClick={_onClickLogo} />
         </div>
+
+        <SponsorFooter onClick={_onClickLogo} />
       </div>
 
       <ModalCenter isOpen={isShowPress} onClose={_closePress}>

@@ -8,7 +8,7 @@ const XBanner = (props: Props) => {
       onClick={props.onClick}
       className="absolute"
       style={{
-        left: 'calc(50vw - 31.1vw)',
+        left: 'calc(50vw - 31.5vw)',
         top: '64%',
         perspective: '1000px',
       }}

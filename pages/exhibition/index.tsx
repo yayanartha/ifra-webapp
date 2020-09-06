@@ -58,17 +58,17 @@ const Exhibition = () => {
   }, [router]);
 
   return (
-    <div className="flex flex-col flex-1">
+    <div>
       <Navbar />
 
-      <div className="fixed">
-        <img src="/bg-exhibition.webp" alt="Main background" className="w-full h-auto fixed" />
+      <div className="fixed w-screen h-screen overflow-y-scroll overflow-x-hidden">
+        <img src="/bg-exhibition.webp" alt="Exhibition Hall" className="w-full h-auto" />
 
         <div
-          className="relative top-0 left-0"
+          className="absolute top-0"
           style={{
             width: 'calc((1920 * 100vh) / 1080)',
-            height: 'calc((1080 * 100vw) / 1920)',
+            height: 'calc(((1080 * 100vw) / 1920) - 10px)',
           }}
         >
           <ExhibitorCategoryButton
@@ -168,11 +168,10 @@ const Exhibition = () => {
             top="37%"
             label="Education Center"
           />
-
-          <div className="absolute w-screen flex flex-col items-center" style={{ bottom: '30px' }}>
-            <BottomMenu data={bottomMenu} />
-          </div>
         </div>
+      </div>
+      <div className="fixed w-screen flex flex-col items-center" style={{ bottom: '20px' }}>
+        <BottomMenu data={bottomMenu} />
       </div>
     </div>
   );

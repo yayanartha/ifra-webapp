@@ -5,10 +5,10 @@ type Props = {
 const SponsorFooter = (props: Props) => {
   return (
     <div
-      className="absolute left-0 bottom-0 bg-white h-32 w-screen flex px-2 py-4 flex-wrap"
-      style={{ maxHeight: '130px' }}
+      className="fixed left-0 bottom-0 bg-white w-screen flex px-2 py-4 flex-wrap"
+      style={{ maxHeight: '100px' }}
     >
-      {Array.from({ length: 40 }, (s, i) => (
+      {Array.from({ length: 25 }, (s, i) => (
         <button
           onClick={props.onClick}
           key={i}
