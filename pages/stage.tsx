@@ -13,7 +13,7 @@ const Stage = () => {
         style={{
           width: '100vw',
           height: '100vh',
-          background: 'url(/bg-main-stage.png) no-repeat center center',
+          background: 'url(/bg-main-stage.webp) no-repeat center center',
           objectFit: 'cover',
         }}
       >

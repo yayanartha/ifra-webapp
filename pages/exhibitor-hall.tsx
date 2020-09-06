@@ -22,7 +22,7 @@ const ExhibitorHall = (props: ExhibitorHallProps) => {
 
       <div className="relative w-screen mt-12" style={{ height: 'calc(100vh - 3rem)' }}>
         <img
-          src="/bg-exhibitor-hall.png"
+          src="/bg-exhibitor-hall.webp"
           alt="Main background"
           className="w-full h-full object-cover"
         />
@@ -38,7 +38,7 @@ const ExhibitorHall = (props: ExhibitorHallProps) => {
                         <>
                           <Item
                             onClick={onClickItem}
-                            image="/booth.png"
+                            image="/booth.webp"
                             alt="Lorem"
                             title={`Booth ${(col + 1) * (row + 1) * (page + 1)}`}
                           />

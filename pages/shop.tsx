@@ -22,7 +22,7 @@ const Shop = (props: ShopProps) => {
           height: 'calc(100vh - 3rem)',
         }}
       >
-        <img src="/bg_shop.png" alt="Main background" className="w-full h-full object-cover" />
+        <img src="/bg_shop.webp" alt="Main background" className="w-full h-full object-cover" />
 
         <div className="absolute inset-0 bg-black bg-opacity-50">
           <div className="flex flex-row" style={{ height: 'calc(100vh - 3rem)' }}>

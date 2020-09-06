@@ -31,7 +31,7 @@ const ExhibitorHall = (props: ExhibitorHallProps) => {
 
       <div className="relative w-screen mt-12" style={{ height: 'calc(100vh - 3rem)' }}>
         <img
-          src="/bg-exhibitor-hall.png"
+          src="/bg-expert.webp"
           alt="Main background"
           className="w-full h-full object-cover"
         />

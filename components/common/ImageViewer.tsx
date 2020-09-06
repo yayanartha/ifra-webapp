@@ -6,18 +6,18 @@ const ImageViewer = () => {
       <div className="flex">
         <div className="flex flex-col w-8/12">
           <div style={{ height: '450px' }}>
-            <img src="/brochure-1.png" className="w-full h-full object-cover" />
+            <img src="/brochure-1.webp" className="w-full h-full object-cover" />
           </div>
 
           <div className="flex flex-col flex-1 pt-4">
             <div className="flex items-end">
-              <img src="/brochure-1.png" className="w-40 h-full object-cover opacity-50" />
+              <img src="/brochure-1.webp" className="w-40 h-full object-cover opacity-50" />
               <div className="w-4" />
-              <img src="/brochure-1.png" className="w-40 h-full object-cover opacity-50" />
+              <img src="/brochure-1.webp" className="w-40 h-full object-cover opacity-50" />
               <div className="w-4" />
-              <img src="/brochure-1.png" className="w-40 h-full object-cover opacity-50" />
+              <img src="/brochure-1.webp" className="w-40 h-full object-cover opacity-50" />
               <div className="w-4" />
-              <img src="/brochure-1.png" className="w-40 h-full object-cover opacity-50" />
+              <img src="/brochure-1.webp" className="w-40 h-full object-cover opacity-50" />
             </div>
           </div>
         </div>
