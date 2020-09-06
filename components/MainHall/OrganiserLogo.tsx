@@ -1,16 +1,16 @@
-import Clickable from '@components/common/Clickable';
-
 type Props = {
-  onClick(): void;
+  left: string;
+  top: string;
+  onClick: () => void;
 };
 
 const OrganiserLogo = (props: Props) => {
   return (
-    <Clickable onClick={props.onClick} rounded={true}>
-      <div className="rounded-full opacity-50" style={{ width: '9vw', height: '9vw' }}>
-        {/*  */}
-      </div>
-    </Clickable>
+    <div
+      onClick={props.onClick}
+      className="absolute rounded-full flex items-center justify-center cursor-pointer bg-white opacity-0 hover:opacity-25"
+      style={{ left: props.left, top: props.top, width: '8vw', height: '8vw' }}
+    />
   );
 };
 

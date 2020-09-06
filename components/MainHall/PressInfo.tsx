@@ -7,7 +7,7 @@ const PressInfo = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="flex flex-col" style={{ width: '1080px', height: '600px' }}>
+    <div className="flex flex-col bg-white" style={{ width: '1080px', height: '600px' }}>
       <ul className="flex border-b pt-6 mx-8">
         <li className={`mr-1 ${activeTab === 0 ? '-mb-px' : ''}`}>
           <a

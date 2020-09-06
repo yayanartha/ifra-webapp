@@ -32,6 +32,7 @@ const ModalCenter = (props: Props) => {
           borderWidth: 0,
           padding: 0,
           borderRadius: 0,
+          backgroundColor: 'transparent',
         },
       }}
     >

@@ -1,16 +1,29 @@
-import Clickable from '@components/common/Clickable';
-
 type Props = {
   onClick(): void;
 };
 
 const Poster = (props: Props) => {
   return (
-    <Clickable onClick={props.onClick}>
-      <div className="opacity-50 transform skew-y-6" style={{ width: '7.2vw', height: '18vw' }}>
-        {/*  */}
+    <div
+      onClick={props.onClick}
+      className="absolute"
+      style={{
+        left: 'calc(50vw - 37vw)',
+        top: '29.8%',
+        perspective: '1000px',
+      }}
+    >
+      <div
+        className="bg-white flex items-center justify-center cursor-pointer hover:bg-gray-200"
+        style={{
+          width: '6.8vw',
+          height: '16vw',
+          transform: 'rotateY(25deg) rotateX(-4deg) skewY(6deg)',
+        }}
+      >
+        <p>POSTER</p>
       </div>
-    </Clickable>
+    </div>
   );
 };
 
