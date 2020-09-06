@@ -1,18 +1,48 @@
-import PrimaryButton from '@components/common/PrimaryButton';
 import { padStart } from 'lodash';
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import Countdown from 'react-countdown';
+import PrimaryButton from '@components/common/PrimaryButton';
+import { useRouter } from 'next/router';
 
 interface CountDownProps {}
 
 export default (props: CountDownProps) => {
+  const router = useRouter();
+
+  const [isShowRegisterMenu, setIsShowRegisterMenu] = useState(false);
+
+  const _handleRegister = useCallback(() => {
+    setIsShowRegisterMenu(true);
+  }, [isShowRegisterMenu]);
+
+  const _registerSponsor = useCallback(() => {
+    router.push('/sponsor-registration');
+  }, []);
+
+  const _registerExhibitor = useCallback(() => {
+    router.push('/exhibitor-registration');
+  }, []);
+
+  const _registerVisitor = useCallback(() => {
+    router.push('/visitor-registration');
+  }, []);
+
+  const _registerMedia = useCallback(() => {
+    router.push('/media-registration');
+  }, []);
+
   return (
-    <div className="bg-black bg-opacity-50 absolute inset-0 flex flex-col flex-1 items-center justify-center">
-      <h1 className="text-white mb-8 text-3xl">{'Event Countdown'}</h1>
+    <div
+      className="absolute inset-0 flex flex-col flex-1 items-center justify-center"
+      style={{ backgroundColor: 'rgba(0,0,0,0.8)' }}
+    >
+      <p className="text-white mb-8 text-3xl font-body font-bold">
+        The 18<sup>th</sup> IFRA Expo 2020
+      </p>
 
       <div className="flex flex-row mb-16">
         <Countdown
-          date={Date.now() + 10000000}
+          date={new Date('2020-09-18').setHours(10)}
           autoStart
           renderer={({ days, hours, minutes, seconds }) => (
             <>
@@ -28,22 +58,50 @@ export default (props: CountDownProps) => {
         />
       </div>
 
-      <div className="w-1/5 flex self-center">
-        <PrimaryButton label="Register Now" onClick={() => {}} />
-      </div>
+      {isShowRegisterMenu ? (
+        <div className="flex">
+          <button
+            onClick={_registerSponsor}
+            className="rounded-lg w-32 h-32 bg-primary flex items-center justify-center hover:bg-blue_button focus:outline-none"
+          >
+            <p className="text-white text-center text-base mt-2 font-body font-medium">Sponsor</p>
+          </button>
+          <div className="w-6" />
+          <button
+            onClick={_registerExhibitor}
+            className="rounded-lg w-32 h-32 bg-primary flex items-center justify-center hover:bg-blue_button focus:outline-none"
+          >
+            <p className="text-white text-center text-base mt-2 font-body font-medium">Exhibitor</p>
+          </button>
+          <div className="w-6" />
+          <button
+            onClick={_registerVisitor}
+            className="rounded-lg w-32 h-32 bg-primary flex items-center justify-center hover:bg-blue_button focus:outline-none"
+          >
+            <p className="text-white text-center text-base mt-2 font-body font-medium">Visitor</p>
+          </button>
+          <div className="w-6" />
+          <button
+            onClick={_registerMedia}
+            className="rounded-lg w-32 h-32 bg-primary flex items-center justify-center hover:bg-blue_button focus:outline-none"
+          >
+            <p className="text-white text-center text-base mt-2 font-body font-medium">Media</p>
+          </button>
+        </div>
+      ) : (
+        <PrimaryButton onClick={_handleRegister} label="Register Now" width="250px" />
+      )}
     </div>
   );
 };
 
-export const ItemCount = (props: { count: string; label?: string }) => {
+const ItemCount = (props: { count: string; label: string }) => {
   return (
-    <div>
-      <div className="rounded-lg w-24 h-24 bg-blue-500 flex items-center justify-center">
-        <h1 className="text-white text-5xl font-extrabold tracking-wider">{props.count}</h1>
+    <div className="flex flex-col">
+      <div className="rounded-lg w-32 h-32 bg-primary flex items-center justify-center">
+        <p className="text-white text-5xl font-body font-bold tracking-wider">{props.count}</p>
       </div>
-      {props.label !== undefined && (
-        <p className="text-white text-center text-sm mt-2">{props.label}</p>
-      )}
+      <p className="text-white text-center text-sm mt-2 font-body">{props.label}</p>
     </div>
   );
 };

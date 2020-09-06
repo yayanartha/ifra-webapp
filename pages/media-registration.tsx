@@ -1,9 +1,16 @@
 import SideLogo from '@components/Registration/SideLogo';
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useRouter } from 'next/router';
 
 interface MediaRegistrationProps {}
 
 const MediaRegistration = (props: MediaRegistrationProps) => {
+  const router = useRouter();
+
+  const _handleSubmit = useCallback(() => {
+    router.push('/login');
+  }, []);
+
   return (
     <div className="w-screen h-screen bg-white flex">
       <SideLogo />
@@ -59,8 +66,6 @@ const MediaRegistration = (props: MediaRegistrationProps) => {
                 placeholder="Website"
               />
             </div>
-
-
           </div>
 
           <div className="flex flex-col flex-1">
@@ -108,33 +113,31 @@ const MediaRegistration = (props: MediaRegistrationProps) => {
                 placeholder="Fax"
               />
             </div>
-
-            
           </div>
         </div>
 
         <div className="grid grid-cols-2 w-full gap-8 mb-6">
-        <div className="shadow-md border-dashed border border-blue-400 pt-6 pb-8">
-              <h1 className="font-bold text-blue-400 text-md text-center">
-                Please Attach Your Scan of Press ID*
-              </h1>
-              <p className="font-thin text-blue-400 text-xs text-center mt-8">
-                File type must be JPEG/JPG/PNG
-                <br />
-                Max file size is 3MB
-              </p>
-            </div>
+          <div className="shadow-md border-dashed border border-blue-400 pt-6 pb-8">
+            <h1 className="font-bold text-blue-400 text-md text-center">
+              Please Attach Your Scan of Press ID*
+            </h1>
+            <p className="font-thin text-blue-400 text-xs text-center mt-8">
+              File type must be JPEG/JPG/PNG
+              <br />
+              Max file size is 3MB
+            </p>
+          </div>
 
-        <div className="shadow-md border-dashed border border-blue-400 pt-6 pb-8">
-              <h1 className="font-bold text-blue-400 text-md text-center">
-                Please Attach Your Scan of Recents Photograph*
-              </h1>
-              <p className="font-thin text-blue-400 text-xs text-center mt-8">
-                File type must be JPEG/JPG/PNG
-                <br />
-                Max file size is 3MB
-              </p>
-            </div>
+          <div className="shadow-md border-dashed border border-blue-400 pt-6 pb-8">
+            <h1 className="font-bold text-blue-400 text-md text-center">
+              Please Attach Your Scan of Recents Photograph*
+            </h1>
+            <p className="font-thin text-blue-400 text-xs text-center mt-8">
+              File type must be JPEG/JPG/PNG
+              <br />
+              Max file size is 3MB
+            </p>
+          </div>
         </div>
 
         <label className="flex items-center font-light text-xs text-gray-800 ">
@@ -146,7 +149,7 @@ const MediaRegistration = (props: MediaRegistrationProps) => {
         </label>
 
         <button
-          onClick={() => {}}
+          onClick={_handleSubmit}
           className="bg-blue-600 flex self-center justify-center items-center w-full h-10 text-white font-light text-xs mt-6"
         >
           SUBMIT

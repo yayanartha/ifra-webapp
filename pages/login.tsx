@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Clickable from '@components/common/Clickable';
 import PrimaryButton from '@components/common/PrimaryButton';
+import { useRouter } from 'next/router';
 
 interface LoginProps {}
 
 const Login = (props: LoginProps) => {
+  const router = useRouter();
+
+  const _handleSubmit = useCallback(() => {
+    router.push('/main-hall');
+  }, []);
+
   return (
     <div className="flex flex-col flex-1">
       <div className="relative w-screen" style={{ height: '100vh' }}>
@@ -16,25 +23,35 @@ const Login = (props: LoginProps) => {
             <div className="flex flex-col flex-1 items-center justify-center">
               <img src="/logo.png" alt="Logo IFRA" className="w-64 h-32 object-contain mb-8" />
 
-              <form className="flex flex-col w-2/4">
-
+              <div className="flex flex-col w-2/4">
                 <div className="mb-4">
                   {/* <label className="block text-gray-700 text-sm font-bold mb-2">
                     Username
                   </label> */}
-                  <input className="appearance-none border-b-2 w-full py-2 px-1 text-black text-xs leading-tight" autoFocus id="username" type="text" placeholder="Username" />
+                  <input
+                    className="appearance-none border-b-2 w-full py-2 px-1 text-black text-xs leading-tight"
+                    autoFocus
+                    id="username"
+                    type="text"
+                    placeholder="Username"
+                  />
                 </div>
                 <div className="mb-6">
                   {/* <label className="block text-gray-700 text-sm font-bold mb-2">
                     Password
                   </label> */}
-                  <input className="appearance-none border-b-2 w-full py-2 px-1 text-black text-xs leading-tight" id="password" type="password" placeholder="Password" />
+                  <input
+                    className="appearance-none border-b-2 w-full py-2 px-1 text-black text-xs leading-tight"
+                    id="password"
+                    type="password"
+                    placeholder="Password"
+                  />
                   {/* <p className="text-red-500 text-xs italic">Please choose a password.</p> */}
                 </div>
 
                 <button
                   className="mt-8 shadow bg-blue-700 hover:bg-blue-600 focus:shadow-outline focus:outline-none text-white py-2 px-4 rounded"
-                  onClick={() => {}}
+                  onClick={_handleSubmit}
                 >
                   Sign In
                 </button>
@@ -49,7 +66,7 @@ const Login = (props: LoginProps) => {
                     <p className="text-xs tracking-wider">{'Need Help?'}</p>
                   </button>
                 </div>
-              </form>
+              </div>
             </div>
 
             <div className="flex flex-col items-center mb-4">

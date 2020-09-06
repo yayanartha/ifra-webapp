@@ -35,7 +35,7 @@ const Navbar = () => {
         </button>
 
         <div className="absolute left-0 top-0 h-12 flex items-center">
-          <Link href="/">
+          <Link href="/main-hall">
             <img
               src="/logo.png"
               alt="Logo IFRA"

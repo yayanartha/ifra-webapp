@@ -1,9 +1,16 @@
 import SideLogo from '@components/Registration/SideLogo';
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useRouter } from 'next/router';
 
 interface SponsorRegistrationProps {}
 
 const SponsorRegistration = (props: SponsorRegistrationProps) => {
+  const router = useRouter();
+
+  const _handleSubmit = useCallback(() => {
+    router.push('/login');
+  }, []);
+
   return (
     <div className="w-screen h-screen bg-white flex">
       <SideLogo />
@@ -123,7 +130,7 @@ const SponsorRegistration = (props: SponsorRegistrationProps) => {
             </label>
 
             <button
-              onClick={() => {}}
+              onClick={_handleSubmit}
               className="bg-blue-600 flex self-center justify-center items-center w-full h-10 text-white font-light text-xs mt-6"
             >
               SUBMIT
