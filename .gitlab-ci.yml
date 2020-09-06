@@ -5,7 +5,7 @@ stages:
     - deploy
 
 before_script:
-  - apt-get update -qq
+  - apt-get update -qy
 
 build:
     stage: build
@@ -19,6 +19,9 @@ build:
         expire_in: 1 hour
         paths:
             - out
+    only:
+        - production
+        - development
 
 deploy_production:
     stage: deploy
@@ -36,3 +39,19 @@ deploy_production:
         url: ifra-virtualexpo.com
     only:
         - production
+
+deploy_development:
+    stage: deploy
+    image:
+        name: banst/awscli
+        entrypoint: [""]
+    script:
+        - echo "Deploying to server"
+        - aws configure set region ap-southeast-1
+        - aws s3 sync out s3://develop.ifra-virtualexpo.com/
+        - echo "Deployed"
+    environment:
+        name: development
+        url: develop.ifra-virtualexpo.com
+    only:
+        - development
