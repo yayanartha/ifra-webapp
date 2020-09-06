@@ -1,8 +1,11 @@
-image: python:3.6.3
+image: node:12
 
 stages:
     - build
     - deploy
+
+before_script:
+  - apt-get update -qq && apt-get install -qy libelf1
 
 build:
     stage: build
@@ -34,4 +37,4 @@ deploy_production:
         name: production
         url: ifra-virtualexpo.com
     only:
-        - production
+        - master
