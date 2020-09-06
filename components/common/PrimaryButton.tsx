@@ -11,7 +11,7 @@ export default (props: PrimaryButtonProps) => {
   return (
     <button
       onClick={props.onClick}
-      className={`focus:outline-none shadow-lg ${
+      className={`shadow-lg hover:bg-primary focus:outline-none ${
         props.roundedLight ? 'rounded-md' : 'rounded-lg'
       } bg-blue_button h-12`}
       style={{

@@ -11,7 +11,7 @@ const ExhibitorHelpMenu = (props: Props) => {
   return (
     <button
       onClick={props.onClick}
-      className="rounded-lg flex flex-col items-center justify-start"
+      className="rounded-lg flex flex-col items-center justify-start focus:outline-none"
       style={{ width: '3.5vw', height: '6vw', marginBottom: '0.5vw' }}
     >
       <div
