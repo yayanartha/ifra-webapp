@@ -33,5 +33,3 @@ deploy_production:
     environment:
         name: production
         url: ifra-virtualexpo.com
-    only:
-        - production
