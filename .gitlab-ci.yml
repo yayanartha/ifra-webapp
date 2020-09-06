@@ -1,11 +1,11 @@
-image: node:12
+image: node:latest-slim
 
 stages:
     - build
     - deploy
 
 before_script:
-  - apt-get update -qq && apt-get install -qy python-dev && apt-get install -qy python-pip
+  - apt-get update -qq
 
 build:
     stage: build
