@@ -1,0 +1,37 @@
+image: python:3.6.3
+
+stages:
+    - build
+    - deploy
+
+build:
+    stage: build
+    script:
+        - echo "Building deploy package"
+        - yarn install
+        - yarn build
+        - yarn export
+        - echo "Build successful"
+    artifacts:
+        expire_in: 1 hour
+        paths:
+            - out
+
+deploy_production:
+    stage: deploy
+    script:
+        - echo "Deploying to server"
+        - pip install awsebcli --upgrade --user
+        - mkdir ~/.aws/
+        - touch ~/.aws/credentials
+        - printf "[ifra]\naws_access_key_id = %s\naws_secret_access_key = %s\n" "$AWS_ACCESS_KEY_ID" "$AWS_SECRET_ACCESS_KEY" >> ~/.aws/credentials
+        - touch ~/.aws/config
+        - printf "[profile ifra]\nregion=ap-southeast-1\noutput=json" >> ~/.aws/config
+        - /root/.local/bin/aws s3 sync out s3://ifra-virtualexpo.com/
+        - /root/.local/bin/aws cloudfront create-invalidation --distribution-id E1LNBTC98HF5CQ --paths '/index.html' > /dev/null
+        - echo "Deployed"
+    environment:
+        name: production
+        url: ifra-virtualexpo.com
+    only:
+        - production
