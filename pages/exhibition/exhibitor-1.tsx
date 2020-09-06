@@ -1,7 +1,6 @@
 import Navbar from '@components/Navbar/Navbar';
 import { useCallback, useState, useMemo } from 'react';
 import ModalCenter from '@components/common/ModalCenter';
-import ImageViewer from '@components/common/ImageViewer';
 import BottomMenu, { BottomMenuItem } from '@components/common/BottomMenu';
 import ReactIcons from '@components/common/ReactIcons';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
@@ -9,6 +8,7 @@ import InfoSpot from '@components/Exhibitor/InfoSpot';
 import { FaComment, FaIdCardAlt, FaVideo } from 'react-icons/fa';
 import ExhibitorHelpMenu from '@components/Exhibitor/ExhibitorHelpMenu';
 import { SiGooglecalendar } from 'react-icons/si';
+import ExhibitorImagesModal from '@components/Exhibitor/ExhibitorImagesModal';
 
 const Exhibitor1 = () => {
   const [isShowVideo, setIsShowVideo] = useState(false);
@@ -112,13 +112,9 @@ const Exhibitor1 = () => {
           }}
         >
           <InfoSpot onClick={() => _showInfo()} left="calc(50vw - 27.5vw)" top="58%" />
-
           <InfoSpot onClick={() => _showInfo()} left="calc(50vw - 4.5vw)" top="27.5%" />
-
           <InfoSpot onClick={() => _showInfo()} left="calc(50vw - 13vw)" top="48%" />
-
           <InfoSpot onClick={() => _showInfo()} left="calc(50vw + 2.5vw)" top="62%" />
-
           <InfoSpot onClick={() => _showInfo()} left="calc(50vw + 22vw)" top="48%" />
 
           <div className="absolute w-screen flex flex-col items-center" style={{ bottom: '30px' }}>
@@ -196,7 +192,7 @@ const Exhibitor1 = () => {
       </ModalCenter>
 
       <ModalCenter isOpen={isShowBrochure} onClose={() => setIsShowBrochure(false)}>
-        <ImageViewer />
+        <ExhibitorImagesModal />
       </ModalCenter>
     </div>
   );

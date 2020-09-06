@@ -22,7 +22,7 @@ const Stage = () => {
           style={{ backgroundColor: 'rgba(0,0,0,0.75)' }}
         >
           <div className="bg-white" style={{ width: '810px', height: '390px', marginTop: '130px' }}>
-            <img src="/video-main-stage.png" className="w-full h-full bg-cover" />
+            <img src="/video-main-stage.webP" className="w-full h-full bg-cover" />
           </div>
 
           {isShowSchedule && (
@@ -42,7 +42,7 @@ const Stage = () => {
               onClick={() => setIsShowSchedule(false)}
               className="absolute w-screen h-screen flex flex-col items-center pt-32"
             >
-              <Schedule title="Main Stage" />
+              <Schedule dayNo={1} changeDayNo={() => {}} scheduleData={[]} title="Main Stage" />
 
               <p className="schedule-footnote absolute" style={{ bottom: '60px' }}>
                 Tekan tombol lonceng untuk mendapatkan notifikasi saat acara akan berlangsung

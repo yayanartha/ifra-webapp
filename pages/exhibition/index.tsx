@@ -42,7 +42,7 @@ const Exhibition = () => {
   }, [router]);
 
   const _gotoMainStage = useCallback(() => {
-    router.push('/');
+    router.push('/stage');
   }, [router]);
 
   const _gotoClassroom = useCallback(() => {

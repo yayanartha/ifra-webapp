@@ -15,7 +15,6 @@ import Agenda from '@components/MainHall/Agenda';
 import Videotron from '@components/MainHall/Videotron';
 import Exhibition from '@components/MainHall/Exhibition';
 import Press from '@components/MainHall/Press';
-import EventSchedule from '@components/MainHall/EventSchedule';
 import LogoViewer from '@components/MainHall/LogoViewer';
 
 const MainHall = () => {
