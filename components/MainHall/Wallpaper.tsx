@@ -1,16 +1,29 @@
-import Clickable from '@components/common/Clickable';
-
 type Props = {
   onClick(): void;
 };
 
 const Wallpaper = (props: Props) => {
   return (
-    <Clickable onClick={props.onClick}>
-      <div className="opacity-50" style={{ width: '9.3vw', height: '7.5vw' }}>
-        {/*  */}
+    <div
+      onClick={props.onClick}
+      className="absolute"
+      style={{
+        left: 'calc(50vw + 12.7vw)',
+        top: '63.1%',
+        perspective: '1000px',
+      }}
+    >
+      <div
+        className="bg-white flex items-center justify-center cursor-pointer hover:bg-gray-200"
+        style={{
+          width: '8.6vw',
+          height: '6.65vw',
+          transform: 'rotateY(-20deg) ',
+        }}
+      >
+        <p>WALLPAPER</p>
       </div>
-    </Clickable>
+    </div>
   );
 };
 

@@ -1,10 +1,14 @@
 import ReactIcons from '@components/common/ReactIcons';
 import { FaChevronDown } from 'react-icons/fa';
-import { useMemo } from 'react';
+import { useMemo, useCallback, useState } from 'react';
 import ScheduleItem, { ScheduleItemProps } from './ScheduleItem';
+import DropdownContainer from '@components/common/DropdownContainer';
 
 type Props = {
+  dayNo: number;
   title: string;
+  scheduleData: ScheduleItemProps[][];
+  changeDayNo(dayNo: number): void;
 };
 
 const Schedule = (props: Props) => {
@@ -44,12 +48,26 @@ const Schedule = (props: Props) => {
     []
   );
 
+  const [isShowDaySelect, setIsShowDaySelect] = useState(false);
+
+  const _toggleDaySelect = useCallback(() => {
+    setIsShowDaySelect(!isShowDaySelect);
+  }, [isShowDaySelect]);
+
+  const _selectDay = useCallback(
+    (dayNo: number) => {
+      props.changeDayNo(dayNo);
+      _toggleDaySelect();
+    },
+    [isShowDaySelect]
+  );
+
   return (
     <div className="flex flex-col items-center">
-      <div className="flex items-center mb-8 ml-4">
-        <p className="schedule-title">Day 1</p>
-        <ReactIcons Icon={FaChevronDown} className="text-white ml-4 text-xs" />
-      </div>
+      <button onClick={_toggleDaySelect} className="flex items-center mb-8 ml-4 focus:outline-none">
+        <p className="schedule-title hover:text-gray-300">{`Day ${props.dayNo}`}</p>
+        <ReactIcons Icon={FaChevronDown} className="text-white ml-4 text-xs hover:text-gray-300" />
+      </button>
 
       <div className="mb-4">
         <p className="schedule-location">{props.title}</p>
@@ -62,6 +80,33 @@ const Schedule = (props: Props) => {
           <ScheduleItem key={i} {...s} />
         ))}
       </div>
+
+      {isShowDaySelect && (
+        <DropdownContainer onDismiss={_toggleDaySelect}>
+          <div
+            className="fixed z-20 shadow-2xl bg-white border-b-4 border-primary"
+            style={{ top: '10%', width: '150px' }}
+          >
+            <div style={{ height: '12px' }} />
+            {props.dayNo !== 1 && (
+              <button onClick={() => _selectDay(1)} className="hover:bg-gray-200 py-3 w-full">
+                <p className="main-rundown-item">Day 1</p>
+              </button>
+            )}
+            {props.dayNo !== 2 && (
+              <button onClick={() => _selectDay(2)} className="hover:bg-gray-200 py-3 w-full">
+                <p className="main-rundown-item">Day 2</p>
+              </button>
+            )}
+            {props.dayNo !== 3 && (
+              <button onClick={() => _selectDay(3)} className="hover:bg-gray-200 py-3 w-full">
+                <p className="main-rundown-item">Day 3</p>
+              </button>
+            )}
+            <div style={{ height: '12px' }} />
+          </div>
+        </DropdownContainer>
+      )}
     </div>
   );
 };
