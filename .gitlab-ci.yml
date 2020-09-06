@@ -1,4 +1,4 @@
-image: node:12
+image: node:latest-alpine
 
 stages:
     - build
@@ -22,16 +22,14 @@ build:
 
 deploy_production:
     stage: deploy
+    image:
+        name: banst/awscli
+        entrypoint: [""]
     script:
         - echo "Deploying to server"
-        - pip install awsebcli --upgrade --user
-        - mkdir ~/.aws/
-        - touch ~/.aws/credentials
-        - printf "[ifra]\naws_access_key_id = %s\naws_secret_access_key = %s\n" "$AWS_ACCESS_KEY_ID" "$AWS_SECRET_ACCESS_KEY" >> ~/.aws/credentials
-        - touch ~/.aws/config
-        - printf "[profile ifra]\nregion=ap-southeast-1\noutput=json" >> ~/.aws/config
-        - /root/.local/bin/aws s3 sync out s3://ifra-virtualexpo.com/
-        - /root/.local/bin/aws cloudfront create-invalidation --distribution-id E1LNBTC98HF5CQ --paths '/index.html' > /dev/null
+        - aws configure set region ap-southeast-1
+        - aws s3 sync out s3://ifra-virtualexpo.com/
+        - aws cloudfront create-invalidation --distribution-id E1LNBTC98HF5CQ --paths '/index.html' > /dev/null
         - echo "Deployed"
     environment:
         name: production
