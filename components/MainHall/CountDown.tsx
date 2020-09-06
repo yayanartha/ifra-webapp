@@ -46,7 +46,7 @@ export default (props: CountDownProps) => {
           autoStart
           renderer={({ days, hours, minutes, seconds }) => (
             <>
-              <ItemCount count={padStart(`${days}`, 2, '0')} label="DAY" />
+              <ItemCount count={padStart(`${days}`, 2, '0')} label="DAYS" />
               <div className="w-6" />
               <ItemCount count={padStart(`${hours}`, 2, '0')} label="HOURS" />
               <div className="w-6" />

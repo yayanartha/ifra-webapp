@@ -67,13 +67,13 @@ const Stage = () => {
                   Anda akan dihubungi oleh team IFRA 2020
                 </h1>
                 <div className="flex">
-                  <ItemCount count={'07'} />
+                  <ItemCount count={'07'} label="DAYS" />
                   <div className="w-6" />
-                  <ItemCount count={'11'} />
+                  <ItemCount count={'11'} label="HOURS" />
                   <div className="w-6" />
-                  <ItemCount count={'25'} />
+                  <ItemCount count={'25'} label="MINUTES" />
                   <div className="w-6" />
-                  <ItemCount count={'23'} />
+                  <ItemCount count={'23'} label="SECONDS" />
                 </div>
               </div>
 
