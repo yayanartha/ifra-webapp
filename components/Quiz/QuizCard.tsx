@@ -2,7 +2,7 @@ import { useMemo, useState, useCallback } from 'react';
 import ReactIcons from '@components/common/ReactIcons';
 import PrimaryButton from '@components/common/PrimaryButton';
 
-const QuizCard = () => {
+const QuizCard = (props: {onClickJawab(): void}) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [isShowing, setIsShowing] = useState(true);
 
@@ -33,6 +33,7 @@ const QuizCard = () => {
 
   const _submitAnswer = useCallback(() => {
     setIsShowing(false);
+    props.onClickJawab();
   }, [selectedOption, isShowing]);
 
   if (!isShowing) return null;
