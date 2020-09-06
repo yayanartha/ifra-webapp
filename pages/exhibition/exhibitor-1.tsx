@@ -118,88 +118,86 @@ const Exhibitor1 = () => {
           <InfoSpot onClick={() => _openImagesModal(0)} left="calc(50vw - 13.3vw)" top="48%" />
           <InfoSpot onClick={() => _openImagesModal(0)} left="calc(50vw + 2vw)" top="62%" />
           <InfoSpot onClick={() => _openImagesModal(0)} left="calc(50vw + 21.3vw)" top="48%" />
+        </div>
 
-          <div className="absolute w-screen flex flex-col items-center" style={{ bottom: '30px' }}>
-            <button
-              onClick={_toggleFavorite}
-              className="flex bg-primary rounded-md items-center justify-center shadow-lg hover:bg-blue-500 focus:outline-none"
-              style={{ marginBottom: '16px', width: '8vw', height: '3.7vw' }}
-            >
-              <ReactIcons
-                Icon={isFavorited ? AiFillHeart : AiOutlineHeart}
-                className="text-white mr-2"
-                style={{ width: '1.5vw', height: '1.5vw', minWidth: '16px', minHeight: '16px' }}
-              />
-              <p className="exhibition-menu">Favorite</p>
-            </button>
-
-            <BottomMenu data={bottomMenu} />
-          </div>
-
+        <div className="fixed" style={{ top: 'calc(3rem + 20px)', right: '35px' }}>
           <button
             onClick={_handleLater}
-            className="absolute bg-white rounded-lg flex items-center justify-center hover:bg-gray-200 focus:outline-none"
+            className="bg-white rounded-lg flex items-center justify-center hover:bg-gray-200 focus:outline-none"
             style={{ width: '8vw', height: '4vw', top: '9%', left: 'calc(50vw + 40vw)' }}
           >
             <p className="btn-later">LATER</p>
           </button>
-
+          <div style={{ height: '16px' }} />
           <button
             onClick={_handleDeal}
-            className="absolute bg-blue_button rounded-lg flex items-center justify-center hover:bg-primary focus:outline-none"
+            className="bg-blue_button rounded-lg flex items-center justify-center hover:bg-primary focus:outline-none"
             style={{ width: '8vw', height: '4vw', top: '18%', left: 'calc(50vw + 40vw)' }}
           >
             <p className="btn-deal">DEAL</p>
           </button>
+        </div>
 
-          <div
-            className="absolute bg-white rounded-lg p-5 shadow-lg flex flex-col items-center justify-center"
-            style={{ bottom: '30px', left: 'calc(50vw + 28vw)', width: '20vw', height: '18vw' }}
+        <div className="fixed w-screen flex flex-col items-center" style={{ bottom: '20px' }}>
+          <button
+            onClick={_toggleFavorite}
+            className="flex bg-primary rounded-md items-center justify-center shadow-lg hover:bg-blue-500 focus:outline-none"
+            style={{ marginBottom: '16px', width: '8vw', height: '3.7vw' }}
           >
-            <p className="text-exhibitor-menu mt-3 mb-5 text-center">Need help?</p>
+            <ReactIcons
+              Icon={isFavorited ? AiFillHeart : AiOutlineHeart}
+              className="text-white mr-2"
+              style={{ width: '1.5vw', height: '1.5vw', minWidth: '16px', minHeight: '16px' }}
+            />
+            <p className="exhibition-menu">Favorite</p>
+          </button>
 
-            <div className="flex">
-              <ExhibitorHelpMenu label="Chat" onClick={_handleChat} icon={FaComment} />
-              <div style={{ width: '2vw' }} />
-              <ExhibitorHelpMenu
-                label="Drop Namecard"
-                onClick={_handleDropNameCard}
-                icon={FaIdCardAlt}
-              />
-              <div style={{ width: '2vw' }} />
-              <ExhibitorHelpMenu
-                label="Business Meet Up"
-                onClick={_handleBusinessMeetUp}
-                icon={SiGooglecalendar}
-              />
-            </div>
+          <BottomMenu data={bottomMenu} />
+        </div>
 
-            <div className="flex">
-              <ExhibitorHelpMenu label="Video Call" onClick={_handleVideoCall} icon={FaVideo} />
-              <div style={{ width: '2vw' }} />
-              <ExhibitorHelpMenu
-                label="Live Streaming"
-                onClick={_handleLiveStreaming}
-                icon={null}
-              />
-            </div>
+        <div
+          className="fixed bg-white rounded-lg p-5 shadow-lg flex flex-col items-center justify-center"
+          style={{ bottom: '20px', right: '35px', width: '20vw', height: '18vw' }}
+        >
+          <p className="text-exhibitor-menu mt-3 mb-5 text-center">Need help?</p>
+
+          <div className="flex">
+            <ExhibitorHelpMenu label="Chat" onClick={_handleChat} icon={FaComment} />
+            <div style={{ width: '2vw' }} />
+            <ExhibitorHelpMenu
+              label="Drop Namecard"
+              onClick={_handleDropNameCard}
+              icon={FaIdCardAlt}
+            />
+            <div style={{ width: '2vw' }} />
+            <ExhibitorHelpMenu
+              label="Business Meet Up"
+              onClick={_handleBusinessMeetUp}
+              icon={SiGooglecalendar}
+            />
+          </div>
+
+          <div className="flex">
+            <ExhibitorHelpMenu label="Video Call" onClick={_handleVideoCall} icon={FaVideo} />
+            <div style={{ width: '2vw' }} />
+            <ExhibitorHelpMenu label="Live Streaming" onClick={_handleLiveStreaming} icon={null} />
           </div>
         </div>
       </div>
 
-      {/* <ModalCenter isOpen={isShowVideo} onClose={() => setIsShowVideo(false)}>
+      <ModalCenter isOpen={isShowVideo} onClose={() => setIsShowVideo(false)}>
         <div style={{ width: '720px', height: '400px' }}>
           <img src="/video-player.png" className="w-full h-full object-cover" />
         </div>
-      </ModalCenter> */}
+      </ModalCenter>
 
-      {/* <ModalCenter isOpen={isShowImagesModal} onClose={_closeImagesModal}>
+      <ModalCenter isOpen={isShowImagesModal} onClose={_closeImagesModal}>
         <ExhibitorImagesModal defaultTabIndex={defaultTabIndex} />
-      </ModalCenter> */}
+      </ModalCenter>
 
-      {/* <ModalCenter isOpen={isShowVideoCall} onClose={_closeVideoCall} backgroundColor="#000">
-        <img src="/video-call.png" />
-      </ModalCenter> */}
+      <ModalCenter isOpen={isShowVideoCall} onClose={_closeVideoCall} backgroundColor="#000">
+        <img src="/video-call.png" width="1080px" />
+      </ModalCenter>
     </div>
   );
 };
