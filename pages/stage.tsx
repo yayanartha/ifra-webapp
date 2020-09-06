@@ -1,10 +1,12 @@
-import Schedule from '@components/Schedule/Schedule';
+import { ItemCount } from '@components/MainHall/CountDown';
 import Navbar from '@components/Navbar/Navbar';
-import { useState } from 'react';
 import QuizCard from '@components/Quiz/QuizCard';
+import Schedule from '@components/Schedule/Schedule';
+import { useState } from 'react';
 
 const Stage = () => {
   const [isShowSchedule, setIsShowSchedule] = useState(true);
+  const [isShowLuckyDraw, setIsShowLuckyDraw] = useState(false);
 
   return (
     <div className="flex flex-col flex-1">
@@ -25,7 +27,7 @@ const Stage = () => {
             <img src="/video-main-stage.webP" className="w-full h-full bg-cover" />
           </div>
 
-          {isShowSchedule && (
+          {(isShowSchedule || isShowLuckyDraw) && (
             <div
               className="absolute"
               style={{
@@ -50,9 +52,35 @@ const Stage = () => {
             </div>
           )}
 
-          {!isShowSchedule && (
+          {!isShowSchedule && !isShowLuckyDraw && (
             <div className="absolute" style={{ bottom: '30px', right: '30px' }}>
-              <QuizCard />
+              <QuizCard onClickJawab={() => setIsShowLuckyDraw(true)} />
+            </div>
+          )}
+
+          {isShowLuckyDraw && (
+            <div className="absolute w-screen h-screen flex flex-col">
+              <div className="flex flex-col flex-1 justify-center items-center">
+                <h1 className="text-3xl text-white text-center mb-6">
+                  Selamat kepada pemenang!
+                  <br />
+                  Anda akan dihubungi oleh team IFRA 2020
+                </h1>
+                <div className="flex">
+                  <ItemCount count={'07'} />
+                  <div className="w-6" />
+                  <ItemCount count={'11'} />
+                  <div className="w-6" />
+                  <ItemCount count={'25'} />
+                  <div className="w-6" />
+                  <ItemCount count={'23'} />
+                </div>
+              </div>
+
+              <p className="mb-8 text-center text-white opacity-75 text-xs font-hairline">
+                Nomor undian Anda adalah{' '}
+                <span className="font-bold text-3xl text-white">07-11-25-23</span>
+              </p>
             </div>
           )}
         </div>

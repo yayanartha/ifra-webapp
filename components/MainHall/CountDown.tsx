@@ -28,18 +28,22 @@ export default (props: CountDownProps) => {
         />
       </div>
 
-      <PrimaryButton label="Register Now" onClick={() => {}} />
+      <div className="w-1/5 flex self-center">
+        <PrimaryButton label="Register Now" onClick={() => {}} />
+      </div>
     </div>
   );
 };
 
-const ItemCount = (props: { count: string; label: string }) => {
+export const ItemCount = (props: { count: string; label?: string }) => {
   return (
-    <div className="flex flex-col">
+    <div>
       <div className="rounded-lg w-24 h-24 bg-blue-500 flex items-center justify-center">
         <h1 className="text-white text-5xl font-extrabold tracking-wider">{props.count}</h1>
       </div>
-      <p className="text-white text-center text-sm mt-2">{props.label}</p>
+      {props.label !== undefined && (
+        <p className="text-white text-center text-sm mt-2">{props.label}</p>
+      )}
     </div>
   );
 };

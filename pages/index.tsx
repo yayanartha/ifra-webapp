@@ -16,6 +16,7 @@ import Videotron from '@components/MainHall/Videotron';
 import Exhibition from '@components/MainHall/Exhibition';
 import Press from '@components/MainHall/Press';
 import LogoViewer from '@components/MainHall/LogoViewer';
+import CountDown from '@components/MainHall/CountDown';
 
 const MainHall = () => {
   const router = useRouter();
