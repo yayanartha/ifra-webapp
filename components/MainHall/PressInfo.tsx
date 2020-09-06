@@ -34,7 +34,7 @@ const PressInfo = () => {
     <LargeModalContainer>
       <TabHeader data={tabHeader} activeTab={activeTab} setActiveTab={_onChangeTab} />
 
-      {activeTab === 0 && <ImageViewerLayout />}
+      {activeTab === 0 && <ImageViewerLayout title="judul" />}
     </LargeModalContainer>
   );
 };

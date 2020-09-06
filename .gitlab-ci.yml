@@ -5,7 +5,7 @@ stages:
     - deploy
 
 before_script:
-  - apt-get update -qq && apt-get install -qy libelf1
+  - apt-get update -qq && apt-get install -qy python-dev && apt-get install -qy python-pip
 
 build:
     stage: build
@@ -37,4 +37,4 @@ deploy_production:
         name: production
         url: ifra-virtualexpo.com
     only:
-        - master
+        - production
