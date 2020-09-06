@@ -10,6 +10,7 @@ import ExhibitorHelpMenu from '@components/Exhibitor/ExhibitorHelpMenu';
 import { SiGooglecalendar } from 'react-icons/si';
 import ExhibitorImagesModal from '@components/Exhibitor/ExhibitorImagesModal';
 import { useRouter } from 'next/router';
+import { GrClose } from 'react-icons/gr';
 
 const Exhibitor1 = () => {
   const router = useRouter();
@@ -65,15 +66,15 @@ const Exhibitor1 = () => {
 
   const _handleLater = useCallback(() => {
     router.push('/exhibition');
-  }, []);
+  }, [router]);
 
   const _handleDeal = useCallback(() => {
     //
   }, []);
 
   const _handleChat = useCallback(() => {
-    //
-  }, []);
+    setIsShowChat(true);
+  }, [isShowChat]);
 
   const _handleDropNameCard = useCallback(() => {
     //
@@ -98,6 +99,10 @@ const Exhibitor1 = () => {
   const _closeVideoCall = useCallback(() => {
     setIsShowVideoCall(false);
   }, [isShowVideoCall]);
+
+  const _closeChat = useCallback(() => {
+    setIsShowChat(false);
+  }, [isShowChat]);
 
   return (
     <div>
@@ -155,35 +160,73 @@ const Exhibitor1 = () => {
           <BottomMenu data={bottomMenu} />
         </div>
 
-        <div
-          className="fixed bg-white rounded-lg p-5 shadow-lg flex flex-col items-center justify-center"
-          style={{ bottom: '20px', right: '35px', width: '20vw', height: '18vw' }}
-        >
-          <p className="text-exhibitor-menu mt-3 mb-5 text-center">Need help?</p>
+        {!isShowChat && (
+          <div
+            className="fixed bg-white rounded-lg p-5 shadow-lg flex flex-col items-center justify-center"
+            style={{ bottom: '20px', right: '35px', width: '20vw', height: '18vw' }}
+          >
+            <p className="text-exhibitor-menu mt-3 mb-5 text-center">Need help?</p>
 
-          <div className="flex">
-            <ExhibitorHelpMenu label="Chat" onClick={_handleChat} icon={FaComment} />
-            <div style={{ width: '2vw' }} />
-            <ExhibitorHelpMenu
-              label="Drop Namecard"
-              onClick={_handleDropNameCard}
-              icon={FaIdCardAlt}
-            />
-            <div style={{ width: '2vw' }} />
-            <ExhibitorHelpMenu
-              label="Business Meet Up"
-              onClick={_handleBusinessMeetUp}
-              icon={SiGooglecalendar}
-            />
+            <div className="flex">
+              <ExhibitorHelpMenu label="Chat" onClick={_handleChat} icon={FaComment} />
+              <div style={{ width: '2vw' }} />
+              <ExhibitorHelpMenu
+                label="Drop Namecard"
+                onClick={_handleDropNameCard}
+                icon={FaIdCardAlt}
+              />
+              <div style={{ width: '2vw' }} />
+              <ExhibitorHelpMenu
+                label="Business Meet Up"
+                onClick={_handleBusinessMeetUp}
+                icon={SiGooglecalendar}
+              />
+            </div>
+
+            <div className="flex">
+              <ExhibitorHelpMenu label="Video Call" onClick={_handleVideoCall} icon={FaVideo} />
+              <div style={{ width: '2vw' }} />
+              <ExhibitorHelpMenu
+                label="Live Streaming"
+                onClick={_handleLiveStreaming}
+                icon={null}
+              />
+            </div>
           </div>
+        )}
+      </div>
 
-          <div className="flex">
-            <ExhibitorHelpMenu label="Video Call" onClick={_handleVideoCall} icon={FaVideo} />
-            <div style={{ width: '2vw' }} />
-            <ExhibitorHelpMenu label="Live Streaming" onClick={_handleLiveStreaming} icon={null} />
+      {isShowChat && (
+        <div
+          className="fixed bg-white shadow-lg"
+          style={{
+            bottom: '20px',
+            right: '35px',
+            width: '22vw',
+            height: '38vw',
+          }}
+        >
+          <div className="flex border-b border-gray-200" style={{ height: '56px' }}>
+            <div className="flex items-center justify-center" style={{ width: '64px' }}>
+              <div
+                className="rounded-full bg-gray-300"
+                style={{ width: '36px', height: '36px' }}
+              ></div>
+            </div>
+            <div className="flex flex-col flex-1 justify-center" style={{ paddingRight: '16px' }}>
+              <p className="sales-name">Lindsey Rivard</p>
+              <p className="sales-position">Sales Representative</p>
+            </div>
+            <button
+              onClick={_closeChat}
+              className="flex items-center justify-center hover:bg-gray-200 focus:outline-none"
+              style={{ width: '50px' }}
+            >
+              <ReactIcons Icon={GrClose} className="text-primary" />
+            </button>
           </div>
         </div>
-      </div>
+      )}
 
       <ModalCenter isOpen={isShowVideo} onClose={() => setIsShowVideo(false)}>
         <div style={{ width: '720px', height: '400px' }}>

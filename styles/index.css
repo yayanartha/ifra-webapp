@@ -113,6 +113,13 @@
   @apply font-body font-light text-xs text-text;
 }
 
+.sales-name {
+  @apply font-body text-sm text-text;
+}
+.sales-position {
+  @apply font-body text-xs text-gray-700;
+}
+
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */
