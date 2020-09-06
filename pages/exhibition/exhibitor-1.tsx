@@ -1,5 +1,5 @@
 import Navbar from '@components/Navbar/Navbar';
-import { useCallback, useState, useMemo } from 'react';
+import { useCallback, useState, useMemo, useEffect } from 'react';
 import ModalCenter from '@components/common/ModalCenter';
 import BottomMenu, { BottomMenuItem } from '@components/common/BottomMenu';
 import ReactIcons from '@components/common/ReactIcons';
@@ -9,12 +9,17 @@ import { FaComment, FaIdCardAlt, FaVideo } from 'react-icons/fa';
 import ExhibitorHelpMenu from '@components/Exhibitor/ExhibitorHelpMenu';
 import { SiGooglecalendar } from 'react-icons/si';
 import ExhibitorImagesModal from '@components/Exhibitor/ExhibitorImagesModal';
+import { useRouter } from 'next/router';
 
 const Exhibitor1 = () => {
+  const router = useRouter();
+
   const [isShowVideo, setIsShowVideo] = useState(false);
   const [isShowImagesModal, setIsShowImagesModal] = useState(false);
   const [isFavorited, setIsFavorited] = useState(false);
   const [defaultTabIndex, setDefaultTabIndex] = useState(0);
+  const [isShowChat, setIsShowChat] = useState(false);
+  const [isShowVideoCall, setIsShowVideoCall] = useState(false);
 
   const bottomMenu: BottomMenuItem[] = useMemo(
     () => [
@@ -59,14 +64,10 @@ const Exhibitor1 = () => {
   );
 
   const _handleLater = useCallback(() => {
-    //
+    router.push('/exhibition');
   }, []);
 
   const _handleDeal = useCallback(() => {
-    //
-  }, []);
-
-  const _showInfo = useCallback(() => {
     //
   }, []);
 
@@ -79,11 +80,11 @@ const Exhibitor1 = () => {
   }, []);
 
   const _handleBusinessMeetUp = useCallback(() => {
-    //
+    setIsShowVideoCall(true);
   }, []);
 
   const _handleVideoCall = useCallback(() => {
-    //
+    setIsShowVideoCall(true);
   }, []);
 
   const _handleLiveStreaming = useCallback(() => {
@@ -94,25 +95,29 @@ const Exhibitor1 = () => {
     setIsShowImagesModal(false);
   }, [isShowImagesModal]);
 
+  const _closeVideoCall = useCallback(() => {
+    setIsShowVideoCall(false);
+  }, [isShowVideoCall]);
+
   return (
-    <div className="flex flex-col flex-1">
+    <div>
       <Navbar />
 
-      <div className="fixed">
-        <img src="/exhibitor-1.webp" alt="Main background" className="w-full h-auto fixed" />
+      <div className="fixed w-screen h-screen overflow-y-scroll overflow-x-hidden">
+        <img src="/exhibitor-1.webp" alt="Booth A Background" className="w-full h-auto" />
 
         <div
-          className="relative top-0 left-0"
+          className="absolute top-0"
           style={{
-            width: 'calc((1920 * 100vh) / 1080)',
-            height: 'calc((1080 * 100vw) / 1920)',
+            width: `calc((1920 * 100vh) / 1080)`,
+            height: 'calc(((1080 * 100vw) / 1920) - 10px)',
           }}
         >
-          <InfoSpot onClick={() => _showInfo()} left="calc(50vw - 27.5vw)" top="58%" />
-          <InfoSpot onClick={() => _showInfo()} left="calc(50vw - 4.5vw)" top="27.5%" />
-          <InfoSpot onClick={() => _showInfo()} left="calc(50vw - 13vw)" top="48%" />
-          <InfoSpot onClick={() => _showInfo()} left="calc(50vw + 2.5vw)" top="62%" />
-          <InfoSpot onClick={() => _showInfo()} left="calc(50vw + 22vw)" top="48%" />
+          <InfoSpot onClick={() => _openImagesModal(0)} left="calc(50vw - 28vw)" top="58%" />
+          <InfoSpot onClick={() => _openImagesModal(0)} left="calc(50vw - 5vw)" top="27.5%" />
+          <InfoSpot onClick={() => _openImagesModal(0)} left="calc(50vw - 13.3vw)" top="48%" />
+          <InfoSpot onClick={() => _openImagesModal(0)} left="calc(50vw + 2vw)" top="62%" />
+          <InfoSpot onClick={() => _openImagesModal(0)} left="calc(50vw + 21.3vw)" top="48%" />
 
           <div className="absolute w-screen flex flex-col items-center" style={{ bottom: '30px' }}>
             <button
@@ -133,25 +138,25 @@ const Exhibitor1 = () => {
 
           <button
             onClick={_handleLater}
-            className="absolute bg-white rounded-lg flex items-center justify-center"
-            style={{ width: '8vw', height: '4.5vw', top: '9%', left: 'calc(50vw + 40.5vw)' }}
+            className="absolute bg-white rounded-lg flex items-center justify-center hover:bg-gray-200 focus:outline-none"
+            style={{ width: '8vw', height: '4vw', top: '9%', left: 'calc(50vw + 40vw)' }}
           >
             <p className="btn-later">LATER</p>
           </button>
 
           <button
             onClick={_handleDeal}
-            className="absolute bg-blue_button rounded-lg flex items-center justify-center"
-            style={{ width: '8vw', height: '4.5vw', top: '19%', left: 'calc(50vw + 40.5vw)' }}
+            className="absolute bg-blue_button rounded-lg flex items-center justify-center hover:bg-primary focus:outline-none"
+            style={{ width: '8vw', height: '4vw', top: '18%', left: 'calc(50vw + 40vw)' }}
           >
             <p className="btn-deal">DEAL</p>
           </button>
 
           <div
             className="absolute bg-white rounded-lg p-5 shadow-lg flex flex-col items-center justify-center"
-            style={{ bottom: '30px', left: 'calc(50vw + 28.7vw)', width: '20vw', height: '18vw' }}
+            style={{ bottom: '30px', left: 'calc(50vw + 28vw)', width: '20vw', height: '18vw' }}
           >
-            <p className="text-exhibitor-menu mt-3 mb-5 text-center">Ada yang bisa saya bantu?</p>
+            <p className="text-exhibitor-menu mt-3 mb-5 text-center">Need help?</p>
 
             <div className="flex">
               <ExhibitorHelpMenu label="Chat" onClick={_handleChat} icon={FaComment} />
@@ -182,15 +187,19 @@ const Exhibitor1 = () => {
         </div>
       </div>
 
-      <ModalCenter isOpen={isShowVideo} onClose={() => setIsShowVideo(false)}>
+      {/* <ModalCenter isOpen={isShowVideo} onClose={() => setIsShowVideo(false)}>
         <div style={{ width: '720px', height: '400px' }}>
           <img src="/video-player.png" className="w-full h-full object-cover" />
         </div>
-      </ModalCenter>
+      </ModalCenter> */}
 
-      <ModalCenter isOpen={isShowImagesModal} onClose={_closeImagesModal}>
+      {/* <ModalCenter isOpen={isShowImagesModal} onClose={_closeImagesModal}>
         <ExhibitorImagesModal defaultTabIndex={defaultTabIndex} />
-      </ModalCenter>
+      </ModalCenter> */}
+
+      {/* <ModalCenter isOpen={isShowVideoCall} onClose={_closeVideoCall} backgroundColor="#000">
+        <img src="/video-call.png" />
+      </ModalCenter> */}
     </div>
   );
 };
