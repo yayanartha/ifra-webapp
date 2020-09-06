@@ -8,8 +8,8 @@
     "start": "next start",
     "export": "next export",
     "deploy": "yarn build && yarn export && firebase deploy",
-    "deploy:dev": "yarn build && yarn export && aws s3 sync out s3://dev.ifra-virtualexpo.com/ --profile ifra",
-    "deploy:prod": "yarn build && yarn export && aws s3 sync out s3://ifra-virtualexpo.com/ --profile ifra"
+    "deploy:dev": "yarn build && yarn export && aws s3 sync out s3://develop.ifra-virtualexpo.com/ --profile ifra",
+    "deploy:prod": "yarn build && yarn export && aws s3 sync out s3://ifra-virtualexpo.com/ --profile ifra && aws cloudfront create-invalidation --distribution-id E1LNBTC98HF5CQ --paths '/index.html' > /dev/null --profile ifra"
   },
   "dependencies": {
     "@brainhubeu/react-carousel": "^1.19.26",
