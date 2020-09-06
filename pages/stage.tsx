@@ -24,7 +24,7 @@ const Stage = () => {
           style={{ backgroundColor: 'rgba(0,0,0,0.75)' }}
         >
           <div className="bg-white" style={{ width: '810px', height: '390px', marginTop: '130px' }}>
-            <img src="/video-main-stage.webP" className="w-full h-full bg-cover" />
+            <img src="/video-main-stage.webp" className="w-full h-full bg-cover" />
           </div>
 
           {(isShowSchedule || isShowLuckyDraw) && (
