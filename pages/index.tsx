@@ -16,6 +16,7 @@ import Videotron from '@components/MainHall/Videotron';
 import Exhibition from '@components/MainHall/Exhibition';
 import Press from '@components/MainHall/Press';
 import EventSchedule from '@components/MainHall/EventSchedule';
+import LogoViewer from '@components/MainHall/LogoViewer';
 
 const MainHall = () => {
   const router = useRouter();
@@ -27,6 +28,10 @@ const MainHall = () => {
   const [isShowAgenda, setIsShowAgenda] = useState(false);
   const [agendaDay, setAgendaDay] = useState(0);
   const [eventSchedules, setEventSchedules] = useState([]);
+
+  const [isShowPoster, setIsShowPoster] = useState(false);
+  const [isShowBanner, setIsShowBanner] = useState(false);
+  const [isShowWallpaper, setIsShowWallpaper] = useState(false);
 
   const _onClickAgenda = useCallback((dayNo: number) => {
     _onChangeAgenda(dayNo);
@@ -53,15 +58,15 @@ const MainHall = () => {
   }, []);
 
   const _onClickPoster = useCallback(() => {
-    //
+    setIsShowPoster(true);
   }, []);
 
   const _onClickBanner = useCallback(() => {
-    //
+    setIsShowBanner(true);
   }, []);
 
   const _onClickWallpaper = useCallback(() => {
-    //
+    setIsShowWallpaper(true);
   }, []);
 
   const _onClickVideotron = useCallback(() => {
@@ -69,7 +74,7 @@ const MainHall = () => {
   }, []);
 
   const _onClickLogo = useCallback(() => {
-    //
+    setIsShowModal(true);
   }, []);
 
   const _closeModal = useCallback(() => {
@@ -84,15 +89,31 @@ const MainHall = () => {
     setIsShowPress(false);
   }, [isShowPress]);
 
+  const _closePoster = useCallback(() => {
+    setIsShowPoster(false);
+  }, [isShowPoster]);
+
+  const _closeBanner = useCallback(() => {
+    setIsShowBanner(false);
+  }, [isShowBanner]);
+
+  const _closeWallpaper = useCallback(() => {
+    setIsShowWallpaper(false);
+  }, [isShowWallpaper]);
+
   return (
     <div className="flex flex-col flex-1">
       <Navbar />
 
       <div className="fixed">
-        <img src="/bg-main1.webp" alt="Main background" className="w-full h-auto fixed" />
+        <img
+          src="/bg-main1.webp"
+          alt="Main background"
+          className="w-full h-auto object-contain fixed"
+        />
 
         <div
-          className="relative top-0 left-0 overfl"
+          className="relative top-0 left-0"
           style={{
             width: 'calc((1920 * 100vh) / 1080)',
             height: 'calc((1080 * 100vw) / 1920)',
@@ -112,7 +133,7 @@ const MainHall = () => {
           <Exhibition onClick={_onClickExhibition} />
           <Press onClick={_onClickPress} />
 
-          <SponsorFooter />
+          <SponsorFooter onClick={_onClickLogo} />
         </div>
       </div>
 
@@ -129,20 +150,25 @@ const MainHall = () => {
         />
       </ModalCenter>
 
+      <ModalCenter isOpen={isShowModal} onClose={_closeModal}>
+        <LogoViewer />
+      </ModalCenter>
+
+      <ModalCenter isOpen={isShowPoster} onClose={_closePoster}>
+        <LogoViewer type="Poster" />
+      </ModalCenter>
+
+      <ModalCenter isOpen={isShowBanner} onClose={_closeBanner}>
+        <LogoViewer type="Banner" />
+      </ModalCenter>
+
+      <ModalCenter isOpen={isShowWallpaper} onClose={_closeWallpaper}>
+        <LogoViewer type="Wallpaper" />
+      </ModalCenter>
+
       {/* <ModalTNC isShow={showModal} onCloseModal={() => setShowModal(false)} /> */}
 
       {/* <CountDown /> */}
-
-      {/* <div className="absolute bottom-0 w-screen h-20 bg-white flex items-center">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((s, i) => (
-          <button
-            key={i}
-            className="bg-blue_button w-32 h-16 flex items-center justify-center mx-2"
-          >
-            <p className="text-white">LOGO</p>
-          </button>
-        ))}
-      </div> */}
     </div>
   );
 };

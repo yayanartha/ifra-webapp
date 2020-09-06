@@ -6,8 +6,16 @@ import ClassList from '@components/Classroom/ClassList';
 import ClassSideBar from '@components/Classroom/ClassSideBar';
 
 const Classroom = () => {
+  const [classDay, setClassDay] = useState(1);
   const [isShowSchedule, setIsShowSchedule] = useState(true);
   const [isShowSpeaker, setIsShowSpeaker] = useState(false);
+
+  const _changeClassDay = useCallback(
+    (dayNo: number) => {
+      setClassDay(dayNo);
+    },
+    [classDay]
+  );
 
   const _handleRegister = useCallback(() => {
     setIsShowSchedule(false);
@@ -36,7 +44,12 @@ const Classroom = () => {
                 onClick={() => setIsShowSchedule(false)}
                 className="absolute w-screen h-screen flex flex-col items-center pt-24"
               >
-                <Schedule title="Classroom Schedule" />
+                <Schedule
+                  dayNo={classDay}
+                  changeDayNo={_changeClassDay}
+                  scheduleData={[]}
+                  title="Classroom Schedule"
+                />
 
                 <div className="mt-6">
                   <PrimaryButton onClick={_handleRegister} label="Register Now" width="300px" />
