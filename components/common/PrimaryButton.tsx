@@ -1,5 +1,4 @@
 import React from 'react';
-import Clickable from './Clickable';
 
 interface PrimaryButtonProps {
   onClick(): void;
@@ -12,7 +11,7 @@ export default (props: PrimaryButtonProps) => {
   return (
     <button
       onClick={props.onClick}
-      className={`shadow-xs ${
+      className={`shadow-lg ${
         props.roundedLight ? 'rounded-md' : 'rounded-lg'
       } bg-blue_button h-12`}
       style={{

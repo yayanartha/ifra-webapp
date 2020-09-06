@@ -106,6 +106,13 @@
   @apply text-primary font-body font-light text-center;
 }
 
+.company-label {
+  @apply font-body font-medium text-xs text-primary text-left;
+}
+.company-text {
+  @apply font-body font-light text-xs text-text;
+}
+
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */

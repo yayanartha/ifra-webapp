@@ -12,8 +12,9 @@ import ExhibitorImagesModal from '@components/Exhibitor/ExhibitorImagesModal';
 
 const Exhibitor1 = () => {
   const [isShowVideo, setIsShowVideo] = useState(false);
-  const [isShowBrochure, setIsShowBrochure] = useState(false);
+  const [isShowImagesModal, setIsShowImagesModal] = useState(false);
   const [isFavorited, setIsFavorited] = useState(false);
+  const [defaultTabIndex, setDefaultTabIndex] = useState(0);
 
   const bottomMenu: BottomMenuItem[] = useMemo(
     () => [
@@ -23,19 +24,19 @@ const Exhibitor1 = () => {
       },
       {
         name: 'Brochure',
-        action: () => _openBrochure(),
+        action: () => _openImagesModal(0),
       },
       {
         name: 'Photos',
-        action: () => _openPhotos(),
+        action: () => _openImagesModal(1),
       },
       {
         name: 'Company Info',
-        action: () => _openCompanyInfo(),
+        action: () => _openImagesModal(2),
       },
       {
         name: 'Investment Package',
-        action: () => _openInvestPackage(),
+        action: () => _openImagesModal(3),
       },
     ],
     []
@@ -49,21 +50,13 @@ const Exhibitor1 = () => {
     setIsShowVideo(true);
   }, [isShowVideo]);
 
-  const _openBrochure = useCallback(() => {
-    setIsShowBrochure(true);
-  }, [isShowBrochure]);
-
-  const _openPhotos = useCallback(() => {
-    //
-  }, []);
-
-  const _openCompanyInfo = useCallback(() => {
-    //
-  }, []);
-
-  const _openInvestPackage = useCallback(() => {
-    //
-  }, []);
+  const _openImagesModal = useCallback(
+    (tabIndex: number) => {
+      setIsShowImagesModal(true);
+      setDefaultTabIndex(tabIndex);
+    },
+    [isShowImagesModal, defaultTabIndex]
+  );
 
   const _handleLater = useCallback(() => {
     //
@@ -96,6 +89,10 @@ const Exhibitor1 = () => {
   const _handleLiveStreaming = useCallback(() => {
     //
   }, []);
+
+  const _closeImagesModal = useCallback(() => {
+    setIsShowImagesModal(false);
+  }, [isShowImagesModal]);
 
   return (
     <div className="flex flex-col flex-1">
@@ -191,8 +188,8 @@ const Exhibitor1 = () => {
         </div>
       </ModalCenter>
 
-      <ModalCenter isOpen={isShowBrochure} onClose={() => setIsShowBrochure(false)}>
-        <ExhibitorImagesModal />
+      <ModalCenter isOpen={isShowImagesModal} onClose={_closeImagesModal}>
+        <ExhibitorImagesModal defaultTabIndex={defaultTabIndex} />
       </ModalCenter>
     </div>
   );

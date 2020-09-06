@@ -14,7 +14,7 @@ const TabHeader = (props: Props) => {
   const defaultTabStyle = 'text-gray-500 hover:text-blue-500';
 
   return (
-    <ul className="flex border-b pt-6 mx-8">
+    <ul className="flex border-b pt-6 px-8">
       {props.data.map((d, i) => (
         <li className={`mr-1 ${props.activeTab === i ? '-mb-px' : ''}`}>
           <a

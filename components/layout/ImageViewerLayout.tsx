@@ -4,8 +4,8 @@ type Props = {
 
 const ImageViewerLayout = (props: Props) => {
   return (
-    <div className="flex pt-4 pb-8 pl-8" style={{ height: '535px' }}>
-      <div className="flex flex-col flex-1">
+    <div className="flex pl-8" style={{ height: '535px' }}>
+      <div className="flex flex-col flex-1 pt-4 pb-8">
         <div
           className="w-full bg-red-100 flex items-center justify-center"
           style={{ height: '360px' }}
@@ -25,7 +25,7 @@ const ImageViewerLayout = (props: Props) => {
         </div>
       </div>
 
-      <div className="px-8 overflow-y-auto" style={{ width: '448px' }}>
+      <div className="px-8 overflow-y-auto pt-4 pb-8" style={{ width: '448px' }}>
         <p className="class-detail-title mb-4">{props.title}</p>
         <p className="class-detail-value">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt

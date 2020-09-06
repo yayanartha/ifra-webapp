@@ -4,7 +4,11 @@ import ImageViewerLayout from '@components/layout/ImageViewerLayout';
 import { useMemo, useState, useCallback } from 'react';
 import CompanyInfo from './CompanyInfo';
 
-const ExhibitorImagesModal = () => {
+type Props = {
+  defaultTabIndex: number;
+};
+
+const ExhibitorImagesModal = (props: Props) => {
   const tabs: TabItem[] = useMemo(
     () => [
       {
@@ -27,7 +31,7 @@ const ExhibitorImagesModal = () => {
     []
   );
 
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(props.defaultTabIndex);
 
   const _onTabChange = useCallback(
     (tabIndex: number) => {
