@@ -40,7 +40,7 @@ const ContentLayout = (props: Props) => {
       )}
 
       {props.type === ContentTypes.Single && (
-        <div className="bg-white shadow-lg" style={{ minHeight: 'calc(100vh - 14rem)' }}>
+        <div className="bg-white shadow-lg relative" style={{ height: 'calc(100vh - 11rem)' }}>
           {props.children}
         </div>
       )}
