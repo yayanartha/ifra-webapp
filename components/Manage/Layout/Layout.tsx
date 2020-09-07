@@ -1,11 +1,11 @@
-import Menu from '@components/Manage/Layout/Sidebar/Menu';
-import Head from 'next/head';
-import { Container } from 'next/app';
-import { useRouter } from 'next/router';
-import ChatBubbleDots from '@public/zondicons/chat-bubble-dots.svg';
-import Notifications from '@public/zondicons/notifications.svg';
-import CheveronDown from '@public/zondicons/cheveron-down.svg';
 import PhotoProfile from '@components/Manage/Layout/Header/PhotoProfile';
+import Menu from '@components/Manage/Layout/Sidebar/Menu';
+import ChatBubbleDots from '@public/zondicons/chat-bubble-dots.svg';
+import CheveronDown from '@public/zondicons/cheveron-down.svg';
+import Notifications from '@public/zondicons/notifications.svg';
+import { Container } from 'next/app';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 type Props = {
   title: string;
@@ -64,92 +64,85 @@ const Layout = (props: Props) => {
             {/* Header right */}
           </div>
         </div>
+
         <div className="flex flex-row">
           {/* Sidebar */}
-          <div className="self-auto bg-blue-600 w-56 h-screen pt-16 sidebar-container">
+          <div className="self-auto bg-blue-600 w-56 h-screen mt-16 sidebar-container">
             <Menu
               title="Inbox"
               linkHref="/manage/inbox"
-              linkAs="/manage/inbox"
-              isActive={router.pathname == '/manage/inbox' ? 'true' : 'false'}
-            ></Menu>
+              isActive={router.pathname === '/manage/inbox'}
+            />
             <Menu
               title="Ticket"
               linkHref="/manage/ticket"
-              linkAs="/manage/ticket"
-              isActive={router.pathname == '/manage/ticket' ? 'true' : 'false'}
-            ></Menu>
+              isActive={router.pathname === '/manage/ticket'}
+            />
             <Menu
               title="Information Desk"
               linkHref="/manage/information-desk"
-              linkAs="/manage/information-desk"
-              isActive={router.pathname == '/manage/information-desk' ? 'true' : 'false'}
-            ></Menu>
+              isActive={router.pathname === '/manage/information-desk'}
+            />
             <Menu
               title="Press Release"
               linkHref="/manage/press-release"
-              linkAs="/manage/press-release"
-              isActive={router.pathname == '/manage/press-release' ? 'true' : 'false'}
-            ></Menu>
+              isActive={router.pathname === '/manage/press-release'}
+            />
             <Menu
               title="Sponsors"
               linkHref="/manage/sponsor"
-              linkAs="/manage/sponsor"
-              isActive={router.pathname == '/manage/sponsor' ? 'true' : 'false'}
-            ></Menu>
+              isActive={router.pathname === '/manage/sponsor'}
+            />
             <Menu
               title="Exhibitor"
               linkHref="/manage/exhibitor"
-              linkAs="/manage/exhibitor"
-              isActive={router.pathname == '/manage/exhibitor' ? 'true' : 'false'}
-            ></Menu>
+              isActive={router.pathname === '/manage/exhibitor'}
+            />
             <Menu
               title="Visitor"
               linkHref="/manage/visitor"
-              linkAs="/manage/visitor"
-              isActive={router.pathname == '/manage/visitor' ? 'true' : 'false'}
-            ></Menu>
+              isActive={router.pathname === '/manage/visitor'}
+            />
             <Menu
               title="Main Stage"
               linkHref="/manage/main-stage"
-              linkAs="/manage/main-stage"
-              isActive={router.pathname == '/manage/main-stage' ? 'true' : 'false'}
-            ></Menu>
+              isActive={router.pathname === '/manage/main-stage'}
+            />
             <Menu
               title="Quiz"
               linkHref="/manage/quiz"
-              linkAs="/manage/quiz"
-              isActive={router.pathname == '/manage/quiz' ? 'true' : 'false'}
-            ></Menu>
+              isActive={router.pathname === '/manage/quiz'}
+            />
             <Menu
               title="Lucky Draw"
               linkHref="/manage/lucky-draw"
-              linkAs="/manage/lucky-draw"
-              isActive={router.pathname == '/manage/lucky-draw' ? 'true' : 'false'}
-            ></Menu>
+              isActive={router.pathname === '/manage/lucky-draw'}
+            />
             <Menu
               title="Classroom"
               linkHref="/manage/classroom"
-              linkAs="/manage/classroom"
-              isActive={router.pathname == '/manage/classroom' ? 'true' : 'false'}
-            ></Menu>
+              isActive={router.pathname === '/manage/classroom'}
+            />
             <Menu
               title="Meet The Expert"
               linkHref="/manage/meet-the-expert"
-              linkAs="/manage/meet-the-expert"
-              isActive={router.pathname == '/manage/meet-the-expert' ? 'true' : 'false'}
-            ></Menu>
+              isActive={router.pathname === '/manage/meet-the-expert'}
+            />
             <Menu
               title="Shop"
               linkHref="/manage/shop"
-              linkAs="/manage/shop"
-              isActive={router.pathname == '/manage/shop' ? 'true' : 'false'}
-            ></Menu>
+              isActive={router.pathname === '/manage/shop'}
+            />
+            <Menu
+              title="Pages"
+              linkHref="/manage/exhibition-hall"
+              isActive={router.pathname === '/manage/exhibition-hall'}
+            />
           </div>
           {/* Sidebar */}
 
           {/* Content */}
-          <div className="flex-auto bg-grey-600 h-screen content-container pl-6 pt-20 pr-6 pb-1">
+          <div className="flex flex-col flex-1 bg-grey-600 h-screen overflow-y-scroll mt-16">
             {props.children}
           </div>
           {/* Content */}
