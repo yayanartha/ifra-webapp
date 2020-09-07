@@ -7,16 +7,15 @@ type Props = {
   isActive?: boolean;
 };
 
-const Menu = (props: Props) => {
+const SubMenu = (props: Props) => {
   if (props.isActive) {
     return (
-      <div className="h-12 text-white border-l-8 border-blue-800 flex items-center menu-container duration-200">
+      <div className="h-12 text-white border-l-8 border-blue-600 bg-blue-800 flex items-center menu-container duration-200">
         <span className="font-thin tracking-wider noselect">{props.title}</span>
 
         <style jsx>{`
           .menu-container {
             padding-left: 1.49rem;
-            background-color: #0470ad;
           }
           .menu-container span {
             font-family: Poppins;
@@ -70,4 +69,4 @@ const Menu = (props: Props) => {
   }
 };
 
-export default Menu;
+export default SubMenu;
