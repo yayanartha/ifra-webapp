@@ -8,17 +8,9 @@ const Index = () => {
     <Layout title="Inbox">
       <Header title="Inbox" />
 
-      <Tabs>
-        <Tab title="General" isActive="false" onClick={() => onClickTab(0)} />
-        <Tab title="Sponsor" isActive="true" onClick={() => onClickTab(1)} />
-        <Tab title="Exhibitor" isActive="false" onClick={() => onClickTab(2)} />
-      </Tabs>
-      <div className="bg-white tab-content-container"></div>
-      <style jsx>{`
-        .tab-content-container {
-          min-height: 64vh;
-        }
-      `}</style>
+      <div className="flex flex-1 flex-col w-full h-full">
+        <div className="bg-white">{/*  */}</div>
+      </div>
     </Layout>
   );
 };
