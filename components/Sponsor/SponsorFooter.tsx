@@ -6,9 +6,9 @@ const SponsorFooter = (props: Props) => {
   return (
     <div
       className="fixed left-0 bottom-0 bg-white w-screen flex px-2 py-4 flex-wrap"
-      style={{ maxHeight: '100px' }}
+      style={{ height: '93px' }}
     >
-      {Array.from({ length: 25 }, (s, i) => (
+      {Array.from({ length: 50 }, (s, i) => (
         <button
           onClick={props.onClick}
           key={i}
