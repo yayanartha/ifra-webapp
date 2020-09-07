@@ -1,11 +1,13 @@
 import SideLogo from '@components/Registration/SideLogo';
-import React, { useCallback } from 'react';
 import { useRouter } from 'next/router';
+import React, { useCallback, useState } from 'react';
+import Modal from 'react-modal';
 
 interface ExhibitorRegistrationProps {}
 
 const ExhibitorRegistration = (props: ExhibitorRegistrationProps) => {
   const router = useRouter();
+  const [showInfo, setShowInfo] = useState(true);
 
   const _handleSubmit = useCallback(() => {
     router.push('/login');
@@ -182,8 +184,30 @@ const ExhibitorRegistration = (props: ExhibitorRegistrationProps) => {
           </div>
         </div>
       </div>
+
+      <Modal isOpen={showInfo} onRequestClose={() => setShowInfo(false)} style={customStyles}>
+        <div className="h-full flex items-center justify-center">
+          <div className="bg-white p-8 rounded-lg">
+            <img src="/rule-diagram.png" />
+          </div>
+        </div>
+      </Modal>
     </div>
   );
+};
+
+const customStyles: Modal.Styles = {
+  content: {
+    width: '70%',
+    height: '100vh',
+    margin: 'auto',
+    background: 'transparent',
+    borderColor: 'transparent',
+    borderWidth: '0',
+  },
+  overlay: {
+    background: '#000000cc',
+  },
 };
 
 export default ExhibitorRegistration;

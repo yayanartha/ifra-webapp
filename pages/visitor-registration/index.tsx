@@ -1,11 +1,13 @@
 import SideLogo from '@components/Registration/SideLogo';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from 'react-modal';
 
 interface VisitorEmailRegisterProps {}
 
 const VisitorEmailRegister = (props: VisitorEmailRegisterProps) => {
   const router = useRouter();
+  const [showInfo, setShowInfo] = useState(true);
 
   return (
     <div className="w-screen h-screen bg-white flex">
@@ -39,8 +41,30 @@ const VisitorEmailRegister = (props: VisitorEmailRegisterProps) => {
           </button>
         </div>
       </div>
+
+      <Modal isOpen={showInfo} onRequestClose={() => setShowInfo(false)} style={customStyles}>
+        <div className="h-full flex items-center justify-center">
+          <div className="bg-white p-8 rounded-lg">
+            <img src="/rule-diagram2.png" />
+          </div>
+        </div>
+      </Modal>
     </div>
   );
+};
+
+const customStyles: Modal.Styles = {
+  content: {
+    width: '70%',
+    height: '100vh',
+    margin: 'auto',
+    background: 'transparent',
+    borderColor: 'transparent',
+    borderWidth: '0',
+  },
+  overlay: {
+    background: '#000000cc',
+  },
 };
 
 export default VisitorEmailRegister;
