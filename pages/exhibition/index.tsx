@@ -38,7 +38,7 @@ const Exhibition = () => {
   }, [router]);
 
   const _gotoLobby = useCallback(() => {
-    router.push('/exhibitor-hall');
+    router.push('/main-hall');
   }, [router]);
 
   const _gotoMainStage = useCallback(() => {

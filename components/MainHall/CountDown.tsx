@@ -95,13 +95,15 @@ export default (props: CountDownProps) => {
   );
 };
 
-export const ItemCount = (props: { count: string; label: string }) => {
+export const ItemCount = (props: { count: string; label?: string }) => {
   return (
     <div className="flex flex-col">
       <div className="rounded-lg w-32 h-32 bg-primary flex items-center justify-center">
         <p className="text-white text-5xl font-body font-bold tracking-wider">{props.count}</p>
       </div>
-      <p className="text-white text-center text-sm mt-2 font-body">{props.label}</p>
+      {props.label !== undefined && (
+        <p className="text-white text-center text-sm mt-2 font-body">{props.label}</p>
+      )}
     </div>
   );
 };

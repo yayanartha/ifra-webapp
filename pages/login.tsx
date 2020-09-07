@@ -9,7 +9,7 @@ const Login = (props: LoginProps) => {
   const router = useRouter();
 
   const _handleSubmit = useCallback(() => {
-    router.push('/main-hall');
+    router.push('/tnc');
   }, []);
 
   return (

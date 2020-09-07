@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 const SplashScreen = () => {
   const router = useRouter();
@@ -7,12 +7,12 @@ const SplashScreen = () => {
   useEffect(() => {
     setTimeout(() => {
       router.push('/countdown');
-    }, 3000);
+    }, 4000);
   }, []);
 
   return (
     <div className="w-screen h-screen flex items-center justify-center bg-white">
-      <img src="/logo.png" />
+      <img src="/ifra-loading.gif" />
     </div>
   );
 };
