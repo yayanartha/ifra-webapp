@@ -50,12 +50,12 @@ const SponsorRegistration = (props: SponsorRegistrationProps) => {
                   Package 2
                 </div>
               </div>
-              <button
+              {/* <button
                 onClick={() => {}}
                 className="bg-blue-600 flex self-center justify-center items-center w-8/12 h-10 text-white font-light text-xs"
               >
                 ADD IMAGE
-              </button>
+              </button> */}
             </div>
           </div>
 
