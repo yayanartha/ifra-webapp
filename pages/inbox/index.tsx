@@ -3,6 +3,7 @@ import Tab from '@components/Manage/Layout/Content/NavigationTabs/Tab';
 import Tabs from '@components/Manage/Layout/Content/NavigationTabs/Tabs';
 import Layout from '@components/Manage/Layout/Layout';
 import DataTable from 'react-data-table-component';
+import Link from 'next/link';
 
 const Index = () => {
   return (
@@ -60,12 +61,11 @@ const Index = () => {
               {
                 name: 'Actions',
                 cell: (item) => (
-                  <button
-                    className="focus:outline-none bg-white shadow-md h-10 w-32 text-blue-600 flex items-center justify-center"
-                    onClick={() => {}}
-                  >
-                    View
-                  </button>
+                  <Link href="/inbox/detail">
+                    <div className="focus:outline-none cursor-pointer bg-white shadow-md h-10 w-32 text-blue-600 flex items-center justify-center">
+                      View
+                    </div>
+                  </Link>
                 ),
                 button: true,
                 width: '400px',
