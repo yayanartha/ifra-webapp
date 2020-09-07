@@ -1,62 +1,53 @@
-import Layout from '@components/Manage/Layout/Layout';
+import BaseLayout from '@components/Manage/Layout/BaseLayout';
+import ContentLayout, { ContentTypes } from '@components/Manage/Layout/ContentLayout';
+import { TabHeader } from '@components/Manage/Layout/TabLayout';
 
-const Index = () => {
+const sampleTabs: TabHeader[] = [
+  {
+    id: 0,
+    name: 'General',
+  },
+  {
+    id: 1,
+    name: 'Result',
+  },
+];
+
+const Manage = () => {
   return (
-    <Layout title="Manage - Dashboard">
-      Dashboard
-      <div className="max-w-sm rounded overflow-hidden shadow-lg">
-        <img
-          className="w-full"
-          src="https://i.picsum.photos/id/237/300/300.jpg?hmac=9iUR3VHqf0Y9abGyuPZTpEIxHJL0sSvyNtJtDIMSylM"
-          alt="Sunset in the mountains"
-        />
-        <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-          <p className="text-gray-700 text-base">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla!
-            Maiores et perferendis eaque, exercitationem praesentium nihil.
+    <BaseLayout>
+      <div className="p-8">
+        <p className="text-lg font-body text-text mb-6">Exhibitor Dashboard</p>
+        <p className="font-body text-gray-500 text-sm font-light">Choose menu on the left panel</p>
+      </div>
+
+      {/* NE UNTUK LAYOUT TAB GUH */}
+      {/* <ContentLayout
+        title="Inbox"
+        type={ContentTypes.Tab}
+        tabs={sampleTabs}
+        activeTab={0}
+        setActiveTab={() => {}}
+        primaryAction={() => {}}
+        primaryActionTitle="Add New"
+        defaultAction={() => {}}
+        defaultActionTitle="Delete"
+      >
+        <div className="p-8">
+          <p className="font-body text-gray-500 text-sm font-light">
+            Choose menu on the left panel
           </p>
         </div>
-        <div className="px-6 pt-4 pb-2">
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            #photography
-          </span>
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            #travel
-          </span>
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            #winter
-          </span>
+      </ContentLayout> */}
+
+      {/* NE UNTUK SINGLE LAYOUT GUH */}
+      {/* <ContentLayout title="Messages" type={ContentTypes.Single}>
+        <div className="p-8">
+          <p className="font-body text-gray-500 text-sm font-light">Layout Single</p>
         </div>
-      </div>
-      <br />
-      <div className="max-w-sm rounded overflow-hidden shadow-lg">
-        <img
-          className="w-full"
-          src="https://i.picsum.photos/id/237/300/300.jpg?hmac=9iUR3VHqf0Y9abGyuPZTpEIxHJL0sSvyNtJtDIMSylM"
-          alt="Sunset in the mountains"
-        />
-        <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-          <p className="text-gray-700 text-base">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla!
-            Maiores et perferendis eaque, exercitationem praesentium nihil.
-          </p>
-        </div>
-        <div className="px-6 pt-4 pb-2">
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            #photography
-          </span>
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            #travel
-          </span>
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            #winter
-          </span>
-        </div>
-      </div>
-    </Layout>
+      </ContentLayout> */}
+    </BaseLayout>
   );
 };
 
-export default Index;
+export default Manage;
