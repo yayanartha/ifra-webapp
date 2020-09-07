@@ -8,8 +8,8 @@ const Index = () => {
   const router = useRouter();
 
   return (
-    <Layout title="Inbox">
-      <Header title="Inbox" />
+    <Layout title="Notifications">
+      <Header title="Notifications" />
       <div className="flex">
         <div className="flex-1">
           <Tabs>
@@ -25,8 +25,8 @@ const Index = () => {
         </button>
       </div>
 
-      <div className="bg-white shadow-md h-full p-8">
-        <h1 className="text-2xl text-blue-600">Broadcast Title 1</h1>
+      <div className="flex flex-col h-full bg-white shadow-md p-8">
+        <h1 className="text-2xl text-blue-600">Title 1</h1>
         <p className="text-gray-500 leading-7 font-thin text-xs mt-6">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua. Maecenas ultricies mi eget mauris pharetra et ultrices
@@ -45,6 +45,15 @@ const Index = () => {
           vulputate. Sed vulputate mi sit amet mauris commodo quis imperdiet massa. In ornare quam
           viverra orci sagittis.
         </p>
+
+        <div className="flex flex-1 justify-center items-end">
+          <button
+            onClick={() => {}}
+            className="bg-blue-600 flex justify-center items-center shadow-md w-56 h-10 text-white font-light text-xs"
+          >
+            Visit Pages
+          </button>
+        </div>
       </div>
     </Layout>
   );

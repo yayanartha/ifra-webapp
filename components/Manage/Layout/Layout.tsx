@@ -67,7 +67,7 @@ const Layout = (props: Props) => {
 
         <div className="flex flex-row">
           {/* Sidebar */}
-          <div className="self-auto bg-blue-600 w-56 h-screen mt-16 sidebar-container">
+          <div className="self-auto bg-blue-600 w-56 h-screen pt-16 sidebar-container">
             <Menu
               title="Inbox"
               linkHref="/manage/inbox"
@@ -142,7 +142,7 @@ const Layout = (props: Props) => {
           {/* Sidebar */}
 
           {/* Content */}
-          <div className="flex flex-col flex-1 bg-grey-600 h-screen overflow-y-scroll mt-16">
+          <div className="flex flex-col flex-1 bg-grey-600 h-screen overflow-y-scroll p-8 pt-24">
             {props.children}
           </div>
           {/* Content */}
