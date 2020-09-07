@@ -6,7 +6,7 @@ type Props = {
 };
 
 const ClassSideBar = (props: Props) => {
-  const _buyTicket = useCallback(() => {}, []);
+  const _buyTicket = useCallback(() => props.handleBuyTicket(), []);
 
   return (
     <div className="bg-white h-screen overflow-y-auto pt-12 relative" style={{ width: '450px' }}>

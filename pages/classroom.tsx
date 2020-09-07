@@ -4,6 +4,7 @@ import { useState, useCallback } from 'react';
 import PrimaryButton from '@components/common/PrimaryButton';
 import ClassList from '@components/Classroom/ClassList';
 import ClassSideBar from '@components/Classroom/ClassSideBar';
+import QuizCard from '@components/Quiz/QuizCard';
 
 const Classroom = () => {
   const [classDay, setClassDay] = useState(1);
@@ -23,7 +24,7 @@ const Classroom = () => {
 
   const _handleBuyTicket = useCallback(() => {
     setIsShowSpeaker(true);
-  }, [isShowSpeaker]);
+  }, [isShowSpeaker, isShowSchedule]);
 
   return (
     <div className="flex flex-col flex-1">
@@ -33,17 +34,16 @@ const Classroom = () => {
         style={{
           width: '100vw',
           height: '100vh',
-          background: 'url(/bg-classroom-lobby.webp) no-repeat center center',
+          background: `url(${
+            isShowSpeaker ? '/bg-classroom-session.png' : '/bg-classroom-lobby.webp'
+          }) no-repeat center center`,
           objectFit: 'cover',
         }}
       >
         <div className="h-screen overflow-y-auto" style={{ backgroundColor: 'rgba(0,0,0,0.75)' }}>
           {isShowSchedule && (
             <div className="h-screen flex items-center justify-center">
-              <div
-                onClick={() => setIsShowSchedule(false)}
-                className="absolute w-screen h-screen flex flex-col items-center pt-24"
-              >
+              <div className="absolute w-screen h-screen flex flex-col items-center pt-24">
                 <Schedule
                   dayNo={classDay}
                   changeDayNo={_changeClassDay}
@@ -69,6 +69,21 @@ const Classroom = () => {
               </div>
 
               <ClassSideBar handleBuyTicket={_handleBuyTicket} />
+            </div>
+          )}
+
+          {isShowSpeaker && (
+            <div className="flex justify-center">
+              <div
+                className="bg-white"
+                style={{ width: '810px', height: '390px', marginTop: '130px' }}
+              >
+                <img src="/video-main-stage.webp" className="w-full h-full bg-cover" />
+              </div>
+
+              <div className="absolute" style={{ bottom: '30px', right: '30px' }}>
+                <QuizCard onClickJawab={() => {}} />
+              </div>
             </div>
           )}
         </div>

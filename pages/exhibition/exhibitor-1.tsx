@@ -119,10 +119,10 @@ const Exhibitor1 = () => {
           }}
         >
           <InfoSpot onClick={() => _openImagesModal(0)} left="calc(50vw - 28vw)" top="58%" />
-          <InfoSpot onClick={() => _openImagesModal(0)} left="calc(50vw - 5vw)" top="27.5%" />
-          <InfoSpot onClick={() => _openImagesModal(0)} left="calc(50vw - 13.3vw)" top="48%" />
-          <InfoSpot onClick={() => _openImagesModal(0)} left="calc(50vw + 2vw)" top="62%" />
-          <InfoSpot onClick={() => _openImagesModal(0)} left="calc(50vw + 21.3vw)" top="48%" />
+          <InfoSpot onClick={() => _openImagesModal(2)} left="calc(50vw - 5vw)" top="27.5%" />
+          <InfoSpot onClick={() => _openVideo()} left="calc(50vw - 13.3vw)" top="48%" />
+          <InfoSpot onClick={() => _openImagesModal(3)} left="calc(50vw + 2vw)" top="62%" />
+          <InfoSpot onClick={() => _openImagesModal(1)} left="calc(50vw + 21.3vw)" top="48%" />
         </div>
 
         <div className="fixed" style={{ top: 'calc(3rem + 20px)', right: '35px' }}>
