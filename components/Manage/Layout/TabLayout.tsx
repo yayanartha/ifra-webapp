@@ -44,12 +44,12 @@ const TabLayout = (props: Props) => {
             </button>
           )}
 
-          <div className="w-3" />
+          {/* <div className="w-3" /> */}
 
           {props.primaryAction && (
             <button
               onClick={props.primaryAction}
-              className="bg-blue-700 h-10 px-6 flex items-center justify-center shadow-lg hover:bg-blue-600 focus:outline-none"
+              className="ml-3 bg-blue-700 h-10 px-6 flex items-center justify-center shadow-lg hover:bg-blue-600 focus:outline-none"
               style={{ minWidth: '120px' }}
             >
               <p className="text-sm text-white font-body font-medium">{props.primaryActionTitle}</p>
