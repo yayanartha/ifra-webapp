@@ -2,15 +2,17 @@ import Header from '@components/Manage/Layout/Content/Header';
 import Tab from '@components/Manage/Layout/Content/NavigationTabs/Tab';
 import Tabs from '@components/Manage/Layout/Content/NavigationTabs/Tabs';
 import Layout from '@components/Manage/Layout/Layout';
+import NameCardModal from '@components/NameCard/NameCardModal';
 import { useState } from 'react';
 import DataTable from 'react-data-table-component';
 
 const Index = () => {
   const [selected, setSelected] = useState<any[]>([]);
+  const [showCard, setShowCard] = useState(true);
 
   return (
-    <Layout title="Name-Card">
-      <Header title="Name-Card" />
+    <Layout title="Name Card">
+      <Header title="Name Card" />
       <div className="flex">
         <div className="flex-1">
           <Tabs>
@@ -73,7 +75,7 @@ const Index = () => {
               name: 'Actions',
               cell: (item) => (
                 <div className="grid grid-cols-2 gap-8">
-                  <button onClick={() => {}}>
+                  <button onClick={() => setShowCard(true)}>
                     <div className="focus:outline-none cursor-pointer bg-white shadow-md h-10 w-32 text-blue-600 flex items-center justify-center">
                       View
                     </div>
@@ -130,6 +132,8 @@ const Index = () => {
           </button>
         </div>
       </div>
+
+      <NameCardModal isOpen={showCard} onRequestClose={() => setShowCard(false)} />
     </Layout>
   );
 };
