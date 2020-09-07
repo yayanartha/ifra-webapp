@@ -1,15 +1,39 @@
 import { FaChevronDown, FaComments, FaBell } from 'react-icons/fa';
 import ReactIcons from '../common/ReactIcons';
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import DropdownMenu from './DropdownMenu';
 import DropdownRundown from './DropdownRundown';
 import Link from 'next/link';
 import NotifIndicator from '@components/common/NotifIndicator';
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
+  const router = useRouter();
+
+  const [selectedMenu, setSelectedMenu] = useState('Main Hall');
   const [isShowMenu, setIsShowMenu] = useState(false);
   const [isShowRundown, setIsShowRundown] = useState(false);
   const [isShowProfile, setIsShowProfile] = useState(false);
+
+  useEffect(() => {
+    let menu = selectedMenu;
+
+    if (router.pathname.includes('/exhibition')) {
+      menu = 'Exhibition Hall';
+    } else if (router.pathname.includes('/stage')) {
+      menu = 'Main Stage';
+    } else if (router.pathname.includes('/classroom')) {
+      menu = 'Classroom';
+    } else if (router.pathname.includes('/experts')) {
+      menu = 'Meet The Experts';
+    } else if (router.pathname.includes('/favorite')) {
+      menu = 'Favorite';
+    } else if (router.pathname.includes('/shop')) {
+      menu = 'Shop';
+    }
+
+    setSelectedMenu(menu);
+  }, [router]);
 
   const _toggleDropdownMenu = useCallback(() => {
     setIsShowMenu(!isShowMenu);
@@ -48,7 +72,7 @@ const Navbar = () => {
             className="border-l border-gray-300 h-12 px-4 flex items-center justify-center hover:bg-gray-100 focus:outline-none"
           >
             <div className="flex items-center">
-              <p className="main-menu">Main Hall</p>
+              <p className="main-menu">{selectedMenu}</p>
               <ReactIcons Icon={FaChevronDown} className="text-primary ml-2 text-xs" />
             </div>
           </button>

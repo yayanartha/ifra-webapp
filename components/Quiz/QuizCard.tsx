@@ -2,7 +2,7 @@ import { useMemo, useState, useCallback } from 'react';
 import ReactIcons from '@components/common/ReactIcons';
 import PrimaryButton from '@components/common/PrimaryButton';
 
-const QuizCard = (props: {onClickJawab(): void}) => {
+const QuizCard = (props: { onClickJawab(): void }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [isShowing, setIsShowing] = useState(true);
 
@@ -49,7 +49,8 @@ const QuizCard = (props: {onClickJawab(): void}) => {
       {options.map((o, i) => (
         <button
           onClick={() => _setAnswer(o)}
-          className="flex w-full items-center bg-white py-2 shadow-sm mb-2"
+          className="flex w-full items-center py-2 shadow-sm mb-2 hover:bg-gray-200 focus:outline-none"
+          style={{ backgroundColor: o === selectedOption ? '#FEFCBF' : '#FFF' }}
         >
           <div
             className="w-4 h-4 border-2 border-primary rounded-full mx-4"

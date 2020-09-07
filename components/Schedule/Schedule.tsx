@@ -63,7 +63,7 @@ const Schedule = (props: Props) => {
   );
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="relative flex flex-col items-center">
       <button onClick={_toggleDaySelect} className="flex items-center mb-8 ml-4 focus:outline-none">
         <p className="schedule-title hover:text-gray-300">{`Day ${props.dayNo}`}</p>
         <ReactIcons Icon={FaChevronDown} className="text-white ml-4 text-xs hover:text-gray-300" />
@@ -85,21 +85,30 @@ const Schedule = (props: Props) => {
         <DropdownContainer onDismiss={_toggleDaySelect}>
           <div
             className="fixed z-20 shadow-2xl bg-white border-b-4 border-primary"
-            style={{ top: '10%', width: '150px' }}
+            style={{ marginTop: '50px', width: '150px' }}
           >
             <div style={{ height: '12px' }} />
             {props.dayNo !== 1 && (
-              <button onClick={() => _selectDay(1)} className="hover:bg-gray-200 py-3 w-full">
+              <button
+                onClick={() => _selectDay(1)}
+                className="hover:bg-gray-200 py-3 w-full focus:outline-none"
+              >
                 <p className="main-rundown-item">Day 1</p>
               </button>
             )}
             {props.dayNo !== 2 && (
-              <button onClick={() => _selectDay(2)} className="hover:bg-gray-200 py-3 w-full">
+              <button
+                onClick={() => _selectDay(2)}
+                className="hover:bg-gray-200 py-3 w-full focus:outline-none"
+              >
                 <p className="main-rundown-item">Day 2</p>
               </button>
             )}
             {props.dayNo !== 3 && (
-              <button onClick={() => _selectDay(3)} className="hover:bg-gray-200 py-3 w-full">
+              <button
+                onClick={() => _selectDay(3)}
+                className="hover:bg-gray-200 py-3 w-full focus:outline-none"
+              >
                 <p className="main-rundown-item">Day 3</p>
               </button>
             )}

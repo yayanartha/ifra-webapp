@@ -8,7 +8,7 @@ const CompanyInfo = () => {
 
   return (
     <div className="w-full h-full flex flex-col">
-      <div className="px-8 py-4 flex flex-col overflow-y-auto" style={{ height: '446px' }}>
+      <div className="px-8 py-4 flex flex-col overflow-y-auto" style={{ height: '450px' }}>
         <div className="flex">
           <div className="flex-1">
             <p className="company-text mb-4">
@@ -58,8 +58,8 @@ const CompanyInfo = () => {
         </div>
       </div>
 
-      <div className="flex items-end justify-end px-8 pb-6 pt-4 border-t border-gray-200">
-        <PrimaryButton label="Simpan" onClick={_handleSave} width="200px" />
+      <div className="flex items-end justify-end px-8 py-4 border-t border-gray-200">
+        <PrimaryButton label="Save" onClick={_handleSave} width="200px" />
       </div>
     </div>
   );

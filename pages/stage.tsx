@@ -5,6 +5,7 @@ import Schedule from '@components/Schedule/Schedule';
 import { useState } from 'react';
 
 const Stage = () => {
+  const [dayNo, setDayNo] = useState(1);
   const [isShowSchedule, setIsShowSchedule] = useState(true);
   const [isShowLuckyDraw, setIsShowLuckyDraw] = useState(false);
 
@@ -40,15 +41,19 @@ const Stage = () => {
           )}
 
           {isShowSchedule && (
-            <div
-              onClick={() => setIsShowSchedule(false)}
-              className="absolute w-screen h-screen flex flex-col items-center pt-32"
-            >
-              <Schedule dayNo={1} changeDayNo={() => {}} scheduleData={[]} title="Main Stage" />
+            <div className="absolute w-screen h-screen pt-24">
+              <div className="relative flex flex-col items-center h-full">
+                <Schedule
+                  dayNo={dayNo}
+                  changeDayNo={(day) => setDayNo(day)}
+                  scheduleData={[]}
+                  title="Main Stage"
+                />
 
-              <p className="schedule-footnote absolute" style={{ bottom: '60px' }}>
-                Tekan tombol lonceng untuk mendapatkan notifikasi saat acara akan berlangsung
-              </p>
+                <p className="schedule-footnote absolute" style={{ bottom: '60px' }}>
+                  Tekan tombol lonceng untuk mendapatkan notifikasi saat acara akan berlangsung
+                </p>
+              </div>
             </div>
           )}
 
@@ -81,6 +86,22 @@ const Stage = () => {
                 Nomor undian Anda adalah{' '}
                 <span className="font-bold text-3xl text-white">07-11-25-23</span>
               </p>
+            </div>
+          )}
+
+          {isShowSchedule && (
+            <div
+              onClick={() => setIsShowSchedule(false)}
+              className="fixed bg-red-500 cursor-pointer"
+              style={{
+                top: 'calc(50vh)',
+                width: '100px',
+                height: '100px',
+                right: 0,
+                padding: '8px',
+              }}
+            >
+              <p className="text-white text-xs">Tap here to close the schedule</p>
             </div>
           )}
         </div>

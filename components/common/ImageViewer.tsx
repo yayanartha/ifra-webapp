@@ -35,7 +35,7 @@ const ImageViewer = () => {
           </p>
 
           <div className="absolute flex items-center" style={{ right: '50px', bottom: '24px' }}>
-            <PrimaryButton onClick={() => {}} label="Simpan" width="250px" />
+            <PrimaryButton onClick={() => {}} label="Save" width="250px" />
           </div>
         </div>
       </div>
