@@ -36,9 +36,11 @@ export default (props: CountDownProps) => {
       className="absolute inset-0 flex flex-col flex-1 items-center justify-center"
       style={{ backgroundColor: 'rgba(0,0,0,0.8)' }}
     >
-      <p className="text-white mb-8 text-3xl font-body font-bold">
-        The 18<sup>th</sup> IFRA Expo 2020
+      <p className="text-white text-lg font-body">
+        <span className="font-bold">Come</span> and <span className="font-bold">Join</span> to
       </p>
+      <p className="text-white text-4xl font-body font-bold">IFRA VIRTUAL EXPO</p>
+      <p className="text-white mb-8 text-base font-body">Feel the experience from your home!</p>
 
       <div className="flex flex-row mb-16">
         <Countdown
