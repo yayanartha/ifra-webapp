@@ -2,7 +2,7 @@ import ReactIcons from '@components/common/ReactIcons';
 import { GrClose } from 'react-icons/gr';
 import { useState, useCallback, createRef, useEffect } from 'react';
 
-interface ChatItem {
+export interface ChatItem {
   message: string;
   senderId: number;
 }
@@ -106,7 +106,7 @@ const ChatModal = (props: Props) => {
   );
 };
 
-const ChatBubble = ({ data }: { data: ChatItem }) => {
+export const ChatBubble = ({ data }: { data: ChatItem }) => {
   if (data.senderId === 0) {
     return (
       <div className="flex-col inline-flex" style={{ maxWidth: '80%', marginBottom: '20px' }}>
