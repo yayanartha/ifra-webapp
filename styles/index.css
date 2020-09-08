@@ -120,6 +120,10 @@
   @apply font-body text-xs text-gray-700;
 }
 
+.section {
+  @apply font-body text-xs text-text font-bold mb-2;
+}
+
 /* Start purging... */
 @tailwind utilities;
 /* Stop purging. */

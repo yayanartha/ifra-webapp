@@ -62,13 +62,13 @@ export default (props: CountDownProps) => {
 
       {isShowRegisterMenu ? (
         <div className="flex">
-          <button
+          {/* <button
             onClick={_registerSponsor}
             className="rounded-lg w-32 h-32 bg-primary flex items-center justify-center hover:bg-blue_button focus:outline-none"
           >
             <p className="text-white text-center text-base mt-2 font-body font-medium">Sponsor</p>
           </button>
-          <div className="w-6" />
+          <div className="w-6" /> */}
           <button
             onClick={_registerExhibitor}
             className="rounded-lg w-32 h-32 bg-primary flex items-center justify-center hover:bg-blue_button focus:outline-none"

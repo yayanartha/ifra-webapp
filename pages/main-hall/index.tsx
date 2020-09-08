@@ -17,6 +17,8 @@ import Exhibition from '@components/MainHall/Exhibition';
 import Press from '@components/MainHall/Press';
 import LogoViewer from '@components/MainHall/LogoViewer';
 import CountDown from '@components/MainHall/CountDown';
+import InfoDesk from '@components/MainHall/InfoDesk';
+import Info from '@components/MainHall/Info';
 
 const MainHall = () => {
   const router = useRouter();
@@ -32,6 +34,8 @@ const MainHall = () => {
   const [isShowPoster, setIsShowPoster] = useState(false);
   const [isShowBanner, setIsShowBanner] = useState(false);
   const [isShowWallpaper, setIsShowWallpaper] = useState(false);
+
+  const [isShowInfoDesk, setIsShowInfoDesk] = useState(false);
 
   const _onClickAgenda = useCallback((dayNo: number) => {
     _onChangeAgenda(dayNo);
@@ -77,6 +81,10 @@ const MainHall = () => {
     setIsShowModal(true);
   }, []);
 
+  const _onClickInfoDesk = useCallback(() => {
+    setIsShowInfoDesk(true);
+  }, []);
+
   const _closeModal = useCallback(() => {
     setIsShowModal(false);
   }, [isShowModal]);
@@ -100,6 +108,10 @@ const MainHall = () => {
   const _closeWallpaper = useCallback(() => {
     setIsShowWallpaper(false);
   }, [isShowWallpaper]);
+
+  const _closeInfoDesk = useCallback(() => {
+    setIsShowInfoDesk(false);
+  }, [isShowInfoDesk]);
 
   return (
     <div>
@@ -128,6 +140,7 @@ const MainHall = () => {
           <Videotron onClick={_onClickVideotron} />
           <Exhibition onClick={_onClickExhibition} />
           <Press onClick={_onClickPress} />
+          <Info onClick={_onClickInfoDesk} />
         </div>
 
         <SponsorFooter onClick={_onClickLogo} />
@@ -162,9 +175,9 @@ const MainHall = () => {
         <LogoViewer type="Wallpaper" />
       </ModalCenter>
 
-      {/* <ModalTNC isShow={showModal} onCloseModal={() => setShowModal(false)} /> */}
-
-      {/* <CountDown /> */}
+      <ModalCenter isOpen={isShowInfoDesk} onClose={_closeInfoDesk}>
+        <InfoDesk />
+      </ModalCenter>
     </div>
   );
 };
