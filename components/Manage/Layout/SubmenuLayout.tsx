@@ -19,7 +19,11 @@ const SubmenuLayout = (props: Props) => {
       <div className="bg-blue-800 w-64 overflow-y-auto" style={{ height: 'calc(100vh - 4rem)' }}>
         <div className="h-4" />
         {props.data.map((d, i) => (
-          <Submenu data={d} isActive={props.selectedSubmenu.id === d.id} />
+          <Submenu
+            data={d}
+            isActive={props.selectedSubmenu.id === d.id}
+            onClick={props.setSelectedSubmenu}
+          />
         ))}
         <div className="h-4" />
       </div>
@@ -31,11 +35,13 @@ const SubmenuLayout = (props: Props) => {
 interface SubmenuProps {
   data: SubmenuItem;
   isActive: boolean;
+  onClick(subMenu: SubmenuItem): void;
 }
 
 const Submenu = (props: SubmenuProps) => {
   return (
     <button
+      onClick={() => props.onClick(props.data)}
       className={`w-full relative h-12 hover:bg-blue-900 flex flex-col justify-center px-8 cursor-pointer focus:outline-none ${
         props.isActive ? 'bg-blue-900' : 'bg-transparent'
       }`}

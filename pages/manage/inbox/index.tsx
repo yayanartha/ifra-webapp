@@ -25,7 +25,7 @@ const Index = () => {
         // defaultAction={() => {}}
         // defaultActionTitle="Delete"
       >
-        <div className="p-8">
+        <div className="px-8 pb-8">
           <DataTable
             striped
             customStyles={{
@@ -53,6 +53,41 @@ const Index = () => {
               },
               {
                 id: 3,
+                name: 'Broadcast Title 1',
+                category: 'News',
+              },
+              {
+                id: 4,
+                name: 'Broadcast Title 1',
+                category: 'News',
+              },
+              {
+                id: 5,
+                name: 'Broadcast Title 1',
+                category: 'News',
+              },
+              {
+                id: 6,
+                name: 'Broadcast Title 1',
+                category: 'News',
+              },
+              {
+                id: 7,
+                name: 'Broadcast Title 1',
+                category: 'News',
+              },
+              {
+                id: 8,
+                name: 'Broadcast Title 1',
+                category: 'News',
+              },
+              {
+                id: 9,
+                name: 'Broadcast Title 1',
+                category: 'News',
+              },
+              {
+                id: 10,
                 name: 'Broadcast Title 1',
                 category: 'News',
               },
