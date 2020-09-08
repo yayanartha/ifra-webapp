@@ -1,12 +1,20 @@
 import SideLogo from '@components/Registration/SideLogo';
 import Step from '@components/Registration/Step';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useState } from 'react';
 
 interface VisitorDetailThreeRegisterProps {}
 
 const VisitorDetailThreeRegister = (props: VisitorDetailThreeRegisterProps) => {
   const router = useRouter();
+  const [invest, setInvest] = useState('placeholder');
+  const [date, setDate] = useState('placeholder');
+  const [category, setCategory] = useState('placeholder');
+  const [brand, setBrand] = useState('placeholder');
+
+  const setGrayText = (value: string) => {
+    return value === 'placeholder' ? 'text-gray-400' : 'text-black';
+  };
 
   return (
     <div className="w-screen h-screen bg-white flex">
@@ -27,9 +35,16 @@ const VisitorDetailThreeRegister = (props: VisitorDetailThreeRegisterProps) => {
           </h1>
 
           <select
-            className="form-select shadow-md h-12 font-light text-sm border-0 mb-4"
+            className={`form-select shadow-md h-12 font-light text-sm border-0 mb-4 ${setGrayText(
+              invest
+            )}`}
             placeholder="How much do you plan or willing to invest in the franchise business"
+            value={invest}
+            onChange={(e) => setInvest(e.target.value)}
           >
+            <option value="placeholder" disabled>
+              {'How much do you plan or willing to invest in the franchise business'}
+            </option>
             <option>{'> Rp 1.000.000.000'}</option>
             <option>{'Rp 500.000.000 - Rp 1.000.000.000'}</option>
             <option>{'Rp 250.000.000 - Rp 500.000.000'}</option>
@@ -41,9 +56,16 @@ const VisitorDetailThreeRegister = (props: VisitorDetailThreeRegisterProps) => {
           </select>
 
           <select
-            className="form-select shadow-md h-12 font-light text-sm border-0 mb-4"
+            className={`form-select shadow-md h-12 font-light text-sm border-0 mb-4 ${setGrayText(
+              date
+            )}`}
             placeholder="Choose Your Available Date*"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
           >
+            <option value="placeholder" disabled>
+              Choose Your Available Date*
+            </option>
             <option>18 September 2020</option>
             <option>19 September 2020</option>
             <option>20 September 2020</option>
@@ -51,9 +73,16 @@ const VisitorDetailThreeRegister = (props: VisitorDetailThreeRegisterProps) => {
 
           <div className="flex flex-row gap-8 mb-4">
             <select
-              className="form-select shadow-md h-12 font-light text-sm border-0 w-1/2"
+              className={`form-select shadow-md h-12 font-light text-sm border-0 w-1/2 ${setGrayText(
+                category
+              )}`}
               placeholder="Choose Your Exhibitor Category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
             >
+              <option value="placeholder" disabled>
+                Choose Your Exhibitor Category
+              </option>
               <option>Ministry of Trade of Pi Pavilion (10)</option>
               <option>Sponsor (12)</option>
               <option>Automotive (21)</option>
@@ -71,9 +100,16 @@ const VisitorDetailThreeRegister = (props: VisitorDetailThreeRegisterProps) => {
               <option>Water Refill (3)</option>
             </select>
             <select
-              className="form-select shadow-md h-12 font-light text-sm border-0 w-1/2"
+              className={`form-select shadow-md h-12 font-light text-sm border-0 w-1/2 ${setGrayText(
+                brand
+              )}`}
               placeholder="Brand Name"
+              value={brand}
+              onChange={(e) => setBrand(e.target.value)}
             >
+              <option value="placeholder" disabled>
+                Brand Name
+              </option>
               <option>Brand A</option>
               <option>Brand B</option>
               <option>Brand C</option>
