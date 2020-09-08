@@ -1,16 +1,17 @@
-import Navbar from '@components/Navbar/Navbar';
-import { useCallback, useState, useMemo } from 'react';
-import ModalCenter from '@components/common/ModalCenter';
 import BottomMenu, { BottomMenuItem } from '@components/common/BottomMenu';
+import ModalCenter from '@components/common/ModalCenter';
 import ReactIcons from '@components/common/ReactIcons';
-import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
-import InfoSpot from '@components/Exhibitor/InfoSpot';
-import { FaComment, FaIdCardAlt, FaVideo } from 'react-icons/fa';
-import ExhibitorHelpMenu from '@components/Exhibitor/ExhibitorHelpMenu';
-import { SiGooglecalendar } from 'react-icons/si';
-import ExhibitorImagesModal from '@components/Exhibitor/ExhibitorImagesModal';
-import { useRouter } from 'next/router';
 import ChatModal from '@components/Exhibitor/ChatModal';
+import ExhibitorHelpMenu from '@components/Exhibitor/ExhibitorHelpMenu';
+import ExhibitorImagesModal from '@components/Exhibitor/ExhibitorImagesModal';
+import InfoSpot from '@components/Exhibitor/InfoSpot';
+import { NameCardContentModal } from '@components/NameCard/NameCardModal';
+import Navbar from '@components/Navbar/Navbar';
+import { useRouter } from 'next/router';
+import { useCallback, useMemo, useState } from 'react';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import { FaComment, FaIdCardAlt, FaVideo } from 'react-icons/fa';
+import { SiGooglecalendar } from 'react-icons/si';
 
 const Exhibitor1 = () => {
   const router = useRouter();
@@ -21,6 +22,8 @@ const Exhibitor1 = () => {
   const [defaultTabIndex, setDefaultTabIndex] = useState(0);
   const [isShowChat, setIsShowChat] = useState(false);
   const [isShowVideoCall, setIsShowVideoCall] = useState(false);
+  const [isShowNameCard, setIsShowNameCard] = useState(false);
+  const [isShowStreaming, setIsShowStreaming] = useState(false);
 
   const bottomMenu: BottomMenuItem[] = useMemo(
     () => [
@@ -77,7 +80,7 @@ const Exhibitor1 = () => {
   }, [isShowChat]);
 
   const _handleDropNameCard = useCallback(() => {
-    //
+    setIsShowNameCard(true);
   }, []);
 
   const _handleBusinessMeetUp = useCallback(() => {
@@ -89,7 +92,7 @@ const Exhibitor1 = () => {
   }, []);
 
   const _handleLiveStreaming = useCallback(() => {
-    //
+    setIsShowStreaming(true);
   }, []);
 
   const _closeImagesModal = useCallback(() => {
@@ -210,6 +213,24 @@ const Exhibitor1 = () => {
 
       <ModalCenter isOpen={isShowVideoCall} onClose={_closeVideoCall} backgroundColor="#000">
         <img src="/video-call.png" width="1080px" />
+      </ModalCenter>
+
+      <ModalCenter
+        isOpen={isShowNameCard}
+        onClose={() => setIsShowNameCard(false)}
+        backgroundColor="#000"
+      >
+        <div className="w-8/12 mx-auto">
+        <NameCardContentModal />
+        </div>
+      </ModalCenter>
+
+      <ModalCenter
+        isOpen={isShowStreaming}
+        onClose={() => setIsShowStreaming(false)}
+        backgroundColor="#000"
+      >
+        <img src="/live-streaming.jpg" width="1080px" />
       </ModalCenter>
     </div>
   );
