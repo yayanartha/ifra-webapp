@@ -10,7 +10,7 @@ interface ExhibitorHallProps {}
 
 const ExhibitorHall = (props: ExhibitorHallProps) => {
   const router = useRouter();
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
   const [index, setIndex] = useState(0);
   const tabs: TabItem[] = useMemo(
     () => [
