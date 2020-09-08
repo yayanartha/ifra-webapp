@@ -109,7 +109,7 @@ const Exhibitor1 = () => {
       <Navbar />
 
       <div className="fixed w-screen h-screen overflow-y-scroll overflow-x-hidden">
-        <img src="/exhibitor-1.webp" alt="Booth A Background" className="w-full h-auto" />
+        <img src="/bg-booth-1.jpg" alt="Booth A Background" className="w-full h-auto" />
 
         <div
           className="absolute top-0"
