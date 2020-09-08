@@ -29,6 +29,10 @@ const Exhibition = () => {
         name: 'Favorite',
         action: () => _gotoFavorite(),
       },
+      {
+        name: 'Shop',
+        action: () => _gotoShop(),
+      },
     ],
     []
   );
@@ -55,6 +59,10 @@ const Exhibition = () => {
 
   const _gotoFavorite = useCallback(() => {
     router.push('/favorite');
+  }, [router]);
+
+  const _gotoShop = useCallback(() => {
+    router.push('/shop');
   }, [router]);
 
   return (

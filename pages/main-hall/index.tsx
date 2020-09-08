@@ -118,7 +118,7 @@ const MainHall = () => {
       <Navbar />
 
       <div className="fixed w-screen h-screen overflow-y-scroll overflow-x-hidden">
-        <img src="/bg-main1.webp" alt="Main background" className="w-full h-auto" />
+        <img src="/bg-main1.jpg" alt="Main background" className="w-full h-auto" />
 
         <div
           className="absolute top-0"
@@ -129,10 +129,30 @@ const MainHall = () => {
         >
           {/* HOTSPOTS */}
           <MainLogo onClick={_onClickLogo} />
-          <OrganiserLogo onClick={_onClickLogo} left="calc(50vw - 16vw)" top="33.5%" />
-          <OrganiserLogo onClick={_onClickLogo} left="calc(50vw + 7vw)" top="33.5%" />
-          <OrganiserMiniLogo onClick={_onClickLogo} left="calc(50vw - 4.65vw)" top="31.4%" />
-          <OrganiserMiniLogo onClick={_onClickLogo} left="calc(50vw - 4.65vw)" top="46.5%" />
+          <OrganiserLogo
+            onClick={_onClickLogo}
+            left="calc(50vw - 16vw)"
+            top="33.5%"
+            label="Hosted by:"
+          />
+          <OrganiserLogo
+            onClick={_onClickLogo}
+            left="calc(50vw + 7vw)"
+            top="33.5%"
+            label="Supported by:"
+          />
+          <OrganiserMiniLogo
+            onClick={_onClickLogo}
+            left="calc(50vw - 4.65vw)"
+            top="31.4%"
+            label="Hosted by:"
+          />
+          <OrganiserMiniLogo
+            onClick={_onClickLogo}
+            left="calc(50vw - 4.65vw)"
+            top="46.5%"
+            label="Organised by:"
+          />
           <Poster onClick={_onClickPoster} />
           <XBanner onClick={_onClickBanner} />
           <Wallpaper onClick={_onClickWallpaper} />

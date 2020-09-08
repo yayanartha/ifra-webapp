@@ -18,7 +18,7 @@ const Navbar = () => {
   useEffect(() => {
     let menu = selectedMenu;
 
-    if (router.pathname.includes('/exhibition')) {
+    if (router.pathname.includes('/exhibition') || router.pathname.includes('/exhibitor-hall')) {
       menu = 'Exhibition Hall';
     } else if (router.pathname.includes('/stage')) {
       menu = 'Main Stage';

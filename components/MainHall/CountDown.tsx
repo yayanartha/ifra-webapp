@@ -73,7 +73,9 @@ export default (props: CountDownProps) => {
             onClick={_registerExhibitor}
             className="rounded-lg w-32 h-32 bg-primary flex items-center justify-center hover:bg-blue_button focus:outline-none"
           >
-            <p className="text-white text-center text-base mt-2 font-body font-medium">Exhibitor</p>
+            <p className="text-white text-center text-base mt-2 font-body font-medium">
+              Exhibitor dan Sponsor
+            </p>
           </button>
           <div className="w-6" />
           <button
@@ -87,7 +89,9 @@ export default (props: CountDownProps) => {
             onClick={_registerMedia}
             className="rounded-lg w-32 h-32 bg-primary flex items-center justify-center hover:bg-blue_button focus:outline-none"
           >
-            <p className="text-white text-center text-base mt-2 font-body font-medium">Media</p>
+            <p className="text-white text-center text-base mt-2 font-body font-medium">
+              Media (FOC)
+            </p>
           </button>
         </div>
       ) : (
