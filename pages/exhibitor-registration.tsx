@@ -8,38 +8,58 @@ interface ExhibitorRegistrationProps {}
 const ExhibitorRegistration = (props: ExhibitorRegistrationProps) => {
   const router = useRouter();
   const [showInfo, setShowInfo] = useState(true);
+  const [business, setBusiness] = useState('placeholder');
+  const [nature, setNature] = useState('placeholder');
+  const [title, setTitle] = useState('placeholder');
+  const [country, setCountry] = useState('placeholder');
 
   const _handleSubmit = useCallback(() => {
     router.push('/login');
   }, []);
 
+  const setGrayText = (value: string) => {
+    return value === 'placeholder' ? 'text-gray-400' : 'text-black';
+  };
+
   return (
     <div className="w-screen h-screen bg-white flex">
       <SideLogo />
 
-      <div className="h-screen w-full pt-8 pl-8 pr-8">
+      <div className="h-screen w-full pt-8 pl-8 pr-8 overflow-scroll">
         <div className="h-16 flex flex-col justify-center mb-4">
           <h1 className="font-bold text-3xl text-blue-600 tracking-wider">
             Exhibitor Registration
           </h1>
         </div>
 
-        <div className="flex w-full h-screen gap-8" style={{ height: 'calc(100vh - 7rem)' }}>
+        <div className="flex w-full gap-8">
           <div className="flex flex-col flex-1">
             <div className="flex flex-row gap-4 mb-4">
               <select
-                className="form-select shadow-md h-10 flex flex-1 pl-2 font-light text-sm border-0"
+                className={`form-select shadow-md h-10 flex flex-1 pl-2 font-light text-sm border-0 ${setGrayText(
+                  business
+                )}`}
                 placeholder="Choose Business Type*"
+                value={business}
+                onChange={(e) => setBusiness(e.target.value)}
               >
+                <option value="placeholder" disabled>
+                  Choose Business Type*
+                </option>
                 <option>Franchise</option>
                 <option>License</option>
                 <option>Business Concept</option>
               </select>
 
               <select
-                className="form-select shadow-md h-10 flex flex-1 pl-2 font-light text-sm border-0"
+                className={`form-select shadow-md h-10 flex flex-1 pl-2 font-light text-sm border-0 ${setGrayText(nature)}`}
                 placeholder="Choose Nature of Business*"
+                value={nature}
+                onChange={(e) => setNature(e.target.value)}
               >
+                <option value="placeholder" disabled>
+                  Choose Nature of Business*
+                </option>
                 <option>Natural</option>
                 <option>Natural Mid</option>
                 <option>Natural High</option>
@@ -82,6 +102,8 @@ const ExhibitorRegistration = (props: ExhibitorRegistrationProps) => {
               className="appearance-none shadow-md h-10 pl-2 font-light text-sm"
               placeholder="Link Video TVC (YouTube)*"
             />
+
+            <TextHelp />
           </div>
 
           <div className="flex flex-col flex-1">
@@ -92,9 +114,16 @@ const ExhibitorRegistration = (props: ExhibitorRegistrationProps) => {
                 placeholder="Name*"
               />
               <select
-                className="form-select shadow-md h-10 pl-2 font-light text-sm border-0"
+                className={`form-select shadow-md h-10 pl-2 font-light text-sm border-0 ${setGrayText(
+                  title
+                )}`}
                 placeholder="Select Title*"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
               >
+                <option value="placeholder" disabled>
+                  Select Title*
+                </option>
                 <option>Mr.</option>
                 <option>Mrs.</option>
                 <option>Ms.</option>
@@ -126,9 +155,16 @@ const ExhibitorRegistration = (props: ExhibitorRegistrationProps) => {
                 placeholder="Fax*"
               />
               <select
-                className="form-select shadow-md h-10 pl-2 font-light text-sm border-0"
+                className={`form-select shadow-md h-10 pl-2 font-light text-sm border-0 ${setGrayText(
+                  country
+                )}`}
                 placeholder="Select Country*"
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
               >
+                <option value="placeholder" disabled>
+                  Select Country*
+                </option>
                 <option>Indonesia</option>
                 <option>USA</option>
                 <option>Argentina</option>
@@ -167,7 +203,7 @@ const ExhibitorRegistration = (props: ExhibitorRegistrationProps) => {
               placeholder="Payback Estimate Period"
             />
 
-            <label className="flex font-light text-xs text-gray-800 ">
+            <label className="flex font-light items-center text-xs text-gray-800 ">
               <input
                 className="form-checkbox appearance-none mr-2 h-6 w-6 border-2 border-blue-600 rounded-md"
                 type="checkbox"
@@ -209,5 +245,60 @@ const customStyles: Modal.Styles = {
     background: '#000000cc',
   },
 };
+
+const TextHelp = () => (
+  <div className="mt-8 shadow-md p-2">
+    <h1 className="text-xs text-blue-800 font-semibold mb-4">
+      Please send the data (before 15 September 2020) via email dyandra.ifra@gmail.com (based on
+      your choose package)
+    </h1>
+    <div className="mb-2">
+      <p className="text-blue-800 font-semibold text-xs">
+        {'Banner placement on homepage (max 2MB) : '}
+        <span className="text-xs font-thin text-black">
+          300 x 250 pixel or 1900 x 667 pixel based on your choose package (format PNG)
+        </span>
+      </p>
+    </div>
+    <div className="mb-2">
+      <p className="text-blue-800 font-semibold text-xs">
+        {'Product catalogue (max 2MB) : '}
+        <span className="text-xs font-thin text-black">(format PDF)</span>
+      </p>
+    </div>
+    <div className="mb-2">
+      <p className="text-blue-800 font-semibold text-xs">
+        {'Video display (max 2MB) : '}
+        <span className="text-xs font-thin text-black">
+          Size 16:9 (format MP4) & link Youtube. (10/20/30/60 seconds based on your choose package)
+        </span>
+      </p>
+    </div>
+    <div className="mb-2">
+      <p className="text-blue-800 font-semibold text-xs">
+        {'Poster/photos (max 2MB) : '}
+        <span className="text-xs font-thin text-black">480 x 560 pixel (format JPEG/PNG)</span>
+      </p>
+    </div>
+    <div className="mb-2">
+      <p className="text-blue-800 font-semibold text-xs">
+        {'Brochure (max 2MB) : '}
+        <span className="text-xs font-thin text-black">480 x 560 pixel (format JPEG/PNG)</span>
+      </p>
+    </div>
+    <div className="mb-2">
+      <p className="text-blue-800 font-semibold text-xs">
+        {'Logo placement (max 2MB) : '}
+        <span className="text-xs font-thin text-black">500 x 500 pixel (format JPEG/PNG/PDF)</span>
+      </p>
+    </div>
+    <div className="mb-2">
+      <p className="text-blue-800 font-semibold text-xs">
+        {'Social media ads (max 2MB) : '}
+        <span className="text-xs font-thin text-black">1080 x 1080 pixel (format JPEG/PNG)</span>
+      </p>
+    </div>
+  </div>
+);
 
 export default ExhibitorRegistration;

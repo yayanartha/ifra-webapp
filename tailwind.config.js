@@ -14,6 +14,9 @@ module.exports = {
         profile: '#4D4F5C',
         label_2: '#969696',
       },
+      fontSize: {
+        '2xs': ['0.25rem'],
+      }
     },
     fontFamily: {
       body: ['Poppins'],

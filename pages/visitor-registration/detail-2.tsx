@@ -1,12 +1,20 @@
 import SideLogo from '@components/Registration/SideLogo';
 import Step from '@components/Registration/Step';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useState } from 'react';
 
 interface VisitorDetailTwoRegisterProps {}
 
 const VisitorDetailTwoRegister = (props: VisitorDetailTwoRegisterProps) => {
   const router = useRouter();
+  const [business, setBusiness] = useState('placeholder');
+  const [purposeVisit, setPurposeVisit] = useState('placeholder');
+  const [expoVisited, setExpoVisited] = useState('placeholder');
+  const [position, setPosition] = useState('placeholder');
+
+  const setGrayText = (value: string) => {
+    return value === 'placeholder' ? 'text-gray-400' : 'text-black';
+  };
 
   return (
     <div className="w-screen h-screen bg-white flex">
@@ -21,9 +29,16 @@ const VisitorDetailTwoRegister = (props: VisitorDetailTwoRegisterProps) => {
 
         <div className="flex flex-col mx-auto w-7/12 mt-8">
           <select
-            className="form-select shadow-md h-12 font-light text-sm border-0 mb-4"
+            className={`form-select shadow-md h-12 font-light text-sm border-0 mb-4 ${setGrayText(
+              business
+            )}`}
             placeholder="Choose Your Scope of Business*"
+            value={business}
+            onChange={(e) => setBusiness(e.target.value)}
           >
+            <option value="placeholder" disabled>
+              Choose Your Scope of Business*
+            </option>
             <option>Franchise</option>
             <option>License</option>
             <option>Retailer</option>
@@ -35,9 +50,16 @@ const VisitorDetailTwoRegister = (props: VisitorDetailTwoRegisterProps) => {
           </select>
 
           <select
-            className="form-select shadow-md h-12 font-light text-sm border-0 mb-4"
+            className={`form-select shadow-md h-12 font-light text-sm border-0 mb-4 ${setGrayText(
+              purposeVisit
+            )}`}
             placeholder="Choose Your Purpose of Visit*"
+            value={purposeVisit}
+            onChange={(e) => setPurposeVisit(e.target.value)}
           >
+            <option value="placeholder" disabled>
+              Choose Your Purpose of Visit*
+            </option>
             <option>Visit Business Partner’s Booth</option>
             <option>Evaluate Opportunity to Join</option>
             <option>To Purchase Product</option>
@@ -51,9 +73,16 @@ const VisitorDetailTwoRegister = (props: VisitorDetailTwoRegisterProps) => {
           </select>
 
           <select
-            className="form-select shadow-md h-12 font-light text-sm border-0 mb-4"
+            className={`form-select shadow-md h-12 font-light text-sm border-0 mb-4 ${setGrayText(
+              expoVisited
+            )}`}
             placeholder="Choose Your Expo Visited*"
+            value={expoVisited}
+            onChange={(e) => setExpoVisited(e.target.value)}
           >
+            <option value="placeholder" disabled>
+              Choose Your Expo Visited*
+            </option>
             <option>Franchising & Licensing Asia Singapore</option>
             <option>Malaysia International Retail & Franchise Exhibition</option>
             <option>Vietnam Int’l Retail & Franchise Show</option>
@@ -64,9 +93,16 @@ const VisitorDetailTwoRegister = (props: VisitorDetailTwoRegisterProps) => {
           </select>
 
           <select
-            className="form-select shadow-md h-12 font-light text-sm border-0"
+            className={`form-select shadow-md h-12 font-light text-sm border-0 ${setGrayText(
+              position
+            )}`}
             placeholder="Position*"
+            value={position}
+            onChange={(e) => setPosition(e.target.value)}
           >
+            <option value="placeholder" disabled>
+              Position*
+            </option>
             <option>CEO / Chairman</option>
             <option>Director</option>
             <option>General Manager</option>
