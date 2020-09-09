@@ -116,11 +116,11 @@ const BaseLayout = (props: Props) => {
         name: 'Pages',
         route: '/manage/pages',
       },
-      {
-        id: 19,
-        name: 'Quiz',
-        route: '/manage/quiz',
-      },
+      // {
+      //   id: 19,
+      //   name: 'Quiz',
+      //   route: '/manage/quiz',
+      // },
     ],
     []
   );

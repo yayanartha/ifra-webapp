@@ -74,7 +74,7 @@ export default (props: CountDownProps) => {
             className="rounded-lg w-32 h-32 bg-primary flex items-center justify-center hover:bg-blue_button focus:outline-none"
           >
             <p className="text-white text-center text-base mt-2 font-body font-medium">
-              Exhibitor dan Sponsor
+              Exhibitor & Sponsor
             </p>
           </button>
           <div className="w-6" />
@@ -90,7 +90,7 @@ export default (props: CountDownProps) => {
             className="rounded-lg w-32 h-32 bg-primary flex items-center justify-center hover:bg-blue_button focus:outline-none"
           >
             <p className="text-white text-center text-base mt-2 font-body font-medium">
-              Media (FOC)
+              Media/Press
             </p>
           </button>
         </div>
