@@ -66,26 +66,26 @@ const BaseLayout = (props: Props) => {
       //   name: 'Quiz',
       //   route: '/manage/quiz',
       // },
-      // {
-      //   id: 9,
-      //   name: 'Lucky Draw',
-      //   route: '/manage/lucky-draw',
-      // },
-      // {
-      //   id: 10,
-      //   name: 'Classroom',
-      //   route: '/manage/classroom',
-      // },
-      // {
-      //   id: 11,
-      //   name: 'Meet The Experts',
-      //   route: '/manage/experts',
-      // },
-      // {
-      //   id: 12,
-      //   name: 'Shop',
-      //   route: '/manage/shop',
-      // },
+      {
+        id: 9,
+        name: 'Lucky Draw',
+        route: '/manage/lucky-draw',
+      },
+      {
+        id: 10,
+        name: 'Classroom',
+        route: '/manage/classroom',
+      },
+      {
+        id: 11,
+        name: 'Meet The Experts',
+        route: '/manage/experts',
+      },
+      {
+        id: 12,
+        name: 'Shop',
+        route: '/manage/shop',
+      },
       // {
       //   id: 13,
       //   name: 'Pages',
