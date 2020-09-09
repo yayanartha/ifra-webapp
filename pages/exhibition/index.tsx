@@ -70,7 +70,7 @@ const Exhibition = () => {
       <Navbar />
 
       <div className="fixed w-screen h-screen overflow-y-scroll overflow-x-hidden">
-        <img src="/bg-exhibition.webp" alt="Exhibition Hall" className="w-full h-auto" />
+        <img src="/bg-exhibition.png" alt="Exhibition Hall" className="w-full h-auto" />
 
         <div
           className="absolute top-0"
@@ -81,9 +81,10 @@ const Exhibition = () => {
         >
           <ExhibitorCategoryButton
             action={() => _gotoExhibitorHall()}
-            left="calc(50vw - 41vw)"
+            left="calc(50vw - 32vw)"
             top="14%"
-            label="Ministry of Trade of PI Pavillion"
+            type="primary"
+            label="Chat Us"
           />
 
           <ExhibitorCategoryButton
@@ -102,16 +103,18 @@ const Exhibition = () => {
 
           <ExhibitorCategoryButton
             action={() => _gotoExhibitorHall()}
-            left="calc(50vw - 31.7vw)"
-            top="49.5%"
+            left="calc(50vw + 22vw)"
+            top="45%"
             label="Beauty, Health & SPA"
           />
 
           <ExhibitorCategoryButton
             action={() => _gotoExhibitorHall()}
-            left="calc(50vw - 23vw)"
-            top="69.3%"
-            label="Delivery Services"
+            left="calc(50vw - 30vw)"
+            top="55%"
+            type="primary"
+            size="large"
+            label="Ministry of Trade of RI Pavillion"
           />
 
           <ExhibitorCategoryButton
@@ -130,8 +133,8 @@ const Exhibition = () => {
 
           <ExhibitorCategoryButton
             action={() => _gotoExhibitorHall()}
-            left="calc(50vw - 4.5vw)"
-            top="59%"
+            left="calc(50vw - 8vw)"
+            top="51.5%"
             label="Pharmacy"
           />
 
@@ -145,14 +148,14 @@ const Exhibition = () => {
           <ExhibitorCategoryButton
             action={() => _gotoExhibitorHall()}
             left="calc(50vw - 3.5vw)"
-            top="40.5%"
-            label="Repair Services"
+            top="38%"
+            label="Delivery Services"
           />
 
           <ExhibitorCategoryButton
             action={() => _gotoExhibitorHall()}
             left="calc(50vw + 11.3vw)"
-            top="52.5%"
+            top="55%"
             label="Property"
           />
 
@@ -167,6 +170,7 @@ const Exhibition = () => {
             action={() => _gotoExhibitorHall()}
             left="calc(50vw + 17.8vw)"
             top="31%"
+            type="primary"
             label="Sponsors"
           />
 

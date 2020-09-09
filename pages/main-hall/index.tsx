@@ -129,30 +129,10 @@ const MainHall = () => {
         >
           {/* HOTSPOTS */}
           <MainLogo onClick={_onClickLogo} />
-          <OrganiserLogo
-            onClick={_onClickLogo}
-            left="calc(50vw - 16vw)"
-            top="33.5%"
-            label="Hosted by:"
-          />
-          <OrganiserLogo
-            onClick={_onClickLogo}
-            left="calc(50vw + 7vw)"
-            top="33.5%"
-            label="Supported by:"
-          />
-          <OrganiserMiniLogo
-            onClick={_onClickLogo}
-            left="calc(50vw - 4.65vw)"
-            top="31.4%"
-            label="Hosted by:"
-          />
-          <OrganiserMiniLogo
-            onClick={_onClickLogo}
-            left="calc(50vw - 4.65vw)"
-            top="46.5%"
-            label="Organised by:"
-          />
+          <OrganiserLogo onClick={_onClickLogo} left="calc(50vw - 16vw)" top="33.5%" />
+          <OrganiserLogo onClick={_onClickLogo} left="calc(50vw + 7vw)" top="33.5%" />
+          <OrganiserMiniLogo onClick={_onClickLogo} left="calc(50vw - 4.5vw)" top="31.4%" />
+          <OrganiserMiniLogo onClick={_onClickLogo} left="calc(50vw - 4.5vw)" top="48%" />
           <Poster onClick={_onClickPoster} />
           <XBanner onClick={_onClickBanner} />
           <Wallpaper onClick={_onClickWallpaper} />

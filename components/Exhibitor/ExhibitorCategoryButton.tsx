@@ -2,6 +2,8 @@ type Props = {
   left: string;
   top: string;
   label: string;
+  type?: 'default' | 'primary';
+  size?: 'large' | 'default';
   action(): void;
 };
 
@@ -9,16 +11,24 @@ const ExhibitorCategoryButton = (props: Props) => {
   return (
     <div
       onClick={props.action}
-      className="absolute bg-white opacity-75 rounded-md flex items-center justify-center cursor-pointer hover:opacity-100 border-2 border-dashed border-primary"
+      className="absolute opacity-75 rounded-md flex items-center justify-center cursor-pointer hover:opacity-100 border-2 border-dashed"
       style={{
         left: props.left,
         top: props.top,
-        width: '12vw',
-        height: '5vw',
+        width: props.size === 'large' ? '15vw' : '12vw',
+        height: props.size === 'large' ? '7vw' : '5vw',
         padding: '1vw',
+        backgroundColor: props.type === 'primary' ? '#057DC1' : '#FFF',
+        borderColor: props.type === 'primary' ? '#FFF' : '#057DC1',
       }}
     >
-      <p className="text-exhibitor-category">{props.label}</p>
+      <p
+        className={
+          props.type === 'primary' ? 'text-exhibitor-category-white' : 'text-exhibitor-category'
+        }
+      >
+        {props.label}
+      </p>
     </div>
   );
 };
