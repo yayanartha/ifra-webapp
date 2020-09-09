@@ -1,40 +1,67 @@
-import SubmenuLayout, { SubmenuItem } from '@components/Manage/Layout/SubmenuLayout';
-import { useMemo, useState, useCallback } from 'react';
 import BaseLayout from '@components/Manage/Layout/BaseLayout';
-import ContentLayout, { ContentTypes } from '@components/Manage/Layout/ContentLayout';
-import FileUploadButton from '@components/Manage/Components/FileUploadButton';
+import SubmenuLayout, { SubmenuItem } from '@components/Manage/Layout/SubmenuLayout';
+import { useCallback, useMemo, useState } from 'react';
+import LoadingScreen from './loading-screen';
 import PagesMainHall from './main-hall';
+import WelcomeScreen from './welcome-screen';
+import ExhibitionHall from './exhibiton-hall';
+import ExhibitionList from './exhibiton-list';
+import Exhibitor from './exhibitor';
+import MainStage from './main-stage';
+import Classroom from './classroom';
+import MeetTheExpert from './meet-the-experts';
+import Shop from './shop';
 
 const Pages = () => {
   const submenu: SubmenuItem[] = useMemo(
     () => [
       {
         id: 0,
+        name: 'Loading Screen',
+        target: '/loading-screen',
+      },
+      {
+        id: 1,
+        name: 'Welcome Screen',
+        target: '/welcome-screen',
+      },
+      {
+        id: 2,
         name: 'Main Hall',
         target: '/main-hall',
       },
       {
-        id: 1,
-        name: 'Exhibition List',
+        id: 3,
+        name: 'Exhibition Hall',
+        target: '/exhibition-hall',
+      },
+      {
+        id: 4,
+        name: 'Exhibiton LIst',
         target: '/exhibition-list',
       },
       {
-        id: 2,
+        id: 5,
+        name: 'Exhibitior',
+        target: '/exhibitor',
+      },
+      {
+        id: 6,
         name: 'Main Stage',
         target: '/main-stage',
       },
       {
-        id: 3,
+        id: 7,
         name: 'Classroom',
         target: '/classroom',
       },
       {
-        id: 4,
-        name: 'Meet The Experts',
+        id: 8,
+        name: 'Meet The Expert',
         target: '/meet-the-experts',
       },
       {
-        id: 5,
+        id: 9,
         name: 'Shop',
         target: '/shop',
       },
@@ -58,7 +85,25 @@ const Pages = () => {
         selectedSubmenu={activeSubmenu}
         setSelectedSubmenu={_selectSubMenu}
       >
-        {activeSubmenu.id === 0 && <PagesMainHall />}
+        {activeSubmenu.id === 0 && <LoadingScreen />}
+
+        {activeSubmenu.id === 1 && <WelcomeScreen />}
+
+        {activeSubmenu.id === 2 && <PagesMainHall />}
+        
+        {activeSubmenu.id === 3 && <ExhibitionHall />}
+        
+        {activeSubmenu.id === 4 && <ExhibitionList />}
+        
+        {activeSubmenu.id === 5 && <Exhibitor />}
+
+        {activeSubmenu.id === 6 && <MainStage />}
+
+        {activeSubmenu.id === 7 && <Classroom />}
+        
+        {activeSubmenu.id === 8 && <MeetTheExpert />}
+
+        {activeSubmenu.id === 9 && <Shop />}
       </SubmenuLayout>
     </BaseLayout>
   );
