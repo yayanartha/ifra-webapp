@@ -1,40 +1,45 @@
-import SubmenuLayout, { SubmenuItem } from '@components/Manage/Layout/SubmenuLayout';
-import { useMemo, useState, useCallback } from 'react';
 import BaseLayout from '@components/Manage/Layout/BaseLayout';
-import ContentLayout, { ContentTypes } from '@components/Manage/Layout/ContentLayout';
-import FileUploadButton from '@components/Manage/Components/FileUploadButton';
+import SubmenuLayout, { SubmenuItem } from '@components/Manage/Layout/SubmenuLayout';
+import { useCallback, useMemo, useState } from 'react';
 import PagesMainHall from './main-hall';
+import LoadingScreen from './loading-screen';
+import WelcomeScreen from './welcome-screen'
 
 const Pages = () => {
   const submenu: SubmenuItem[] = useMemo(
     () => [
       {
         id: 0,
-        name: 'Main Hall',
-        target: '/main-hall',
+        name: 'Loading Screen',
+        target: '/loading-screen',
       },
       {
         id: 1,
+        name: 'Welcome Screen',
+        target: '/welcome-screen',
+      },
+      {
+        id: 2,
         name: 'Exhibition List',
         target: '/exhibition-list',
       },
       {
-        id: 2,
+        id: 3,
         name: 'Main Stage',
         target: '/main-stage',
       },
       {
-        id: 3,
+        id: 4,
         name: 'Classroom',
         target: '/classroom',
       },
       {
-        id: 4,
+        id: 5,
         name: 'Meet The Experts',
         target: '/meet-the-experts',
       },
       {
-        id: 5,
+        id: 6,
         name: 'Shop',
         target: '/shop',
       },
@@ -58,7 +63,11 @@ const Pages = () => {
         selectedSubmenu={activeSubmenu}
         setSelectedSubmenu={_selectSubMenu}
       >
-        {activeSubmenu.id === 0 && <PagesMainHall />}
+        {activeSubmenu.id === 0 && <LoadingScreen />}
+        
+        {activeSubmenu.id === 1 && <WelcomeScreen />}
+        
+        {activeSubmenu.id === 2 && <PagesMainHall />}
       </SubmenuLayout>
     </BaseLayout>
   );
