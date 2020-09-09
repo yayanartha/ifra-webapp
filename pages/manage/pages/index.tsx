@@ -7,6 +7,10 @@ import WelcomeScreen from './welcome-screen';
 import ExhibitionHall from './exhibiton-hall';
 import ExhibitionList from './exhibiton-list';
 import Exhibitor from './exhibitor';
+import MainStage from './main-stage';
+import Classroom from './classroom';
+import MeetTheExpert from './meet-the-experts';
+import Shop from './shop';
 
 const Pages = () => {
   const submenu: SubmenuItem[] = useMemo(
@@ -92,6 +96,14 @@ const Pages = () => {
         {activeSubmenu.id === 4 && <ExhibitionList />}
         
         {activeSubmenu.id === 5 && <Exhibitor />}
+
+        {activeSubmenu.id === 6 && <MainStage />}
+
+        {activeSubmenu.id === 7 && <Classroom />}
+        
+        {activeSubmenu.id === 8 && <MeetTheExpert />}
+
+        {activeSubmenu.id === 9 && <Shop />}
       </SubmenuLayout>
     </BaseLayout>
   );
