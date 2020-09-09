@@ -26,6 +26,9 @@
 .text-exhibitor-category {
   @apply text-blue_button text-sm font-body font-medium text-center;
 }
+.text-exhibitor-category-white {
+  @apply text-white text-sm font-body font-medium text-center;
+}
 
 .main-menu {
   @apply text-primary text-sm font-body font-medium;
