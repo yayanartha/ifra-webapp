@@ -1,9 +1,12 @@
 import BaseLayout from '@components/Manage/Layout/BaseLayout';
 import SubmenuLayout, { SubmenuItem } from '@components/Manage/Layout/SubmenuLayout';
 import { useCallback, useMemo, useState } from 'react';
-import PagesMainHall from './main-hall';
 import LoadingScreen from './loading-screen';
-import WelcomeScreen from './welcome-screen'
+import PagesMainHall from './main-hall';
+import WelcomeScreen from './welcome-screen';
+import ExhibitionHall from './exhibiton-hall';
+import ExhibitionList from './exhibiton-list';
+import Exhibitor from './exhibitor';
 
 const Pages = () => {
   const submenu: SubmenuItem[] = useMemo(
@@ -20,26 +23,41 @@ const Pages = () => {
       },
       {
         id: 2,
-        name: 'Exhibition List',
-        target: '/exhibition-list',
+        name: 'Main Hall',
+        target: '/main-hall',
       },
       {
         id: 3,
+        name: 'Exhibition Hall',
+        target: '/exhibition-hall',
+      },
+      {
+        id: 4,
+        name: 'Exhibiton LIst',
+        target: '/exhibition-list',
+      },
+      {
+        id: 5,
+        name: 'Exhibitior',
+        target: '/exhibitor',
+      },
+      {
+        id: 6,
         name: 'Main Stage',
         target: '/main-stage',
       },
       {
-        id: 4,
+        id: 7,
         name: 'Classroom',
         target: '/classroom',
       },
       {
-        id: 5,
-        name: 'Meet The Experts',
+        id: 8,
+        name: 'Meet The Expert',
         target: '/meet-the-experts',
       },
       {
-        id: 6,
+        id: 9,
         name: 'Shop',
         target: '/shop',
       },
@@ -64,10 +82,16 @@ const Pages = () => {
         setSelectedSubmenu={_selectSubMenu}
       >
         {activeSubmenu.id === 0 && <LoadingScreen />}
-        
+
         {activeSubmenu.id === 1 && <WelcomeScreen />}
-        
+
         {activeSubmenu.id === 2 && <PagesMainHall />}
+        
+        {activeSubmenu.id === 3 && <ExhibitionHall />}
+        
+        {activeSubmenu.id === 4 && <ExhibitionList />}
+        
+        {activeSubmenu.id === 5 && <Exhibitor />}
       </SubmenuLayout>
     </BaseLayout>
   );
